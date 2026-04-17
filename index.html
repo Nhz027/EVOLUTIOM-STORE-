@@ -287,10 +287,19 @@
 
     .sucesso {
       display: none;
-      font-size: 22px;
+    }
+
+    .sucesso h2 {
       color: #2ecc71;
-      margin-top: 20px;
-      font-weight: bold;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .sucesso p {
+      font-size: 18px;
+      color: #ccc;
+      margin-bottom: 25px;
+      line-height: 1.5;
     }
 
     .fechar {
@@ -424,17 +433,11 @@
   <div class="modal-conteudo">
     <span class="fechar" onclick="fecharModal()">&times;</span>
     
+    <!-- TELA 1: PAGAMENTO -->
     <div id="passo1">
       <h2 class="modal-titulo">💳 PAGAMENTO VIA PIX</h2>
-      <p>Escaneie o QR Code ou copie a chave abaixo:</p>
+      <p>Copie a chave abaixo e cole no seu banco:</p>
       
       <div class="chave-pix" id="chavePix">
-        efc0f5af-cd44-400c-9426-2d071caa7bec
-      </div>
-
-      <button class="btn-copiar" onclick="copiarChave()">📋 COPIAR CHAVE PIX</button>
-      <p style="color: #ccc; margin-bottom: 15px;">Após copiar, cole no seu app bancário para pagar.</p>
-
-      <button class="btn-pago" onclick="marcarPago()">✅ JÁ EFETUEI O PAGAMENTO</button>
-
-        
+        efc0f5af-cd44-400c
+          
