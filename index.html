@@ -2,223 +2,102 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Loja Evolutium Craft</title>
+<title>Evolutium Craft - Loja</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial;
-}
-
 body {
-  color: #fff;
-  padding: 20px;
-  background: radial-gradient(circle at top, #1a1a2e, #000 80%);
+    background: #2b0f0f;
+    font-family: Arial;
+    color: white;
+    text-align: center;
 }
 
-/* TITULO */
-h1 {
-  text-align: center;
-  font-size: 45px;
-  margin-bottom: 20px;
-  color: #fff;
+.container {
+    margin-top: 50px;
 }
 
-h1 span {
-  color: #ff9900;
-  text-shadow: 0 0 15px #ff9900;
+.btn {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px;
 }
 
-/* CAIXA KITS */
-.kits-box {
-  max-width: 1400px;
-  margin: 0 auto;
-  background: rgba(0,0,0,0.7);
-  border: 2px solid #ff9900;
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: 0 0 25px rgba(255,153,0,0.4);
+.kits-btn {
+    background: gold;
+    color: black;
+    font-size: 20px;
 }
 
-.kits-box h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 30px;
-  color: #ff9900;
-  text-shadow: 0 0 10px #ff9900;
+.card {
+    background: #3d1a1a;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 200px;
 }
 
-/* GRID */
-.loja {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 25px;
+.buy {
+    background: green;
+    color: white;
 }
 
-/* KIT */
-.kit {
-  background: #101018;
-  border: 2px solid #333;
-  border-radius: 15px;
-  overflow: hidden;
-  transition: 0.3s;
-}
-
-.kit:hover {
-  transform: scale(1.05);
-  border-color: #ff9900;
-  box-shadow: 0 0 20px #ff9900;
-}
-
-.kit img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
-
-.info {
-  padding: 20px;
-}
-
-h3 {
-  font-size: 24px;
-}
-
-.preco {
-  font-size: 26px;
-  color: gold;
-  margin: 10px 0;
-}
-
-/* BOTAO ORIGINAL */
-button {
-  width: 100%;
-  background: #28a745;
-  color: white;
-  border: none;
-  padding: 15px;
-  font-size: 18px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.95);
-  justify-content: center;
-  align-items: center;
-}
-
-.caixa {
-  background: #101018;
-  border: 3px solid #ff9900;
-  padding: 30px;
-  border-radius: 15px;
-  text-align: center;
-  max-width: 400px;
-  width: 100%;
-}
-
-.chave {
-  background: #1a1a22;
-  border: 2px dashed #ff9900;
-  padding: 15px;
-  margin: 20px 0;
-  border-radius: 8px;
+.paid {
+    background: orange;
+    color: black;
 }
 </style>
-
 </head>
 
 <body>
 
-<h1>LOJA <span>EVOLUTIUM CRAFT</span></h1>
+<div class="container">
 
-<div class="kits-box">
-  <h2>KITS</h2>
+    <!-- BOTÃO PRINCIPAL -->
+    <button class="btn kits-btn" onclick="abrirKits()">KITS</button>
 
-  <div class="loja">
+    <!-- AREA DOS KITS -->
+    <div id="kits" style="display:none;">
 
-    <!-- ORDEM CORRETA -->
+        <div class="card">
+            <h3>KIT FORTUNA</h3>
+            <p>R$ 3,00</p>
+            <button class="btn buy">Comprar</button>
+            <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
+        </div>
 
-    <div class="kit">
-      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/akwy1-88sgm.png">
-      <div class="info">
-        <h3>KIT FORTUNA</h3>
-        <p class="preco">R$ 3,00</p>
-        <button onclick="abrir()">COMPRAR</button>
-      </div>
+        <div class="card">
+            <h3>KIT EXPLORADOR</h3>
+            <p>R$ 4,50</p>
+            <button class="btn buy">Comprar</button>
+            <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
+        </div>
+
+        <div class="card">
+            <h3>KIT GUERREIRO</h3>
+            <p>R$ 8,99</p>
+            <button class="btn buy">Comprar</button>
+            <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
+        </div>
+
     </div>
 
-    <div class="kit">
-      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/auxbv-ypw53.png">
-      <div class="info">
-        <h3>KIT EXPLORADOR</h3>
-        <p class="preco">R$ 4,99</p>
-        <button onclick="abrir()">COMPRAR</button>
-      </div>
-    </div>
-
-    <div class="kit">
-      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/aoo5o-unh8s.png">
-      <div class="info">
-        <h3>KIT TREINAMENTO</h3>
-        <p class="preco">R$ 5,99</p>
-        <button onclick="abrir()">COMPRAR</button>
-      </div>
-    </div>
-
-    <div class="kit">
-      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/azn5n-qhcmy.png">
-      <div class="info">
-        <h3>KIT GUERREIRO</h3>
-        <p class="preco">R$ 8,99</p>
-        <button onclick="abrir()">COMPRAR</button>
-      </div>
-    </div>
-
-    <div class="kit">
-      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a9gi1-qz6r9.png">
-      <div class="info">
-        <h3>KIT DIVINO</h3>
-        <p class="preco">R$ 11,99</p>
-        <button onclick="abrir()">COMPRAR</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- MODAL ORIGINAL -->
-<div id="modal" class="modal">
-  <div class="caixa">
-    <h2>💳 PAGAMENTO PIX</h2>
-    <div class="chave">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
-    <button onclick="copiar()">COPIAR</button>
-    <button onclick="fechar()">FECHAR</button>
-  </div>
 </div>
 
 <script>
-function abrir() {
-  document.getElementById('modal').style.display = "flex";
+
+function abrirKits() {
+    document.getElementById("kits").style.display = "block";
 }
 
-function fechar() {
-  document.getElementById('modal').style.display = "none";
+// BOTÃO JÁ PAGUEI (SEM GITHUB)
+function jaPaguei() {
+    alert("Abra um ticket no Discord e envie o comprovante para receber seu kit.");
 }
 
-function copiar() {
-  navigator.clipboard.writeText("efc0f5af-cd44-400c-9426-2d071caa7bec");
-  alert("Chave copiada!");
-}
 </script>
 
 </body>
