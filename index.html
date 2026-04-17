@@ -3,183 +3,286 @@
 <head>
 <meta charset="UTF-8">
 <title>Loja Evolutium Craft</title>
-
 <style>
-body {
-    background: linear-gradient(180deg, #2b0f0f, #1a0707);
-    font-family: Arial;
-    color: white;
-    text-align: center;
-}
-
-/* BOTÃO KITS GRANDE */
-.kits-btn {
-    margin-top: 120px;
-    padding: 25px 60px;
-    font-size: 28px;
-    font-weight: bold;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    background: linear-gradient(45deg, gold, orange);
-    color: black;
-    box-shadow: 0 0 20px gold;
-    transition: 0.3s;
-}
-
-.kits-btn:hover {
-    transform: scale(1.1);
-}
-
-/* FUNDO ESCURO */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    display: none;
-}
-
-/* JANELA DOS KITS */
-.popup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #3d1a1a;
-    padding: 30px;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 900px;
-}
-
-/* GRID DOS KITS */
-.kits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-/* CARD DOS KITS */
-.card {
-    background: #4d1f1f;
-    border-radius: 15px;
-    padding: 15px;
-    box-shadow: 0 0 10px black;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-/* TITULO */
-.card h3 {
-    color: gold;
-}
-
-/* PREÇO */
-.price {
-    color: #00ff88;
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-/* BOTÕES */
-.btn {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.buy {
-    background: green;
-    color: white;
-}
-
-.paid {
-    background: orange;
-    color: black;
-}
-
-/* BOTÃO FECHAR */
-.close {
-    background: red;
-    margin-top: 20px;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: #2b1a10 !important;
+      background-image: url('https://i.imgur.com/7kf1nQH.png') !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+      color: #fff !important;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 42px;
+      margin: 20px 0 10px;
+      color: #fff !important;
+    }
+    h1 span {
+      color: #FF8C00 !important;
+      font-weight: bold;
+    }
+    .subtitulo {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 40px;
+      color: #ddd !important;
+    }
+    .loja {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .kit {
+      background: rgba(0,0,0,0.6) !important;
+      border: 4px solid #5a3e2b !important;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    .kit:hover {
+      border-color: #FF8C00 !important;
+      transform: translateY(-8px);
+    }
+    .kit img {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: transparent;
+    }
+    .info {
+      padding: 25px;
+    }
+    h2 {
+      color: #fff !important;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .preco {
+      font-size: 34px;
+      color: #FFD700 !important;
+      font-weight: bold;
+      margin: 15px 0 20px;
+    }
+    button {
+      width: 100%;
+      background: #28a745 !important;
+      color: white !important;
+      border: none;
+      padding: 18px;
+      font-size: 22px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    .btn-copiar {
+      background: #007bff !important;
+    }
+    .btn-discord {
+      background: #5865F2 !important;
+      color: white !important;
+      padding: 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 22px;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95) !important;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+    .caixa {
+      background: #101018 !important;
+      border: 4px solid #FF8C00 !important;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      width: 100%;
+      max-width: 650px;
+      position: relative;
+    }
+    .chave {
+      background: #1a1a22 !important;
+      border: 3px dashed #FF8C00 !important;
+      padding: 20px;
+      margin: 25px 0;
+      border-radius: 10px;
+      word-break: break-all;
+      font-size: 16px;
+      color: #fff !important;
+    }
+    .sucesso {
+      display: none;
+    }
+    .sucesso h2 {
+      color: #2ecc71 !important;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .sucesso p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      color: #ddd !important;
+    }
+    .fechar {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 35px;
+      cursor: pointer;
+      color: #aaa !important;
+    }
+    .botoes-finais {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+    .btn-discord-grande {
+      background: #5865F2 !important;
+      color: white !important;
+      padding: 20px 40px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 22px;
+    }
+    .btn-atendente {
+      background: #b05a00 !important;
+      color: white !important;
+      padding: 20px 40px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 22px;
+    }
 </style>
 </head>
-
 <body>
 
-<button class="kits-btn" onclick="abrirKits()">🔥 KITS 🔥</button>
+<h1>A LOJA OFICIAL DO SERVIDOR <span>EVOLUTIUM CRAFT</span></h1>
+<p class="subtitulo">compre kits, vips, unban, chaves e muito mais!</p>
 
-<div class="overlay" id="overlay">
-    <div class="popup">
+<div class="loja">
 
-        <h1>KITS DO SERVIDOR</h1>
-
-        <div class="kits-grid">
-
-            <div class="card">
-                <h3>KIT FORTUNA</h3>
-                <p class="price">R$ 3,00</p>
-                <button class="btn buy">Comprar</button>
-                <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
-            </div>
-
-            <div class="card">
-                <h3>KIT EXPLORADOR</h3>
-                <p class="price">R$ 4,50</p>
-                <button class="btn buy">Comprar</button>
-                <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
-            </div>
-
-            <div class="card">
-                <h3>KIT TREINAMENTO</h3>
-                <p class="price">R$ 5,99</p>
-                <button class="btn buy">Comprar</button>
-                <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
-            </div>
-
-            <div class="card">
-                <h3>KIT GUERREIRO</h3>
-                <p class="price">R$ 8,99</p>
-                <button class="btn buy">Comprar</button>
-                <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
-            </div>
-
-            <div class="card">
-                <h3>KIT DIVINO</h3>
-                <p class="price">R$ 11,99</p>
-                <button class="btn buy">Comprar</button>
-                <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
-            </div>
-
-        </div>
-
-        <button class="btn close" onclick="fecharKits()">Fechar</button>
-
+  <!-- KIT FORTUNA -->
+  <div class="kit">
+    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/akwy1-88sgm.png" alt="Kit Fortuna">
+    <div class="info">
+      <h2>KIT FORTUNA</h2>
+      <p class="preco">R$ 3,00</p>
+      <button onclick="abrir()">COMPRAR AGORA</button>
     </div>
+  </div>
+
+  <!-- KIT EXPLORADOR -->
+  <div class="kit">
+    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/auxbv-ypw53.png" alt="Kit Explorador">
+    <div class="info">
+      <h2>KIT EXPLORADOR</h2>
+      <p class="preco">R$ 4,99</p>
+      <button onclick="abrir()">COMPRAR AGORA</button>
+    </div>
+  </div>
+
+  <!-- KIT TREINAMENTO -->
+  <div class="kit">
+    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/aoo5o-unh8s.png" alt="Kit Treinamento">
+    <div class="info">
+      <h2>KIT TREINAMENTO</h2>
+      <p class="preco">R$ 5,99</p>
+      <button onclick="abrir()">COMPRAR AGORA</button>
+    </div>
+  </div>
+
+  <!-- KIT GUERREIRO -->
+  <div class="kit">
+    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/azn5n-qhcmy.png" alt="Kit Guerreiro">
+    <div class="info">
+      <h2>KIT GUERREIRO</h2>
+      <p class="preco">R$ 8,99</p>
+      <button onclick="abrir()">COMPRAR AGORA</button>
+    </div>
+  </div>
+
+  <!-- KIT DIVINO -->
+  <div class="kit">
+    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a9gi1-qz6r9.png" alt="Kit Divino">
+    <div class="info">
+      <h2>KIT DIVINO</h2>
+      <p class="preco">R$ 11,99</p>
+      <button onclick="abrir()">COMPRAR AGORA</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="botoes-finais">
+  <a href="https://discord.gg/krw8dEgPq" target="_blank" class="btn-discord-grande">📢 ENTRAR NO DISCORD</a>
+  <a href="#" class="btn-atendente">💬 FALAR COM ATENDENTE</a>
+</div>
+
+<!-- JANELA PIX -->
+<div id="modal" class="modal">
+  <div class="caixa">
+    <span class="fechar" onclick="fechar()">&times;</span>
+    
+    <div id="passo1">
+      <h2>💳 PAGAMENTO VIA PIX</h2>
+      <p>Copie a chave abaixo e efetue o pagamento:</p>
+      <div class="chave" id="chave">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+      <button class="btn-copiar" onclick="copiar()">📋 COPIAR CHAVE</button>
+      <button onclick="pago()">✅ JÁ PAGUEI!</button>
+    </div>
+
+    <div id="passo2" class="sucesso">
+      <h2>✅ PAGAMENTO REALIZADO!</h2>
+      <p>Obrigado! Agora vá no servidor do Discord, abra um ticket e envie o print do comprovante para receber seu kit rapidinho!</p>
+      <a href="https://discord.gg/krw8dEgPq" target="_blank" class="btn-discord">📢 IR PARA O DISCORD</a>
+    </div>
+
+  </div>
 </div>
 
 <script>
-function abrirKits() {
-    document.getElementById("overlay").style.display = "block";
+function abrir() {
+  document.getElementById('modal').style.display = "flex";
+  document.getElementById('passo1').style.display = "block";
+  document.getElementById('passo2').style.display = "none";
 }
-
-function fecharKits() {
-    document.getElementById("overlay").style.display = "none";
+function fechar() {
+  document.getElementById('modal').style.display = "none";
 }
-
-function jaPaguei() {
-    alert("Abra um ticket no Discord e envie o comprovante para receber seu kit.");
+function copiar() {
+  navigator.clipboard.writeText(document.getElementById('chave').innerText);
+  alert("✅ Chave copiada!");
+}
+function pago() {
+  document.getElementById('passo1').style.display = "none";
+  document.getElementById('passo2').style.display = "block";
 }
 </script>
 
