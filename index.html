@@ -6,141 +6,248 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
     body {
-      background-color: #0f0f0f;
-      color: white;
-      font-family: 'Press Start 2P', cursive;
-      text-align: center;
-      background-image: url('https://i.imgur.com/8uQkZ9H.png');
+      background-color: #0a0a0d;
+      color: #ffffff;
+      background-image: 
+        linear-gradient(rgba(18, 18, 22, 0.9), rgba(18, 18, 22, 0.9)),
+        url('https://i.imgur.com/8uQkZ9H.png');
       background-size: 50px;
-      image-rendering: pixelated;
-    }
-
-    h1 {
-      font-size: 24px;
-      margin-top: 30px;
-      color: #FFD700;
-      text-shadow: 3px 3px 0px #000;
-    }
-
-    p {
-      font-size: 12px;
-      margin-bottom: 30px;
-      color: #ccc;
-    }
-
-    .loja {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
+      min-height: 100vh;
       padding: 20px;
     }
 
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #ffffff;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .subtitulo {
+      font-size: 16px;
+      color: #b0b0b0;
+    }
+
+    .destaque {
+      color: #FF8C00; /* Laranja Dragon Ball */
+      font-weight: bold;
+    }
+
+    .loja {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 10px;
+    }
+
     .kit {
-      background-color: #1c1c1c;
-      border: 3px solid #555;
-      border-radius: 10px;
-      width: 220px;
-      padding: 15px;
-      transition: 0.3s;
-      box-shadow: 0 0 15px rgba(255, 200, 0, 0.2);
+      background-color: #121217;
+      border: 2px solid #33333f;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
     }
 
     .kit:hover {
-      transform: scale(1.05);
-      border-color: #FFD700;
-      box-shadow: 0 0 25px rgba(255, 200, 0, 0.5);
+      border-color: #FF8C00;
+      box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
+      transform: translateY(-5px);
     }
 
-    .kit img {
+    .kit-img {
       width: 100%;
-      border: 2px solid #333;
-      border-radius: 8px;
+      height: auto;
+      display: block;
+      border-bottom: 2px solid #33333f;
       image-rendering: pixelated;
     }
 
-    h3 {
-      font-size: 14px;
-      margin: 10px 0 5px 0;
-      color: #fff;
+    .kit-info {
+      padding: 20px;
     }
 
-    .preco {
-      font-size: 16px;
-      color: #39FF14;
-      margin: 5px 0 15px 0;
-    }
-
-    button {
-      background-color: #ff9900;
-      border: none;
-      padding: 10px;
-      width: 100%;
-      border-radius: 5px;
-      cursor: pointer;
+    .kit-nome {
+      font-size: 20px;
       font-weight: bold;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 10px;
-      color: #000;
-      text-shadow: 1px 1px 0px #fff;
+      color: #ffffff;
+      margin-bottom: 8px;
     }
 
-    button:hover {
-      background-color: #ffcc00;
+    .kit-preco {
+      font-size: 24px;
+      font-weight: bold;
+      color: #FFD700; /* Dourado */
+      margin-bottom: 15px;
+    }
+
+    .btn-comprar {
+      width: 100%;
+      background-color: #FF8C00;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-comprar:hover {
+      background-color: #FFA500;
+      box-shadow: 0 0 15px rgba(255, 140, 0, 0.6);
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .feature-card {
+      background-color: #121217;
+      border: 2px solid #33333f;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      color: #FF8C00;
+      margin-bottom: 15px;
+    }
+
+    .feature-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .feature-text {
+      color: #b0b0b0;
+      font-size: 14px;
     }
 </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>A <span class="destaque">loja oficial</span> do servidor Evolutium Craft!</h1>
+    <p class="subtitulo">compre kits, vips, unban, chaves e muito mais!</p>
+    <button class="btn-comprar" style="max-width: 200px; margin: 20px auto;">
+      📩 Conferir ofertas
+    </button>
+  </header>
+
+  <div class="loja">
+
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/aiag1-2syef.png" alt="Kit Fortuna" class="kit-img">
+      <div class="kit-info">
+        <h3 class="kit-nome">KIT FORTUNA</h3>
+        <p class="kit-preco">R$ 3,00</p>
+        <button class="btn-comprar" onclick="comprar()">
+          🛒 Comprar agora
+        </button>
+      </div>
+    </div>
+
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ah8br-f2btc.png" alt="Kit Explorador" class="kit-img">
+      <div class="kit-info">
+        <h3 class="kit-nome">KIT EXPLORADOR</h3>
+        <p class="kit-preco">R$ 4,50</p>
+        <button class="btn-comprar" onclick="comprar()">
+          🛒 Comprar agora
+        </button>
+      </div>
+    </div>
+
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ak82a-t87rp.png" alt="Kit Guerreiro" class="kit-img">
+      <div class="kit-info">
+        <h3 class="kit-nome">KIT GUERREIRO</h3>
+        <p class="kit-preco">R$ 8,99</p>
+        <button class="btn-comprar" onclick="comprar()">
+          🛒 Comprar agora
+        </button>
+      </div>
+    </div>
+
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/aq29z-52ppd.png" alt="Kit Treinamento" class="kit-img">
+      <div class="kit-info">
+        <h3 class="kit-nome">KIT TREINAMENTO</h3>
+        <p class="kit-preco">R$ 5,99</p>
+        <button class="btn-comprar" onclick="comprar()">
+          🛒 Comprar agora
+        </button>
+      </div>
+    </div>
+
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/anfjf-r7ewu.png" alt="Kit Divino" class="kit-img">
+      <div class="kit-info">
+        <h3 class="kit-nome">KIT DIVINO</h3>
+        <p class="kit-preco">R$ 11,99</p>
+        <button class="btn-comprar" onclick="comprar()">
+          🛒 Comprar agora
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="features">
+    <div class="feature-card">
+      <div class="feature-icon">📦</div>
+      <h4 class="feature-title">Entrega Imediata</h4>
+      <p class="feature-text">Receba o produto em poucos segundos após a confirmação do pagamento.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎧</div>
+      <h4 class="feature-title">Suporte Eficiente</h4>
+      <p class="feature-text">Em caso de dúvidas, entre em contato com nosso suporte.</p>
+    </div>
+  </div>
+</div>
 
 <script>
 function comprar() {
   alert("🛒 COMPRA REALIZADA!\n\n🔑 Chave PIX:\nefc0f5af-cd44-400c-9426-2d071caa7bec\n\n📩 Envie o comprovante no Discord!");
 }
 </script>
-
-</head>
-<body>
-
-<h1>🛒 EVOLUTIUM CRAFT</h1>
-<p>LOJA OFICIAL DE KITS</p>
-
-<div class="loja">
-
-  <div class="kit">
-    <img src="https://i.imgur.com/yourImageLink.png" alt="Kit Fortuna">
-    <h3>KIT FORTUNA</h3>
-    <p class="preco">R$3,00</p>
-    <button onclick="comprar()">COMPRAR</button>
-  </div>
-
-  <div class="kit">
-    <img src="https://i.imgur.com/6ZfX7yL.png" alt="Kit Explorador">
-    <h3>KIT EXPLORADOR</h3>
-    <p class="preco">R$4,50</p>
-    <button onclick="comprar()">COMPRAR</button>
-  </div>
-
-  <div class="kit">
-    <img src="https://i.imgur.com/9Zk8d5y.png" alt="Kit Guerreiro">
-    <h3>KIT GUERREIRO</h3>
-    <p class="preco">R$8,99</p>
-    <button onclick="comprar()">COMPRAR</button>
-  </div>
-
-  <div class="kit">
-    <img src="https://i.imgur.com/4QZ7w2y.png" alt="Kit Treinamento">
-    <h3>KIT TREINAMENTO</h3>
-    <p class="preco">R$5,99</p>
-    <button onclick="comprar()">COMPRAR</button>
-  </div>
-
-  <div class="kit">
-    <img src="https://i.imgur.com/8XsY1aL.png" alt="Kit Divino">
-    <h3>KIT DIVINO</h3>
-    <p class="preco">R$11,99</p>
-    <button onclick="comprar()">COMPRAR</button>
-  </div>
-
-</div>
 
 </body>
 </html>
