@@ -2,35 +2,24 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Evolutium Craft - Loja</title>
+<title>Loja Evolutium Craft</title>
 <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
     body {
-      background-color: #050507;
-      color: #fff;
+      background: #050507;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
       background-image: 
-        radial-gradient(circle at center, rgba(255,140,0,0.15) 0%, transparent 60%),
+        radial-gradient(circle at center, rgba(255, 140, 0, 0.15) 0%, transparent 60%),
         url('https://i.imgur.com/8uQkZ9H.png');
       background-size: 100% 100%, 60px;
-      padding: 30px;
-    }
-    .container {
-      max-width: 1200px;
-      margin: auto;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 40px;
     }
     h1 {
+      text-align: center;
       font-size: 36px;
     }
-    .destaque {
+    h1 span {
       color: #FF8C00;
       font-weight: bold;
     }
@@ -38,35 +27,35 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 30px;
+      max-width: 1200px;
+      margin: 40px auto;
     }
     .kit {
       background: #101018;
       border: 3px solid #333;
       border-radius: 12px;
       overflow: hidden;
+      transition: 0.3s;
     }
     .kit:hover {
       border-color: #FF8C00;
+      transform: translateY(-5px);
     }
-    .kit-img {
+    .kit img {
       width: 100%;
       height: auto;
       display: block;
     }
-    .kit-info {
+    .info {
       padding: 25px;
     }
-    .kit-nome {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-    .kit-preco {
-      font-size: 28px;
+    .preco {
+      font-size: 30px;
       color: #FFD700;
       font-weight: bold;
-      margin-bottom: 15px;
+      margin: 10px 0 20px;
     }
-    .btn-comprar {
+    button {
       width: 100%;
       background: #28a745;
       color: white;
@@ -74,59 +63,46 @@
       padding: 15px;
       font-size: 18px;
       border-radius: 8px;
-      cursor: pointer;
       font-weight: bold;
+      cursor: pointer;
     }
-    .botoes-area {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 50px;
-      flex-wrap: wrap;
+    button:hover {
+      background: #2ecc71;
     }
-    .btn-discord, .btn-atendente {
-      padding: 15px 30px;
-      font-size: 18px;
+    .btn-copiar {
+      background: #007bff;
+      margin-bottom: 10px;
+    }
+    .btn-discord {
+      display: block;
+      background: #5865F2;
+      color: white;
+      padding: 15px;
       border-radius: 8px;
       text-decoration: none;
+      margin-top: 15px;
       font-weight: bold;
-      color: white;
     }
-    .btn-discord { background: #5865F2; }
-    .btn-atendente { background: #FF8C00; }
-
-    /* JANELA MODAL */
     .modal {
       display: none;
       position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
       justify-content: center;
       align-items: center;
+      z-index: 9999;
     }
-    .modal-conteudo {
+    .caixa {
       background: #101018;
       border: 3px solid #FF8C00;
       padding: 30px;
-      border-radius: 12px;
+      border-radius: 15px;
+      text-align: center;
       width: 90%;
       max-width: 500px;
-      text-align: center;
-      position: relative;
     }
-    .fechar {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 28px;
-      cursor: pointer;
-      color: #aaa;
-    }
-    .chave-pix {
+    .chave {
       background: #1a1a22;
       border: 2px dashed #FF8C00;
       padding: 15px;
@@ -134,135 +110,110 @@
       border-radius: 8px;
       word-break: break-all;
     }
-    .btn-copiar, .btn-pago, .btn-discord-modal {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      margin: 8px 0;
-      color: white;
-    }
-    .btn-copiar { background: #007bff; }
-    .btn-pago { background: #28a745; }
-    .btn-discord-modal { background: #5865F2; }
     .sucesso {
       display: none;
     }
     .sucesso h2 {
       color: #2ecc71;
-      font-size: 26px;
-      margin-bottom: 15px;
+      font-size: 28px;
     }
-    .sucesso p {
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: 20px;
+    .fechar {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      color: #aaa;
     }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <header>
-    <h1>A <span class="destaque">loja oficial</span> do servidor Evolutium Craft!</h1>
-    <p style="color:#ccc; margin-top:10px;">compre kits, vips, unban, chaves e muito mais!</p>
-  </header>
+<h1>LOJA <span>EVOLUTIUM CRAFT</span></h1>
 
-  <div class="loja">
+<div class="loja">
 
-    <div class="kit">
-      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ak82a-t87rp.png" alt="Kit Fortuna" class="kit-img">
-      <div class="kit-info">
-        <h3 class="kit-nome">KIT FORTUNA</h3>
-        <p class="kit-preco">R$ 3,00</p>
-        <button class="btn-comprar" onclick="abrirModal()">🛒 COMPRAR AGORA</button>
-      </div>
+  <div class="kit">
+    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ak82a-t87rp.png" alt="Kit Fortuna">
+    <div class="info">
+      <h2>KIT FORTUNA</h2>
+      <p class="preco">R$ 3,00</p>
+      <button onclick="abrir()">COMPRAR</button>
     </div>
-
-    <div class="kit">
-      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ab7o9-t5h99.png" alt="Kit Explorador" class="kit-img">
-      <div class="kit-info">
-        <h3 class="kit-nome">KIT EXPLORADOR</h3>
-        <p class="kit-preco">R$ 4,50</p>
-        <button class="btn-comprar" onclick="abrirModal()">🛒 COMPRAR AGORA</button>
-      </div>
-    </div>
-
-    <div class="kit">
-      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ah8br-f2btc.png" alt="Kit Treinamento" class="kit-img">
-      <div class="kit-info">
-        <h3 class="kit-nome">KIT TREINAMENTO</h3>
-        <p class="kit-preco">R$ 5,99</p>
-        <button class="btn-comprar" onclick="abrirModal()">🛒 COMPRAR AGORA</button>
-      </div>
-    </div>
-
-    <div class="kit">
-      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a2rjy-kopni.png" alt="Kit Guerreiro" class="kit-img">
-      <div class="kit-info">
-        <h3 class="kit-nome">KIT GUERREIRO</h3>
-        <p class="kit-preco">R$ 8,99</p>
-        <button class="btn-comprar" onclick="abrirModal()">🛒 COMPRAR AGORA</button>
-      </div>
-    </div>
-
-    <div class="kit">
-      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/anfjf-r7ewu.png" alt="Kit Divino" class="kit-img">
-      <div class="kit-info">
-        <h3 class="kit-nome">KIT DIVINO</h3>
-        <p class="kit-preco">R$ 11,99</p>
-        <button class="btn-comprar" onclick="abrirModal()">🛒 COMPRAR AGORA</button>
-      </div>
-    </div>
-
   </div>
 
-  <div class="botoes-area">
-    <a class="btn-discord" href="https://discord.gg/krw8dEgPq" target="_blank">📢 ENTRAR NO DISCORD</a>
-    <a class="btn-atendente" href="https://discord.gg/krw8dEgPq" target="_blank">💬 FALAR COM ATENDENTE</a>
+  <div class="kit">
+    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ab7o9-t5h99.png" alt="Kit Explorador">
+    <div class="info">
+      <h2>KIT EXPLORADOR</h2>
+      <p class="preco">R$ 4,50</p>
+      <button onclick="abrir()">COMPRAR</button>
+    </div>
   </div>
+
+  <div class="kit">
+    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ah8br-f2btc.png" alt="Kit Treinamento">
+    <div class="info">
+      <h2>KIT TREINAMENTO</h2>
+      <p class="preco">R$ 5,99</p>
+      <button onclick="abrir()">COMPRAR</button>
+    </div>
+  </div>
+
+  <div class="kit">
+    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a2rjy-kopni.png" alt="Kit Guerreiro">
+    <div class="info">
+      <h2>KIT GUERREIRO</h2>
+      <p class="preco">R$ 8,99</p>
+      <button onclick="abrir()">COMPRAR</button>
+    </div>
+  </div>
+
+  <div class="kit">
+    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/anfjf-r7ewu.png" alt="Kit Divino">
+    <div class="info">
+      <h2>KIT DIVINO</h2>
+      <p class="preco">R$ 11,99</p>
+      <button onclick="abrir()">COMPRAR</button>
+    </div>
+  </div>
+
 </div>
 
-<!-- JANELA DO PIX -->
-<div id="myModal" class="modal">
-  <div class="modal-conteudo">
+<!-- JANELA PIX -->
+<div id="modal" class="modal">
+  <div class="caixa">
     <span class="fechar" onclick="fecharModal()">&times;</span>
-
     <div id="passo1">
-      <h2 class="modal-titulo">💳 PAGAMENTO VIA PIX</h2>
-      <p>Copie a chave abaixo e pague:</p>
-      <div class="chave-pix" id="chavePix">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
-      <button class="btn-copiar" onclick="copiarChave()">📋 COPIAR CHAVE</button>
-      <p style="color:#ccc; font-size:14px;">Depois clique no botão abaixo.</p>
-      <button class="btn-pago" onclick="marcarPago()">✅ JÁ PAGUEI</button>
+      <h2>💳 PAGAMENTO VIA PIX</h2>
+      <p>Copie a chave abaixo:</p>
+      <div class="chave" id="chave">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+      <button class="btn-copiar" onclick="copiar()">📋 COPIAR CHAVE</button>
+      <button onclick="pago()">✅ JÁ PAGUEI</button>
     </div>
 
     <div id="passo2" class="sucesso">
       <h2>✅ PAGAMENTO CONCLUÍDO!</h2>
-      <p>Agora vá até o Discord, abra um ticket e envie o comprovante para receber seu kit!</p>
-      <a href="https://discord.gg/krw8dEgPq" target="_blank" class="btn-discord-modal">📢 IR PARA O DISCORD</a>
+      <p>Agora vá no Discord, abra um ticket e envie o comprovante para receber seu kit!</p>
+      <a href="https://discord.gg/krw8dEgPq" target="_blank" class="btn-discord">📢 IR PARA O DISCORD</a>
     </div>
-
   </div>
 </div>
 
 <script>
-function abrirModal() {
-  document.getElementById('myModal').style.display = "flex";
+function abrir() {
+  document.getElementById('modal').style.display = "flex";
   document.getElementById('passo1').style.display = "block";
   document.getElementById('passo2').style.display = "none";
 }
 function fecharModal() {
-  document.getElementById('myModal').style.display = "none";
+  document.getElementById('modal').style.display = "none";
 }
-function copiarChave() {
-  navigator.clipboard.writeText(document.getElementById('chavePix').innerText);
-  alert("✅ Chave copiada! Agora cole no seu aplicativo bancário.");
+function copiar() {
+  navigator.clipboard.writeText(document.getElementById('chave').innerText);
+  alert("✅ Chave copiada!");
 }
-function marcarPago() {
+function pago() {
   document.getElementById('passo1').style.display = "none";
   document.getElementById('passo2').style.display = "block";
 }
