@@ -3,104 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <title>Evolutium Craft - Loja</title>
-
 <style>
-body {
-  background-color: #0f0f0f;
-  color: white;
-  font-family: Arial;
-  text-align: center;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-.loja {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  padding: 20px;
-}
+    body {
+      background-color: #0f0f0f;
+      color: white;
+      font-family: 'Press Start 2P', cursive;
+      text-align: center;
+      background-image: url('https://i.imgur.com/8uQkZ9H.png');
+      background-size: 50px;
+      image-rendering: pixelated;
+    }
 
-.kit {
-  background-color: #1c1c1c;
-  border: 1px solid #333;
-  border-radius: 10px;
-  width: 200px;
-  padding: 10px;
-  transition: 0.3s;
-}
+    h1 {
+      font-size: 24px;
+      margin-top: 30px;
+      color: #FFD700;
+      text-shadow: 3px 3px 0px #000;
+    }
 
-.kit:hover {
-  transform: scale(1.05);
-}
+    p {
+      font-size: 12px;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
 
-.kit img {
-  width: 100%;
-  border-radius: 8px;
-}
+    .loja {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
 
-button {
-  background-color: #ff9900;
-  border: none;
-  padding: 8px;
-  width: 100%;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
+    .kit {
+      background-color: #1c1c1c;
+      border: 3px solid #555;
+      border-radius: 10px;
+      width: 220px;
+      padding: 15px;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(255, 200, 0, 0.2);
+    }
 
-button:hover {
-  background-color: #ffaa22;
-}
+    .kit:hover {
+      transform: scale(1.05);
+      border-color: #FFD700;
+      box-shadow: 0 0 25px rgba(255, 200, 0, 0.5);
+    }
+
+    .kit img {
+      width: 100%;
+      border: 2px solid #333;
+      border-radius: 8px;
+      image-rendering: pixelated;
+    }
+
+    h3 {
+      font-size: 14px;
+      margin: 10px 0 5px 0;
+      color: #fff;
+    }
+
+    .preco {
+      font-size: 16px;
+      color: #39FF14;
+      margin: 5px 0 15px 0;
+    }
+
+    button {
+      background-color: #ff9900;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      color: #000;
+      text-shadow: 1px 1px 0px #fff;
+    }
+
+    button:hover {
+      background-color: #ffcc00;
+    }
 </style>
 
 <script>
 function comprar() {
-  alert("Chave PIX:\nefc0f5af-cd44-400c-9426-2d071caa7bec\n\nEnvie o comprovante no Discord!");
+  alert("🛒 COMPRA REALIZADA!\n\n🔑 Chave PIX:\nefc0f5af-cd44-400c-9426-2d071caa7bec\n\n📩 Envie o comprovante no Discord!");
 }
 </script>
 
 </head>
-
 <body>
 
-<h1>🛒 Evolutium Craft</h1>
-<p>Loja oficial de kits</p>
+<h1>🛒 EVOLUTIUM CRAFT</h1>
+<p>LOJA OFICIAL DE KITS</p>
 
 <div class="loja">
 
   <div class="kit">
-    <img src="https://complete-beige-e3vdv3yrwu.edgeone.app/Screenshot_20260417-002852.Discord.png">
+    <img src="https://i.imgur.com/yourImageLink.png" alt="Kit Fortuna">
     <h3>KIT FORTUNA</h3>
-    <p>R$3,00</p>
-    <button onclick="comprar()">Comprar</button>
+    <p class="preco">R$3,00</p>
+    <button onclick="comprar()">COMPRAR</button>
   </div>
 
   <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/anafj-j09er.png">
+    <img src="https://i.imgur.com/6ZfX7yL.png" alt="Kit Explorador">
     <h3>KIT EXPLORADOR</h3>
-    <p>R$5,00</p>
-    <button onclick="comprar()">Comprar</button>
+    <p class="preco">R$4,50</p>
+    <button onclick="comprar()">COMPRAR</button>
   </div>
 
   <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a0pw6-gk2ax.png">
+    <img src="https://i.imgur.com/9Zk8d5y.png" alt="Kit Guerreiro">
     <h3>KIT GUERREIRO</h3>
-    <p>R$10,00</p>
-    <button onclick="comprar()">Comprar</button>
+    <p class="preco">R$8,99</p>
+    <button onclick="comprar()">COMPRAR</button>
   </div>
 
   <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a3un0-07r9j.png">
+    <img src="https://i.imgur.com/4QZ7w2y.png" alt="Kit Treinamento">
     <h3>KIT TREINAMENTO</h3>
-    <p>R$7,00</p>
-    <button onclick="comprar()">Comprar</button>
+    <p class="preco">R$5,99</p>
+    <button onclick="comprar()">COMPRAR</button>
   </div>
 
   <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a06u9-gofgq.png">
+    <img src="https://i.imgur.com/8XsY1aL.png" alt="Kit Divino">
     <h3>KIT DIVINO</h3>
-    <p>R$15,00</p>
-    <button onclick="comprar()">Comprar</button>
+    <p class="preco">R$11,99</p>
+    <button onclick="comprar()">COMPRAR</button>
   </div>
 
 </div>
