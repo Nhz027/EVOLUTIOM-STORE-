@@ -11,71 +11,102 @@
       font-family: Arial, sans-serif;
     }
     body {
-      background: #2b1a10 !important;
-      background-image: url('https://i.imgur.com/7kf1nQH.png') !important;
-      background-size: cover !important;
-      background-attachment: fixed !important;
-      color: #fff !important;
+      background: #2b1a10;
+      background-image: url('https://s10.aconvert.com/convert/p3r68-cdx67/akwy1-88sgm.png');
+      background-size: cover;
+      background-attachment: fixed;
+      color: #fff;
       padding: 30px;
     }
     h1 {
       text-align: center;
       font-size: 42px;
       margin: 20px 0 10px;
-      color: #fff !important;
     }
     h1 span {
-      color: #FF8C00 !important;
+      color: #FF8C00;
       font-weight: bold;
     }
     .subtitulo {
       text-align: center;
       font-size: 18px;
-      margin-bottom: 40px;
-      color: #ddd !important;
+      margin-bottom: 50px;
+      color: #ddd;
+    }
+
+    /* ESTILO DOS BOTÕES GRANDES INICIAIS */
+    .menu-categorias {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    .categoria {
+      width: 300px;
+      height: 300px;
+      background: rgba(0,0,0,0.7);
+      border: 4px solid #5a3e2b;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      font-weight: bold;
+      color: #FF8C00;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .categoria:hover {
+      border-color: #FF8C00;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+    }
+
+    /* ÁREA QUE APARECE QUANDO CLICA */
+    .area-conteudo {
+      display: none;
+      max-width: 1300px;
+      margin: 0 auto;
     }
     .loja {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
       gap: 30px;
-      max-width: 1300px;
-      margin: 0 auto;
     }
     .kit {
-      background: rgba(0,0,0,0.6) !important;
-      border: 4px solid #5a3e2b !important;
+      background: rgba(0,0,0,0.6);
+      border: 4px solid #5a3e2b;
       border-radius: 15px;
       overflow: hidden;
       transition: 0.3s;
     }
     .kit:hover {
-      border-color: #FF8C00 !important;
+      border-color: #FF8C00;
       transform: translateY(-8px);
     }
     .kit img {
       width: 100%;
       height: auto;
       display: block;
-      background: transparent;
     }
     .info {
       padding: 25px;
     }
     h2 {
-      color: #fff !important;
       font-size: 28px;
       margin-bottom: 10px;
     }
     .preco {
       font-size: 34px;
-      color: #FFD700 !important;
+      color: #FFD700;
       font-weight: bold;
       margin: 15px 0 20px;
     }
     button {
       width: 100%;
-      background: #28a745 !important;
-      color: white !important;
+      background: #28a745;
+      color: white;
       border: none;
       padding: 18px;
       font-size: 22px;
@@ -88,11 +119,11 @@
       opacity: 0.9;
     }
     .btn-copiar {
-      background: #007bff !important;
+      background: #007bff;
     }
     .btn-discord {
-      background: #5865F2 !important;
-      color: white !important;
+      background: #5865F2;
+      color: white;
       padding: 18px;
       border-radius: 8px;
       text-decoration: none;
@@ -106,15 +137,15 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.95) !important;
+      background: rgba(0,0,0,0.95);
       justify-content: center;
       align-items: center;
       z-index: 9999;
       padding: 20px;
     }
     .caixa {
-      background: #101018 !important;
-      border: 4px solid #FF8C00 !important;
+      background: #101018;
+      border: 4px solid #FF8C00;
       padding: 40px;
       border-radius: 20px;
       text-align: center;
@@ -123,20 +154,19 @@
       position: relative;
     }
     .chave {
-      background: #1a1a22 !important;
-      border: 3px dashed #FF8C00 !important;
+      background: #1a1a22;
+      border: 3px dashed #FF8C00;
       padding: 20px;
       margin: 25px 0;
       border-radius: 10px;
       word-break: break-all;
       font-size: 16px;
-      color: #fff !important;
     }
     .sucesso {
       display: none;
     }
     .sucesso h2 {
-      color: #2ecc71 !important;
+      color: #2ecc71;
       font-size: 32px;
       margin-bottom: 20px;
     }
@@ -144,7 +174,7 @@
       font-size: 20px;
       line-height: 1.6;
       margin-bottom: 25px;
-      color: #ddd !important;
+      color: #ddd;
     }
     .fechar {
       position: absolute;
@@ -152,7 +182,7 @@
       right: 20px;
       font-size: 35px;
       cursor: pointer;
-      color: #aaa !important;
+      color: #aaa;
     }
     .botoes-finais {
       display: flex;
@@ -162,8 +192,8 @@
       flex-wrap: wrap;
     }
     .btn-discord-grande {
-      background: #5865F2 !important;
-      color: white !important;
+      background: #5865F2;
+      color: white;
       padding: 20px 40px;
       border-radius: 10px;
       text-decoration: none;
@@ -171,8 +201,8 @@
       font-size: 22px;
     }
     .btn-atendente {
-      background: #b05a00 !important;
-      color: white !important;
+      background: #b05a00;
+      color: white;
       padding: 20px 40px;
       border-radius: 10px;
       text-decoration: none;
@@ -186,63 +216,74 @@
 <h1>A LOJA OFICIAL DO SERVIDOR <span>EVOLUTIUM CRAFT</span></h1>
 <p class="subtitulo">compre kits, vips, unban, chaves e muito mais!</p>
 
-<div class="loja">
-
-  <!-- KIT FORTUNA -->
-  <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/akwy1-88sgm.png" alt="Kit Fortuna">
-    <div class="info">
-      <h2>KIT FORTUNA</h2>
-      <p class="preco">R$ 3,00</p>
-      <button onclick="abrir()">COMPRAR AGORA</button>
-    </div>
-  </div>
-
-  <!-- KIT EXPLORADOR -->
-  <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/auxbv-ypw53.png" alt="Kit Explorador">
-    <div class="info">
-      <h2>KIT EXPLORADOR</h2>
-      <p class="preco">R$ 4,99</p>
-      <button onclick="abrir()">COMPRAR AGORA</button>
-    </div>
-  </div>
-
-  <!-- KIT TREINAMENTO -->
-  <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/aoo5o-unh8s.png" alt="Kit Treinamento">
-    <div class="info">
-      <h2>KIT TREINAMENTO</h2>
-      <p class="preco">R$ 5,99</p>
-      <button onclick="abrir()">COMPRAR AGORA</button>
-    </div>
-  </div>
-
-  <!-- KIT GUERREIRO -->
-  <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/azn5n-qhcmy.png" alt="Kit Guerreiro">
-    <div class="info">
-      <h2>KIT GUERREIRO</h2>
-      <p class="preco">R$ 8,99</p>
-      <button onclick="abrir()">COMPRAR AGORA</button>
-    </div>
-  </div>
-
-  <!-- KIT DIVINO -->
-  <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a9gi1-qz6r9.png" alt="Kit Divino">
-    <div class="info">
-      <h2>KIT DIVINO</h2>
-      <p class="preco">R$ 11,99</p>
-      <button onclick="abrir()">COMPRAR AGORA</button>
-    </div>
-  </div>
-
+<!-- MENU INICIAL COM OS QUADRADOS -->
+<div class="menu-categorias">
+  <div class="categoria" onclick="mostrarKits()">📦 KITS</div>
+  <div class="categoria">OUTROS</div> <!-- Você pode adicionar mais depois -->
 </div>
 
-<div class="botoes-finais">
-  <a href="https://discord.gg/krw8dEgPq" target="_blank" class="btn-discord-grande">📢 ENTRAR NO DISCORD</a>
-  <a href="#" class="btn-atendente">💬 FALAR COM ATENDENTE</a>
+<!-- ÁREA DOS PRODUTOS -->
+<div id="areaKits" class="area-conteudo">
+
+  <div class="loja">
+
+    <!-- KIT FORTUNA -->
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/akwy1-88sgm.png" alt="Kit Fortuna">
+      <div class="info">
+        <h2>KIT FORTUNA</h2>
+        <p class="preco">R$ 3,00</p>
+        <button onclick="abrir()">COMPRAR AGORA</button>
+      </div>
+    </div>
+
+    <!-- KIT EXPLORADOR -->
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/auxbv-ypw53.png" alt="Kit Explorador">
+      <div class="info">
+        <h2>KIT EXPLORADOR</h2>
+        <p class="preco">R$ 4,99</p>
+        <button onclick="abrir()">COMPRAR AGORA</button>
+      </div>
+    </div>
+
+    <!-- KIT TREINAMENTO -->
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/aoo5o-unh8s.png" alt="Kit Treinamento">
+      <div class="info">
+        <h2>KIT TREINAMENTO</h2>
+        <p class="preco">R$ 5,99</p>
+        <button onclick="abrir()">COMPRAR AGORA</button>
+      </div>
+    </div>
+
+    <!-- KIT GUERREIRO -->
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/azn5n-qhcmy.png" alt="Kit Guerreiro">
+      <div class="info">
+        <h2>KIT GUERREIRO</h2>
+        <p class="preco">R$ 8,99</p>
+        <button onclick="abrir()">COMPRAR AGORA</button>
+      </div>
+    </div>
+
+    <!-- KIT DIVINO -->
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a9gi1-qz6r9.png" alt="Kit Divino">
+      <div class="info">
+        <h2>KIT DIVINO</h2>
+        <p class="preco">R$ 11,99</p>
+        <button onclick="abrir()">COMPRAR AGORA</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="botoes-finais">
+    <a href="https://discord.gg/krw8dEgPq" target="_blank" class="btn-discord-grande">📢 ENTRAR NO DISCORD</a>
+    <a href="#" class="btn-atendente">💬 FALAR COM ATENDENTE</a>
+  </div>
+
 </div>
 
 <!-- JANELA PIX -->
@@ -268,6 +309,9 @@
 </div>
 
 <script>
+function mostrarKits() {
+  document.getElementById('areaKits').style.display = "block";
+}
 function abrir() {
   document.getElementById('modal').style.display = "flex";
   document.getElementById('passo1').style.display = "block";
