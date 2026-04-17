@@ -11,8 +11,8 @@
       font-family: Arial, sans-serif;
     }
     body {
-      background: #050507;
-      color: #fff;
+      background: #050507 !important;
+      color: #fff !important;
       padding: 20px;
       background-image: 
         radial-gradient(circle at center, rgba(255, 140, 0, 0.15) 0%, transparent 60%),
@@ -23,9 +23,10 @@
       text-align: center;
       font-size: 36px;
       margin: 20px 0;
+      color: #fff !important;
     }
     h1 span {
-      color: #FF8C00;
+      color: #FF8C00 !important;
       font-weight: bold;
     }
     .loja {
@@ -36,34 +37,40 @@
       margin: 0 auto;
     }
     .kit {
-      background: #101018;
-      border: 3px solid #333;
+      background: #101018 !important;
+      border: 3px solid #333 !important;
       border-radius: 12px;
       overflow: hidden;
       transition: 0.3s;
     }
     .kit:hover {
-      border-color: #FF8C00;
+      border-color: #FF8C00 !important;
       transform: translateY(-5px);
     }
     .kit img {
       width: 100%;
       height: auto;
       display: block;
+      min-height: 200px;
+      background: #111;
     }
     .info {
       padding: 20px;
     }
+    h2 {
+      color: #fff !important;
+      font-size: 22px;
+    }
     .preco {
       font-size: 28px;
-      color: #FFD700;
+      color: #FFD700 !important;
       font-weight: bold;
       margin: 10px 0 15px;
     }
     button {
       width: 100%;
-      background: #28a745;
-      color: white;
+      background: #28a745 !important;
+      color: white !important;
       border: none;
       padding: 15px;
       font-size: 18px;
@@ -76,11 +83,11 @@
       opacity: 0.9;
     }
     .btn-copiar {
-      background: #007bff;
+      background: #007bff !important;
     }
     .btn-discord {
-      background: #5865F2;
-      color: white;
+      background: #5865F2 !important;
+      color: white !important;
       padding: 15px;
       border-radius: 8px;
       text-decoration: none;
@@ -93,15 +100,15 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.95);
+      background: rgba(0,0,0,0.95) !important;
       justify-content: center;
       align-items: center;
       z-index: 9999;
       padding: 20px;
     }
     .caixa {
-      background: #101018;
-      border: 3px solid #FF8C00;
+      background: #101018 !important;
+      border: 3px solid #FF8C00 !important;
       padding: 30px;
       border-radius: 15px;
       text-align: center;
@@ -110,19 +117,20 @@
       position: relative;
     }
     .chave {
-      background: #1a1a22;
-      border: 2px dashed #FF8C00;
+      background: #1a1a22 !important;
+      border: 2px dashed #FF8C00 !important;
       padding: 15px;
       margin: 20px 0;
       border-radius: 8px;
       word-break: break-all;
       font-size: 14px;
+      color: #fff !important;
     }
     .sucesso {
       display: none;
     }
     .sucesso h2 {
-      color: #2ecc71;
+      color: #2ecc71 !important;
       font-size: 26px;
       margin-bottom: 15px;
     }
@@ -130,6 +138,7 @@
       font-size: 16px;
       line-height: 1.5;
       margin-bottom: 20px;
+      color: #ddd !important;
     }
     .fechar {
       position: absolute;
@@ -137,7 +146,7 @@
       right: 15px;
       font-size: 30px;
       cursor: pointer;
-      color: #aaa;
+      color: #aaa !important;
     }
 </style>
 </head>
@@ -147,9 +156,8 @@
 
 <div class="loja">
 
-  <!-- KIT FORTUNA -->
   <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ak82a-t87rp.png" alt="Kit Fortuna">
+    <img src="https://i.imgur.com/5Y2sXrL.png" alt="Kit Fortuna" loading="lazy">
     <div class="info">
       <h2>KIT FORTUNA</h2>
       <p class="preco">R$ 3,00</p>
@@ -157,9 +165,8 @@
     </div>
   </div>
 
-  <!-- KIT EXPLORADOR -->
   <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ab7o9-t5h99.png" alt="Kit Explorador">
+    <img src="https://i.imgur.com/9X7Z8yY.png" alt="Kit Explorador" loading="lazy">
     <div class="info">
       <h2>KIT EXPLORADOR</h2>
       <p class="preco">R$ 4,50</p>
@@ -167,9 +174,8 @@
     </div>
   </div>
 
-  <!-- KIT TREINAMENTO -->
   <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ah8br-f2btc.png" alt="Kit Treinamento">
+    <img src="https://i.imgur.com/4QwTqUe.png" alt="Kit Treinamento" loading="lazy">
     <div class="info">
       <h2>KIT TREINAMENTO</h2>
       <p class="preco">R$ 5,99</p>
@@ -177,9 +183,8 @@
     </div>
   </div>
 
-  <!-- KIT GUERREIRO -->
   <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a2rjy-kopni.png" alt="Kit Guerreiro">
+    <img src="https://i.imgur.com/8bKfJ9M.png" alt="Kit Guerreiro" loading="lazy">
     <div class="info">
       <h2>KIT GUERREIRO</h2>
       <p class="preco">R$ 8,99</p>
@@ -187,9 +192,8 @@
     </div>
   </div>
 
-  <!-- KIT DIVINO -->
   <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/anfjf-r7ewu.png" alt="Kit Divino">
+    <img src="https://i.imgur.com/2vZ7sRb.png" alt="Kit Divino" loading="lazy">
     <div class="info">
       <h2>KIT DIVINO</h2>
       <p class="preco">R$ 11,99</p>
@@ -199,7 +203,6 @@
 
 </div>
 
-<!-- JANELA PIX -->
 <div id="modal" class="modal">
   <div class="caixa">
     <span class="fechar" onclick="fechar()">&times;</span>
