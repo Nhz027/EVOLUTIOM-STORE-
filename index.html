@@ -11,7 +11,6 @@
       font-family: Arial, sans-serif;
     }
     body {
-      /* FUNDO LARANJA COM PRETO E BRILHO */
       background: #1a0a00;
       background-image: 
         radial-gradient(circle at 50% 0%, rgba(255, 140, 0, 0.6) 0%, transparent 50%),
@@ -39,8 +38,6 @@
       color: #ffdd00;
       text-shadow: 2px 2px 2px #000;
     }
-
-    /* BOTÃO KITS */
     .menu-categorias {
       display: flex;
       justify-content: center;
@@ -68,8 +65,6 @@
       transform: scale(1.05);
       box-shadow: 0 0 30px rgba(255, 200, 0, 0.9);
     }
-
-    /* ÁREA DOS KITS */
     .area-conteudo {
       display: none;
       max-width: 1300px;
@@ -238,14 +233,11 @@
 <h1>A LOJA OFICIAL DO SERVIDOR <span>EVOLUTIUM CRAFT</span></h1>
 <p class="subtitulo">compre kits, vips, unban, chaves e muito mais!</p>
 
-<!-- BOTÃO KITS -->
 <div class="menu-categorias">
   <div class="categoria" onclick="alternarKits()">🐉 KITS</div>
 </div>
 
-<!-- ÁREA DOS PRODUTOS -->
 <div id="areaKits" class="area-conteudo">
-
   <div class="loja">
 
     <div class="kit">
@@ -299,14 +291,11 @@
     <a href="https://discord.gg/krw8dEgPq" target="_blank" class="btn-discord-grande">📢 ENTRAR NO DISCORD</a>
     <a href="#" class="btn-atendente">💬 FALAR COM ATENDENTE</a>
   </div>
-
 </div>
 
-<!-- JANELA PIX -->
 <div id="modal" class="modal">
   <div class="caixa">
     <span class="fechar" onclick="fechar()">&times;</span>
-    
     <div id="passo1">
       <h2>💳 PAGAMENTO VIA PIX</h2>
       <p>Copie a chave abaixo e efetue o pagamento:</p>
@@ -314,13 +303,11 @@
       <button class="btn-copiar" onclick="copiar()">📋 COPIAR CHAVE</button>
       <button onclick="pago()">✅ JÁ PAGUEI!</button>
     </div>
-
     <div id="passo2" class="sucesso">
       <h2>✅ PAGAMENTO REALIZADO!</h2>
       <p>Obrigado! Agora vá no servidor do Discord, abra um ticket e envie o print do comprovante para receber seu kit rapidinho!</p>
       <a href="https://discord.gg/krw8dEgPq" target="_blank" class="btn-discord">📢 IR PARA O DISCORD</a>
     </div>
-
   </div>
 </div>
 
