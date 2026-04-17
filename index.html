@@ -1,53 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Loja do Servidor</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: #0f172a;
-      color: white;
-      text-align: center;
-    }
-    .kit {
-      background: #1e293b;
-      padding: 20px;
-      margin: 20px;
-      border-radius: 10px;
-    }
-    button {
-      background: green;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Evolutium Craft - Loja</title>
+
+<style>
+body {
+  background-color: #0f0f0f;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+}
+
+.loja {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+}
+
+.kit {
+  background-color: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 10px;
+  width: 200px;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.kit:hover {
+  transform: scale(1.05);
+}
+
+.kit img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+button {
+  background-color: #ff9900;
+  border: none;
+  padding: 8px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #ffaa22;
+}
+</style>
+
+<script>
+function comprar() {
+  alert("Chave PIX:\nefc0f5af-cd44-400c-9426-2d071caa7bec\n\nEnvie o comprovante no Discord!");
+}
+</script>
+
 </head>
+
 <body>
 
-  <h1>🛒 Loja do Servidor</h1>
+<h1>🛒 Evolutium Craft</h1>
+<p>Loja oficial de kits</p>
+
+<div class="loja">
 
   <div class="kit">
-    <h2>Kit Iniciante</h2>
-    <p>Itens básicos pra começar</p>
-    <p>R$ 5,00</p>
+    <img src="https://complete-beige-e3vdv3yrwu.edgeone.app/Screenshot_20260417-002852.Discord.png">
+    <h3>KIT FORTUNA</h3>
+    <p>R$3,00</p>
     <button onclick="comprar()">Comprar</button>
   </div>
 
   <div class="kit">
-    <h2>Kit VIP</h2>
-    <p>Itens fortes e raros</p>
-    <p>R$ 15,00</p>
+    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/anafj-j09er.png">
+    <h3>KIT EXPLORADOR</h3>
+    <p>R$5,00</p>
     <button onclick="comprar()">Comprar</button>
   </div>
 
-  <script>
-    function comprar() {
-      alert("Chama no Discord para comprar!");
-    }
-  </script>
+  <div class="kit">
+    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a0pw6-gk2ax.png">
+    <h3>KIT GUERREIRO</h3>
+    <p>R$10,00</p>
+    <button onclick="comprar()">Comprar</button>
+  </div>
+
+  <div class="kit">
+    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a3un0-07r9j.png">
+    <h3>KIT TREINAMENTO</h3>
+    <p>R$7,00</p>
+    <button onclick="comprar()">Comprar</button>
+  </div>
+
+  <div class="kit">
+    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a06u9-gofgq.png">
+    <h3>KIT DIVINO</h3>
+    <p>R$15,00</p>
+    <button onclick="comprar()">Comprar</button>
+  </div>
+
+</div>
 
 </body>
 </html>
