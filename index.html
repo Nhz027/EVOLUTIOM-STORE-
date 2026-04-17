@@ -2,42 +2,100 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Evolutium Craft - Loja</title>
+<title>Loja Evolutium Craft</title>
 
 <style>
 body {
-    background: #2b0f0f;
+    background: linear-gradient(180deg, #2b0f0f, #1a0707);
     font-family: Arial;
     color: white;
     text-align: center;
 }
 
-.container {
-    margin-top: 50px;
+/* BOTÃO KITS GRANDE */
+.kits-btn {
+    margin-top: 120px;
+    padding: 25px 60px;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(45deg, gold, orange);
+    color: black;
+    box-shadow: 0 0 20px gold;
+    transition: 0.3s;
 }
 
+.kits-btn:hover {
+    transform: scale(1.1);
+}
+
+/* FUNDO ESCURO */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+}
+
+/* JANELA DOS KITS */
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #3d1a1a;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 900px;
+}
+
+/* GRID DOS KITS */
+.kits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* CARD DOS KITS */
+.card {
+    background: #4d1f1f;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 0 10px black;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* TITULO */
+.card h3 {
+    color: gold;
+}
+
+/* PREÇO */
+.price {
+    color: #00ff88;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* BOTÕES */
 .btn {
-    padding: 15px 25px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-weight: bold;
-    margin: 10px;
-}
-
-.kits-btn {
-    background: gold;
-    color: black;
-    font-size: 20px;
-}
-
-.card {
-    background: #3d1a1a;
-    padding: 15px;
-    margin: 15px;
-    border-radius: 15px;
-    display: inline-block;
-    width: 200px;
 }
 
 .buy {
@@ -49,55 +107,80 @@ body {
     background: orange;
     color: black;
 }
+
+/* BOTÃO FECHAR */
+.close {
+    background: red;
+    margin-top: 20px;
+}
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<button class="kits-btn" onclick="abrirKits()">🔥 KITS 🔥</button>
 
-    <!-- BOTÃO PRINCIPAL -->
-    <button class="btn kits-btn" onclick="abrirKits()">KITS</button>
+<div class="overlay" id="overlay">
+    <div class="popup">
 
-    <!-- AREA DOS KITS -->
-    <div id="kits" style="display:none;">
+        <h1>KITS DO SERVIDOR</h1>
 
-        <div class="card">
-            <h3>KIT FORTUNA</h3>
-            <p>R$ 3,00</p>
-            <button class="btn buy">Comprar</button>
-            <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
+        <div class="kits-grid">
+
+            <div class="card">
+                <h3>KIT FORTUNA</h3>
+                <p class="price">R$ 3,00</p>
+                <button class="btn buy">Comprar</button>
+                <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
+            </div>
+
+            <div class="card">
+                <h3>KIT EXPLORADOR</h3>
+                <p class="price">R$ 4,50</p>
+                <button class="btn buy">Comprar</button>
+                <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
+            </div>
+
+            <div class="card">
+                <h3>KIT TREINAMENTO</h3>
+                <p class="price">R$ 5,99</p>
+                <button class="btn buy">Comprar</button>
+                <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
+            </div>
+
+            <div class="card">
+                <h3>KIT GUERREIRO</h3>
+                <p class="price">R$ 8,99</p>
+                <button class="btn buy">Comprar</button>
+                <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
+            </div>
+
+            <div class="card">
+                <h3>KIT DIVINO</h3>
+                <p class="price">R$ 11,99</p>
+                <button class="btn buy">Comprar</button>
+                <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
+            </div>
+
         </div>
 
-        <div class="card">
-            <h3>KIT EXPLORADOR</h3>
-            <p>R$ 4,50</p>
-            <button class="btn buy">Comprar</button>
-            <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
-        </div>
-
-        <div class="card">
-            <h3>KIT GUERREIRO</h3>
-            <p>R$ 8,99</p>
-            <button class="btn buy">Comprar</button>
-            <button class="btn paid" onclick="jaPaguei()">Já paguei</button>
-        </div>
+        <button class="btn close" onclick="fecharKits()">Fechar</button>
 
     </div>
-
 </div>
 
 <script>
-
 function abrirKits() {
-    document.getElementById("kits").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
 }
 
-// BOTÃO JÁ PAGUEI (SEM GITHUB)
+function fecharKits() {
+    document.getElementById("overlay").style.display = "none";
+}
+
 function jaPaguei() {
     alert("Abra um ticket no Discord e envie o comprovante para receber seu kit.");
 }
-
 </script>
 
 </body>
