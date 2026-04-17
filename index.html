@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Evolutium Craft - Loja</title>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
 
     * {
       margin: 0;
@@ -14,37 +14,40 @@
     }
 
     body {
-      background-color: #0a0a0d;
+      /* FUNDO MAIS BONITO COM BRILHO */
+      background-color: #050507;
       color: #ffffff;
       background-image: 
-        linear-gradient(rgba(18, 18, 22, 0.9), rgba(18, 18, 22, 0.9)),
+        radial-gradient(circle at center, rgba(255, 140, 0, 0.15) 0%, transparent 60%),
+        linear-gradient(rgba(10, 10, 15, 0.95), rgba(10, 10, 15, 0.95)),
         url('https://i.imgur.com/8uQkZ9H.png');
-      background-size: 50px;
+      background-size: 100% 100%, cover, 60px;
       min-height: 100vh;
-      padding: 20px;
+      padding: 30px;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1600px;
       margin: 0 auto;
     }
 
     header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       padding: 20px;
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 42px;
       color: #ffffff;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       font-weight: bold;
+      text-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
     }
 
     .subtitulo {
-      font-size: 16px;
-      color: #b0b0b0;
+      font-size: 22px;
+      color: #cccccc;
     }
 
     .destaque {
@@ -54,108 +57,153 @@
 
     .loja {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      padding: 10px;
+      /* DEIXEI TUDO BEM MAIOR */
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 40px;
+      padding: 20px;
     }
 
     .kit {
-      background-color: #121217;
-      border: 2px solid #33333f;
-      border-radius: 12px;
+      background-color: #101018;
+      border: 3px solid #33333f;
+      border-radius: 15px;
       overflow: hidden;
       transition: all 0.3s ease;
       position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
     .kit:hover {
       border-color: #FF8C00;
-      box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
-      transform: translateY(-5px);
+      box-shadow: 0 0 40px rgba(255, 140, 0, 0.4);
+      transform: translateY(-8px);
     }
 
     .kit-img {
       width: 100%;
       height: auto;
       display: block;
-      border-bottom: 2px solid #33333f;
-      image-rendering: pixelated;
+      border-bottom: 3px solid #444;
     }
 
     .kit-info {
-      padding: 20px;
+      padding: 30px;
     }
 
     .kit-nome {
-      font-size: 20px;
+      font-size: 30px;
       font-weight: bold;
       color: #ffffff;
-      margin-bottom: 8px;
-    }
-
-    .kit-preco {
-      font-size: 24px;
-      font-weight: bold;
-      color: #FFD700; /* Dourado */
       margin-bottom: 15px;
     }
 
+    .kit-preco {
+      font-size: 36px;
+      font-weight: bold;
+      color: #FFD700; /* Dourado */
+      margin-bottom: 25px;
+    }
+
+    /* BOTÃO VERDE GIGANTE */
     .btn-comprar {
       width: 100%;
-      background-color: #FF8C00;
+      background-color: #28a745;
       color: white;
       border: none;
-      padding: 12px;
-      font-size: 16px;
+      padding: 22px;
+      font-size: 24px;
       font-weight: bold;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: all 0.3s;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 12px;
+      text-transform: uppercase;
     }
 
     .btn-comprar:hover {
+      background-color: #2ecc71;
+      box-shadow: 0 0 30px rgba(40, 167, 69, 0.7);
+      transform: scale(1.03);
+    }
+
+    /* ÁREA DOS BOTÕES DE SUPORTE */
+    .botoes-area {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 60px;
+      flex-wrap: wrap;
+    }
+
+    .btn-discord, .btn-atendente {
+      padding: 20px 40px;
+      font-size: 22px;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-discord {
+      background-color: #5865F2;
+      color: white;
+    }
+
+    .btn-discord:hover {
+      background-color: #7289da;
+      box-shadow: 0 0 25px rgba(88, 101, 242, 0.6);
+    }
+
+    .btn-atendente {
+      background-color: #FF8C00;
+      color: white;
+    }
+
+    .btn-atendente:hover {
       background-color: #FFA500;
-      box-shadow: 0 0 15px rgba(255, 140, 0, 0.6);
+      box-shadow: 0 0 25px rgba(255, 140, 0, 0.6);
     }
 
     .features {
       display: flex;
       justify-content: space-around;
-      margin-top: 50px;
-      gap: 20px;
+      margin-top: 60px;
+      gap: 30px;
       flex-wrap: wrap;
     }
 
     .feature-card {
-      background-color: #121217;
-      border: 2px solid #33333f;
-      border-radius: 12px;
-      padding: 25px;
+      background-color: #101018;
+      border: 3px solid #33333f;
+      border-radius: 15px;
+      padding: 35px;
       text-align: center;
       flex: 1;
-      min-width: 250px;
+      min-width: 300px;
     }
 
     .feature-icon {
-      font-size: 40px;
+      font-size: 50px;
       color: #FF8C00;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .feature-title {
-      font-size: 18px;
+      font-size: 24px;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       color: #ffffff;
     }
 
     .feature-text {
       color: #b0b0b0;
-      font-size: 14px;
+      font-size: 18px;
     }
 </style>
 </head>
@@ -165,9 +213,6 @@
   <header>
     <h1>A <span class="destaque">loja oficial</span> do servidor Evolutium Craft!</h1>
     <p class="subtitulo">compre kits, vips, unban, chaves e muito mais!</p>
-    <button class="btn-comprar" style="max-width: 200px; margin: 20px auto;">
-      📩 Conferir ofertas
-    </button>
   </header>
 
   <div class="loja">
@@ -178,7 +223,7 @@
         <h3 class="kit-nome">KIT FORTUNA</h3>
         <p class="kit-preco">R$ 3,00</p>
         <button class="btn-comprar" onclick="comprar()">
-          🛒 Comprar agora
+          🛒 COMPRAR AGORA
         </button>
       </div>
     </div>
@@ -189,7 +234,7 @@
         <h3 class="kit-nome">KIT EXPLORADOR</h3>
         <p class="kit-preco">R$ 4,50</p>
         <button class="btn-comprar" onclick="comprar()">
-          🛒 Comprar agora
+          🛒 COMPRAR AGORA
         </button>
       </div>
     </div>
@@ -200,7 +245,7 @@
         <h3 class="kit-nome">KIT GUERREIRO</h3>
         <p class="kit-preco">R$ 8,99</p>
         <button class="btn-comprar" onclick="comprar()">
-          🛒 Comprar agora
+          🛒 COMPRAR AGORA
         </button>
       </div>
     </div>
@@ -211,7 +256,7 @@
         <h3 class="kit-nome">KIT TREINAMENTO</h3>
         <p class="kit-preco">R$ 5,99</p>
         <button class="btn-comprar" onclick="comprar()">
-          🛒 Comprar agora
+          🛒 COMPRAR AGORA
         </button>
       </div>
     </div>
@@ -222,11 +267,21 @@
         <h3 class="kit-nome">KIT DIVINO</h3>
         <p class="kit-preco">R$ 11,99</p>
         <button class="btn-comprar" onclick="comprar()">
-          🛒 Comprar agora
+          🛒 COMPRAR AGORA
         </button>
       </div>
     </div>
 
+  </div>
+
+  <!-- BOTÕES COM O LINK QUE VOCÊ MANDOU -->
+  <div class="botoes-area">
+    <a class="btn-discord" href="https://discord.gg/krw8dEgPq" target="_blank">
+      📢 ENTRAR NO DISCORD
+    </a>
+    <a class="btn-atendente" href="https://discord.gg/krw8dEgPq" target="_blank">
+      💬 FALAR COM ATENDENTE
+    </a>
   </div>
 
   <div class="features">
@@ -245,7 +300,12 @@
 
 <script>
 function comprar() {
-  alert("🛒 COMPRA REALIZADA!\n\n🔑 Chave PIX:\nefc0f5af-cd44-400c-9426-2d071caa7bec\n\n📩 Envie o comprovante no Discord!");
+  alert("🛒 PEDIDO GERADO!\n\n" +
+        "🔑 CHAVE PIX:\n" +
+        "efc0f5af-cd44-400c-9426-2d071caa7bec\n\n" +
+        "📸 APÓS O PAGAMENTO:\n" +
+        "Abra um TICKET no Discord e envie o comprovante!\n\n" +
+        "⏳ Aguarde o atendimento para receber seu kit!");
 }
 </script>
 
