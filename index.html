@@ -15,34 +15,49 @@
 body {
   color: #fff;
   padding: 20px;
-  background: radial-gradient(circle at center, #1a1a2e, #000 80%);
+  background: radial-gradient(circle at top, #1a1a2e, #000 80%);
 }
 
-/* MENU */
-.menu {
+/* TITULO */
+h1 {
   text-align: center;
+  font-size: 45px;
   margin-bottom: 20px;
+  color: #fff;
 }
 
-.menu button {
-  background: #FF8C00;
-  border: none;
-  padding: 12px 25px;
-  font-size: 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
+h1 span {
+  color: #ff9900;
+  text-shadow: 0 0 15px #ff9900;
 }
 
-/* KITS */
-.loja {
-  display: none;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+/* CAIXA KITS */
+.kits-box {
   max-width: 1400px;
   margin: 0 auto;
+  background: rgba(0,0,0,0.7);
+  border: 2px solid #ff9900;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 0 25px rgba(255,153,0,0.4);
 }
 
+.kits-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #ff9900;
+  text-shadow: 0 0 10px #ff9900;
+}
+
+/* GRID */
+.loja {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+/* KIT */
 .kit {
   background: #101018;
   border: 2px solid #333;
@@ -53,12 +68,13 @@ body {
 
 .kit:hover {
   transform: scale(1.05);
-  border-color: #FF8C00;
+  border-color: #ff9900;
+  box-shadow: 0 0 20px #ff9900;
 }
 
 .kit img {
   width: 100%;
-  height: 260px;
+  height: 250px;
   object-fit: cover;
 }
 
@@ -66,16 +82,17 @@ body {
   padding: 20px;
 }
 
-h2 {
-  font-size: 26px;
+h3 {
+  font-size: 24px;
 }
 
 .preco {
-  font-size: 28px;
+  font-size: 26px;
   color: gold;
   margin: 10px 0;
 }
 
+/* BOTAO ORIGINAL */
 button {
   width: 100%;
   background: #28a745;
@@ -86,10 +103,9 @@ button {
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 5px;
 }
 
-/* MODAL ORIGINAL */
+/* MODAL */
 .modal {
   display: none;
   position: fixed;
@@ -102,7 +118,7 @@ button {
 
 .caixa {
   background: #101018;
-  border: 3px solid #FF8C00;
+  border: 3px solid #ff9900;
   padding: 30px;
   border-radius: 15px;
   text-align: center;
@@ -112,11 +128,10 @@ button {
 
 .chave {
   background: #1a1a22;
-  border: 2px dashed #FF8C00;
+  border: 2px dashed #ff9900;
   padding: 15px;
   margin: 20px 0;
   border-radius: 8px;
-  word-break: break-all;
 }
 </style>
 
@@ -124,79 +139,74 @@ button {
 
 <body>
 
-<h1 style="text-align:center; font-size:40px;">EVOLUTIUM CRAFT</h1>
+<h1>LOJA <span>EVOLUTIUM CRAFT</span></h1>
 
-<div class="menu">
-  <button onclick="mostrarKits()">VER KITS</button>
-</div>
+<div class="kits-box">
+  <h2>KITS</h2>
 
-<div id="kits" class="loja">
+  <div class="loja">
 
-  <!-- ORDEM: MENOR PRA MAIOR -->
+    <!-- ORDEM CORRETA -->
 
-  <div class="kit">
-    <img src="https://kommodo.ai/i/oDLXRZMIQRDwiIMXy7HB">
-    <div class="info">
-      <h2>KIT FORTUNA</h2>
-      <p class="preco">R$ 3,00</p>
-      <button onclick="abrir()">COMPRAR</button>
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/akwy1-88sgm.png">
+      <div class="info">
+        <h3>KIT FORTUNA</h3>
+        <p class="preco">R$ 3,00</p>
+        <button onclick="abrir()">COMPRAR</button>
+      </div>
     </div>
-  </div>
 
-  <div class="kit">
-    <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ab7o9-t5h99.png">
-    <div class="info">
-      <h2>KIT EXPLORADOR</h2>
-      <p class="preco">R$ 4,50</p>
-      <button onclick="abrir()">COMPRAR</button>
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/auxbv-ypw53.png">
+      <div class="info">
+        <h3>KIT EXPLORADOR</h3>
+        <p class="preco">R$ 4,99</p>
+        <button onclick="abrir()">COMPRAR</button>
+      </div>
     </div>
-  </div>
 
-  <div class="kit">
-    <img src="https://kommodo.ai/i/oXWzhS3335OLgmJWv59C">
-    <div class="info">
-      <h2>KIT TREINAMENTO</h2>
-      <p class="preco">R$ 5,99</p>
-      <button onclick="abrir()">COMPRAR</button>
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/aoo5o-unh8s.png">
+      <div class="info">
+        <h3>KIT TREINAMENTO</h3>
+        <p class="preco">R$ 5,99</p>
+        <button onclick="abrir()">COMPRAR</button>
+      </div>
     </div>
-  </div>
 
-  <div class="kit">
-    <img src="https://kommodo.ai/i/h7SL60xLmTXAEpePP592">
-    <div class="info">
-      <h2>KIT GUERREIRO</h2>
-      <p class="preco">R$ 8,99</p>
-      <button onclick="abrir()">COMPRAR</button>
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/azn5n-qhcmy.png">
+      <div class="info">
+        <h3>KIT GUERREIRO</h3>
+        <p class="preco">R$ 8,99</p>
+        <button onclick="abrir()">COMPRAR</button>
+      </div>
     </div>
-  </div>
 
-  <div class="kit">
-    <img src="https://kommodo.ai/i/aiF92sYbbLH8or6IurUz">
-    <div class="info">
-      <h2>KIT DIVINO</h2>
-      <p class="preco">R$ 11,99</p>
-      <button onclick="abrir()">COMPRAR</button>
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a9gi1-qz6r9.png">
+      <div class="info">
+        <h3>KIT DIVINO</h3>
+        <p class="preco">R$ 11,99</p>
+        <button onclick="abrir()">COMPRAR</button>
+      </div>
     </div>
-  </div>
 
+  </div>
 </div>
 
 <!-- MODAL ORIGINAL -->
 <div id="modal" class="modal">
   <div class="caixa">
-    <span onclick="fechar()" style="float:right;cursor:pointer;font-size:25px;">×</span>
-    <h2>💳 PAGAMENTO VIA PIX</h2>
+    <h2>💳 PAGAMENTO PIX</h2>
     <div class="chave">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
     <button onclick="copiar()">COPIAR</button>
-    <button onclick="pago()">JÁ PAGUEI</button>
+    <button onclick="fechar()">FECHAR</button>
   </div>
 </div>
 
 <script>
-function mostrarKits() {
-  document.getElementById('kits').style.display = "grid";
-}
-
 function abrir() {
   document.getElementById('modal').style.display = "flex";
 }
@@ -208,10 +218,6 @@ function fechar() {
 function copiar() {
   navigator.clipboard.writeText("efc0f5af-cd44-400c-9426-2d071caa7bec");
   alert("Chave copiada!");
-}
-
-function pago() {
-  alert("Envie o comprovante no Discord!");
 }
 </script>
 
