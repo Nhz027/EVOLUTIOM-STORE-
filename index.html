@@ -14,7 +14,6 @@
     }
 
     body {
-      /* FUNDO MAIS BONITO COM BRILHO */
       background-color: #050507;
       color: #ffffff;
       background-image: 
@@ -51,13 +50,12 @@
     }
 
     .destaque {
-      color: #FF8C00; /* Laranja Dragon Ball */
+      color: #FF8C00;
       font-weight: bold;
     }
 
     .loja {
       display: grid;
-      /* DEIXEI TUDO BEM MAIOR */
       grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
       gap: 40px;
       padding: 20px;
@@ -69,7 +67,6 @@
       border-radius: 15px;
       overflow: hidden;
       transition: all 0.3s ease;
-      position: relative;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
@@ -100,11 +97,10 @@
     .kit-preco {
       font-size: 36px;
       font-weight: bold;
-      color: #FFD700; /* Dourado */
+      color: #FFD700;
       margin-bottom: 25px;
     }
 
-    /* BOTÃO VERDE GIGANTE */
     .btn-comprar {
       width: 100%;
       background-color: #28a745;
@@ -129,7 +125,6 @@
       transform: scale(1.03);
     }
 
-    /* ÁREA DOS BOTÕES DE SUPORTE */
     .botoes-area {
       display: flex;
       justify-content: center;
@@ -205,6 +200,131 @@
       color: #b0b0b0;
       font-size: 18px;
     }
+
+    /* ESTILO DA JANELA MODAL (TELA DE PAGAMENTO) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-conteudo {
+      background-color: #101018;
+      border: 3px solid #FF8C00;
+      border-radius: 15px;
+      padding: 40px;
+      width: 90%;
+      max-width: 550px;
+      text-align: center;
+      box-shadow: 0 0 50px rgba(255, 140, 0, 0.5);
+      animation: aparecer 0.3s ease;
+      position: relative;
+    }
+
+    @keyframes aparecer {
+      from {transform: scale(0.8); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+
+    .modal-titulo {
+      font-size: 28px;
+      color: #FF8C00;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .chave-pix {
+      background-color: #1a1a22;
+      border: 2px dashed #FF8C00;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #fff;
+      margin: 20px 0;
+      word-break: break-all;
+    }
+
+    .btn-copiar {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .btn-copiar:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-pago {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .btn-pago:hover {
+      background-color: #2ecc71;
+      box-shadow: 0 0 20px rgba(40, 167, 69, 0.6);
+    }
+
+    .sucesso {
+      display: none;
+      font-size: 22px;
+      color: #2ecc71;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .fechar {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      color: #aaa;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .fechar:hover {
+      color: white;
+    }
+
+    .btn-discord-modal {
+      background-color: #5865F2;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+      margin-top: 15px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-discord-modal:hover {
+      background-color: #7289da;
+    }
 </style>
 </head>
 <body>
@@ -218,55 +338,55 @@
   <div class="loja">
 
     <div class="kit">
-      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/aiag1-2syef.png" alt="Kit Fortuna" class="kit-img">
-      <div class="kit-info">
-        <h3 class="kit-nome">KIT FORTUNA</h3>
-        <p class="kit-preco">R$ 3,00</p>
-        <button class="btn-comprar" onclick="comprar()">
-          🛒 COMPRAR AGORA
-        </button>
-      </div>
-    </div>
-
-    <div class="kit">
-      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ah8br-f2btc.png" alt="Kit Explorador" class="kit-img">
-      <div class="kit-info">
-        <h3 class="kit-nome">KIT EXPLORADOR</h3>
-        <p class="kit-preco">R$ 4,50</p>
-        <button class="btn-comprar" onclick="comprar()">
-          🛒 COMPRAR AGORA
-        </button>
-      </div>
-    </div>
-
-    <div class="kit">
-      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ak82a-t87rp.png" alt="Kit Guerreiro" class="kit-img">
-      <div class="kit-info">
-        <h3 class="kit-nome">KIT GUERREIRO</h3>
-        <p class="kit-preco">R$ 8,99</p>
-        <button class="btn-comprar" onclick="comprar()">
-          🛒 COMPRAR AGORA
-        </button>
-      </div>
-    </div>
-
-    <div class="kit">
-      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/aq29z-52ppd.png" alt="Kit Treinamento" class="kit-img">
-      <div class="kit-info">
-        <h3 class="kit-nome">KIT TREINAMENTO</h3>
-        <p class="kit-preco">R$ 5,99</p>
-        <button class="btn-comprar" onclick="comprar()">
-          🛒 COMPRAR AGORA
-        </button>
-      </div>
-    </div>
-
-    <div class="kit">
       <img src="https://s10.aconvert.com/convert/p3r68-cdx67/anfjf-r7ewu.png" alt="Kit Divino" class="kit-img">
       <div class="kit-info">
         <h3 class="kit-nome">KIT DIVINO</h3>
         <p class="kit-preco">R$ 11,99</p>
-        <button class="btn-comprar" onclick="comprar()">
+        <button class="btn-comprar" onclick="abrirModal()">
+          🛒 COMPRAR AGORA
+        </button>
+      </div>
+    </div>
+
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ak82a-t87rp.png" alt="Kit Fortuna" class="kit-img">
+      <div class="kit-info">
+        <h3 class="kit-nome">KIT FORTUNA</h3>
+        <p class="kit-preco">R$ 3,00</p>
+        <button class="btn-comprar" onclick="abrirModal()">
+          🛒 COMPRAR AGORA
+        </button>
+      </div>
+    </div>
+
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ah8br-f2btc.png" alt="Kit Treinamento" class="kit-img">
+      <div class="kit-info">
+        <h3 class="kit-nome">KIT TREINAMENTO</h3>
+        <p class="kit-preco">R$ 5,99</p>
+        <button class="btn-comprar" onclick="abrirModal()">
+          🛒 COMPRAR AGORA
+        </button>
+      </div>
+    </div>
+
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a2rjy-kopni.png" alt="Kit Guerreiro" class="kit-img">
+      <div class="kit-info">
+        <h3 class="kit-nome">KIT GUERREIRO</h3>
+        <p class="kit-preco">R$ 8,99</p>
+        <button class="btn-comprar" onclick="abrirModal()">
+          🛒 COMPRAR AGORA
+        </button>
+      </div>
+    </div>
+
+    <div class="kit">
+      <img src="https://s10.aconvert.com/convert/p3r68-cdx67/ab7o9-t5h99.png" alt="Kit Explorador" class="kit-img">
+      <div class="kit-info">
+        <h3 class="kit-nome">KIT EXPLORADOR</h3>
+        <p class="kit-preco">R$ 4,50</p>
+        <button class="btn-comprar" onclick="abrirModal()">
           🛒 COMPRAR AGORA
         </button>
       </div>
@@ -274,7 +394,6 @@
 
   </div>
 
-  <!-- BOTÕES COM O LINK QUE VOCÊ MANDOU -->
   <div class="botoes-area">
     <a class="btn-discord" href="https://discord.gg/krw8dEgPq" target="_blank">
       📢 ENTRAR NO DISCORD
@@ -298,16 +417,14 @@
   </div>
 </div>
 
-<script>
-function comprar() {
-  alert("🛒 PEDIDO GERADO!\n\n" +
-        "🔑 CHAVE PIX:\n" +
-        "efc0f5af-cd44-400c-9426-2d071caa7bec\n\n" +
-        "📸 APÓS O PAGAMENTO:\n" +
-        "Abra um TICKET no Discord e envie o comprovante!\n\n" +
-        "⏳ Aguarde o atendimento para receber seu kit!");
-}
-</script>
-
-</body>
-</html>
+<!-- JANELA DE PAGAMENTO -->
+<div id="myModal" class="modal">
+  <div class="modal-conteudo">
+    <span class="fechar" onclick="fecharModal()">&times;</span>
+    
+    <div id="passo1">
+      <h2 class="modal-titulo">💳 PAGAMENTO VIA PIX</h2>
+      <p>Escaneie o QR Code ou copie a chave abaixo:</p>
+      
+      <div class="chave-p
+          
