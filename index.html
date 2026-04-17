@@ -16,12 +16,12 @@
       background-size: cover;
       background-attachment: fixed;
       color: #fff;
-      padding: 30px;
+      padding: 20px;
     }
     h1 {
       text-align: center;
-      font-size: 42px;
-      margin: 20px 0 10px;
+      font-size: 36px;
+      margin: 10px 0;
     }
     h1 span {
       color: #FF8C00;
@@ -29,29 +29,27 @@
     }
     .subtitulo {
       text-align: center;
-      font-size: 18px;
-      margin-bottom: 50px;
+      font-size: 16px;
+      margin-bottom: 30px;
       color: #ddd;
     }
 
-    /* ESTILO DOS BOTÕES GRANDES INICIAIS */
+    /* BOTÃO KITS */
     .menu-categorias {
       display: flex;
       justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
     }
     .categoria {
-      width: 300px;
-      height: 300px;
+      width: 250px;
+      height: 100px;
       background: rgba(0,0,0,0.7);
       border: 4px solid #5a3e2b;
       border-radius: 15px;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 40px;
+      font-size: 30px;
       font-weight: bold;
       color: #FF8C00;
       cursor: pointer;
@@ -60,30 +58,30 @@
     .categoria:hover {
       border-color: #FF8C00;
       transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+      box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
     }
 
-    /* ÁREA QUE APARECE QUANDO CLICA */
+    /* ÁREA DOS KITS */
     .area-conteudo {
       display: none;
-      max-width: 1300px;
+      max-width: 1200px;
       margin: 0 auto;
     }
     .loja {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
     }
     .kit {
       background: rgba(0,0,0,0.6);
-      border: 4px solid #5a3e2b;
-      border-radius: 15px;
+      border: 3px solid #5a3e2b;
+      border-radius: 12px;
       overflow: hidden;
       transition: 0.3s;
     }
     .kit:hover {
       border-color: #FF8C00;
-      transform: translateY(-8px);
+      transform: translateY(-5px);
     }
     .kit img {
       width: 100%;
@@ -91,46 +89,46 @@
       display: block;
     }
     .info {
-      padding: 25px;
+      padding: 15px;
     }
     h2 {
-      font-size: 28px;
-      margin-bottom: 10px;
+      font-size: 22px;
+      margin-bottom: 8px;
     }
     .preco {
-      font-size: 34px;
+      font-size: 26px;
       color: #FFD700;
       font-weight: bold;
-      margin: 15px 0 20px;
+      margin: 10px 0 15px;
     }
     button {
       width: 100%;
       background: #28a745;
       color: white;
       border: none;
-      padding: 18px;
-      font-size: 22px;
+      padding: 12px;
+      font-size: 18px;
       border-radius: 8px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 5px;
     }
     button:hover {
       opacity: 0.9;
     }
     .btn-copiar {
       background: #007bff;
+      margin-top: 10px;
     }
     .btn-discord {
       background: #5865F2;
       color: white;
-      padding: 18px;
+      padding: 12px;
       border-radius: 8px;
       text-decoration: none;
       display: block;
-      margin-top: 20px;
+      margin-top: 15px;
       font-weight: bold;
-      font-size: 22px;
+      font-size: 18px;
     }
     .modal {
       display: none;
@@ -146,68 +144,68 @@
     .caixa {
       background: #101018;
       border: 4px solid #FF8C00;
-      padding: 40px;
-      border-radius: 20px;
+      padding: 30px;
+      border-radius: 15px;
       text-align: center;
       width: 100%;
-      max-width: 650px;
+      max-width: 550px;
       position: relative;
     }
     .chave {
       background: #1a1a22;
-      border: 3px dashed #FF8C00;
-      padding: 20px;
-      margin: 25px 0;
-      border-radius: 10px;
+      border: 2px dashed #FF8C00;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 8px;
       word-break: break-all;
-      font-size: 16px;
+      font-size: 14px;
     }
     .sucesso {
       display: none;
     }
     .sucesso h2 {
       color: #2ecc71;
-      font-size: 32px;
-      margin-bottom: 20px;
+      font-size: 26px;
+      margin-bottom: 15px;
     }
     .sucesso p {
-      font-size: 20px;
-      line-height: 1.6;
-      margin-bottom: 25px;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 20px;
       color: #ddd;
     }
     .fechar {
       position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 35px;
+      top: 10px;
+      right: 15px;
+      font-size: 30px;
       cursor: pointer;
       color: #aaa;
     }
     .botoes-finais {
       display: flex;
-      gap: 20px;
+      gap: 15px;
       justify-content: center;
-      margin-top: 50px;
+      margin-top: 30px;
       flex-wrap: wrap;
     }
     .btn-discord-grande {
       background: #5865F2;
       color: white;
-      padding: 20px 40px;
-      border-radius: 10px;
+      padding: 15px 30px;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 22px;
+      font-size: 18px;
     }
     .btn-atendente {
       background: #b05a00;
       color: white;
-      padding: 20px 40px;
-      border-radius: 10px;
+      padding: 15px 30px;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 22px;
+      font-size: 18px;
     }
 </style>
 </head>
@@ -216,10 +214,9 @@
 <h1>A LOJA OFICIAL DO SERVIDOR <span>EVOLUTIUM CRAFT</span></h1>
 <p class="subtitulo">compre kits, vips, unban, chaves e muito mais!</p>
 
-<!-- MENU INICIAL COM OS QUADRADOS -->
+<!-- BOTÃO KITS -->
 <div class="menu-categorias">
-  <div class="categoria" onclick="mostrarKits()">📦 KITS</div>
-  <div class="categoria">OUTROS</div> <!-- Você pode adicionar mais depois -->
+  <div class="categoria" onclick="alternarKits()">📦 KITS</div>
 </div>
 
 <!-- ÁREA DOS PRODUTOS -->
@@ -227,7 +224,6 @@
 
   <div class="loja">
 
-    <!-- KIT FORTUNA -->
     <div class="kit">
       <img src="https://s10.aconvert.com/convert/p3r68-cdx67/akwy1-88sgm.png" alt="Kit Fortuna">
       <div class="info">
@@ -237,7 +233,6 @@
       </div>
     </div>
 
-    <!-- KIT EXPLORADOR -->
     <div class="kit">
       <img src="https://s10.aconvert.com/convert/p3r68-cdx67/auxbv-ypw53.png" alt="Kit Explorador">
       <div class="info">
@@ -247,7 +242,6 @@
       </div>
     </div>
 
-    <!-- KIT TREINAMENTO -->
     <div class="kit">
       <img src="https://s10.aconvert.com/convert/p3r68-cdx67/aoo5o-unh8s.png" alt="Kit Treinamento">
       <div class="info">
@@ -257,7 +251,6 @@
       </div>
     </div>
 
-    <!-- KIT GUERREIRO -->
     <div class="kit">
       <img src="https://s10.aconvert.com/convert/p3r68-cdx67/azn5n-qhcmy.png" alt="Kit Guerreiro">
       <div class="info">
@@ -267,7 +260,6 @@
       </div>
     </div>
 
-    <!-- KIT DIVINO -->
     <div class="kit">
       <img src="https://s10.aconvert.com/convert/p3r68-cdx67/a9gi1-qz6r9.png" alt="Kit Divino">
       <div class="info">
@@ -309,8 +301,13 @@
 </div>
 
 <script>
-function mostrarKits() {
-  document.getElementById('areaKits').style.display = "block";
+function alternarKits() {
+  var area = document.getElementById('areaKits');
+  if (area.style.display === "block") {
+    area.style.display = "none";
+  } else {
+    area.style.display = "block";
+  }
 }
 function abrir() {
   document.getElementById('modal').style.display = "flex";
