@@ -26,13 +26,13 @@
             margin-bottom: 40px;
         }
         .aba {
-            padding: 15px 40px;
+            padding: 12px 35px;
             background: #111114;
             border: 2px solid #333;
             border-radius: 10px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 18px;
             transition: 0.3s;
             color: #888;
         }
@@ -59,9 +59,9 @@
             text-align: center;
         }
         .card:hover { border-color: #FF8C00; transform: translateY(-5px); }
-        .card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; background: #000; }
-        .card h3 { color: #FF8C00; margin-bottom: 10px; }
-        .preco { font-size: 24px; font-weight: bold; margin: 10px 0; }
+        .card img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; background: #000; }
+        .card h3 { color: #FF8C00; margin-bottom: 5px; font-size: 18px; }
+        .preco { font-size: 24px; font-weight: bold; margin: 10px 0; color: #fff; }
         .btn-abrir { width: 100%; padding: 12px; background: #FF8C00; border: none; border-radius: 6px; color: #fff; font-weight: bold; cursor: pointer; }
 
         /* MODAL DE DETALHES */
@@ -86,6 +86,16 @@
         .slot img { width: 32px; height: 32px; }
 
         .aviso { background: #1a1a1c; padding: 15px; border-radius: 8px; font-size: 13px; color: #888; text-align: center; margin-top: 20px; }
+
+        /* Estilo específico para imagens dentro do VIP */
+        .vip-kits-imgs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .vip-kits-imgs img { width: 120px; border: 1px solid #333; border-radius: 5px; }
     </style>
 </head>
 <body>
@@ -99,39 +109,50 @@
 
     <!-- ABA DE KITS -->
     <div id="abaKits" class="container-loja" style="display: grid;">
-        <div class="card" onclick="abrirDetalhes('KIT EXPLORADOR', '5,99', 'O kit ideal para quem está começando. Itens básicos de sobrevivência.', 'Fechado')">
-            <img src="https://imgur.com">
-            <h3>EXPLORADOR</h3>
-            <p class="preco">R$ 5,99</p>
-            <button class="btn-abrir">Ver Detalhes</button>
+        <!-- EXPLORADOR -->
+        <div class="card" onclick="abrirDetalhes('KIT EXPLORADOR', '5,90', '', 'https://www.image2url.com/r2/default/images/1777201320061-f0615e0e-4b2d-49b9-9284-82686cee7615.png')">
+            <img src="https://www.image2url.com/r2/default/images/1777201320061-f0615e0e-4b2d-49b9-9284-82686cee7615.png">
+            <h3>KIT EXPLORADOR</h3>
+            <p class="preco">R$ 5,90</p>
+            <button class="btn-abrir">Ver Kit</button>
         </div>
-        <div class="card" onclick="abrirDetalhes('KIT GUERREIRO', '9,99', 'Equipamentos de combate para enfrentar qualquer desafio.', 'Fechado')">
-            <img src="https://imgur.com">
-            <h3>GUERREIRO</h3>
-            <p class="preco">R$ 9,99</p>
-            <button class="btn-abrir">Ver Detalhes</button>
+        <!-- FORTUNE -->
+        <div class="card" onclick="abrirDetalhes('KIT FORTUNA', '7,99', '', 'https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png')">
+            <img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png">
+            <h3>KIT FORTUNA</h3>
+            <p class="preco">R$ 7,99</p>
+            <button class="btn-abrir">Ver Kit</button>
         </div>
-        <div class="card" onclick="abrirDetalhes('KIT DIVINO', '17,99', 'O poder máximo dos deuses. Itens de Netherite Full.', 'Aberto')">
-            <img src="https://imgur.com">
-            <h3>DIVINO</h3>
-            <p class="preco">R$ 17,99</p>
-            <button class="btn-abrir">Ver Detalhes</button>
+        <!-- TREINAMENTO -->
+        <div class="card" onclick="abrirDetalhes('KIT TREINAMENTO', '7,99', '', 'https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png')">
+            <img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png">
+            <h3>KIT TREINAMENTO</h3>
+            <p class="preco">R$ 7,99</p>
+            <button class="btn-abrir">Ver Kit</button>
+        </div>
+        <!-- GUERREIRO -->
+        <div class="card" onclick="abrirDetalhes('KIT GUERREIRO', '14,99', '', 'https://www.image2url.com/r2/default/images/1777201368066-3dfd02a5-ee97-4a14-b480-343326c2cbd3.png')">
+            <img src="https://www.image2url.com/r2/default/images/1777201368066-3dfd02a5-ee97-4a14-b480-343326c2cbd3.png">
+            <h3>KIT GUERREIRO</h3>
+            <p class="preco">R$ 14,99</p>
+            <button class="btn-abrir">Ver Kit</button>
+        </div>
+        <!-- DIVINO -->
+        <div class="card" onclick="abrirDetalhes('KIT DIVINO', '19,00', '', 'https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png')">
+            <img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png">
+            <h3>KIT DIVINO</h3>
+            <p class="preco">R$ 19,00</p>
+            <button class="btn-abrir">Ver Kit</button>
         </div>
     </div>
 
     <!-- ABA DE VIPS -->
     <div id="abaVips" class="container-loja">
-        <div class="card" onclick="abrirDetalhes('VIP ASTRAL', '59,99', 'O cargo mais alto do servidor com vantagens exclusivas e comandos especiais.', 'Aberto')">
-            <img src="https://imgur.com">
+        <div class="card" onclick="abrirDetalhesVip('VIP ASTRAL', '59,99', '+5 HOMES<br>+AREA VIP<br>+TAG ÚNICA')">
+            <img src="https://imgur.com" alt="VIP Astral">
             <h3>VIP ASTRAL</h3>
             <p class="preco">R$ 59,99</p>
-            <button class="btn-abrir">Ver Detalhes</button>
-        </div>
-        <div class="card" onclick="abrirDetalhes('KIT FORTUNA', '3,99', 'Aumente seus ganhos de mineração drasticamente.', 'Fechado')">
-            <img src="https://imgur.com">
-            <h3>FORTUNA</h3>
-            <p class="preco">R$ 3,99</p>
-            <button class="btn-abrir">Ver Detalhes</button>
+            <button class="btn-abrir">Ver Vantagens</button>
         </div>
     </div>
 
@@ -139,31 +160,40 @@
     <div id="modalDetalhes" class="modal">
         <div class="modal-corpo">
             <span class="fechar" onclick="fecharModal()">&times;</span>
-            <h2 id="detalheNome" style="color: #FF8C00;">NOME DO KIT</h2>
+            <h2 id="detalheNome" style="color: #FF8C00;">NOME</h2>
+            
             <button class="btn-abrir" style="margin: 20px 0; font-size: 18px;" onclick="abrirPix()">🛒 Comprar agora por R$ <span id="detalhePreco">0,00</span></button>
 
-            <div class="titulo-secao">Descrição</div>
-            <p id="detalheDesc" style="color: #ccc; font-size: 14px; line-height: 1.6;"></p>
+            <div id="containerDescricao">
+                <div class="titulo-secao">Vantagens</div>
+                <p id="detalheDesc" style="color: #ccc; font-size: 14px; line-height: 1.6;"></p>
+            </div>
 
-            <div id="secaoItens">
-                <div class="titulo-secao">Itens Inclusos</div>
-                <div class="grade-itens">
-                    <!-- Itens padrão para exemplo (Netherite) -->
-                    <div class="slot"><img src="https://minecraft.wiki"></div>
-                    <div class="slot"><img src="https://minecraft.wiki"></div>
-                    <div class="slot"><img src="https://minecraft.wiki"></div>
-                    <div class="slot"><img src="https://minecraft.wiki"></div>
-                    <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
-                    <div class="slot"><img src="https://minecraft.wiki"></div>
-                    <div class="slot"><img src="https://minecraft.wiki"></div>
-                    <div class="slot"><img src="https://minecraft.wiki"></div>
-                    <div class="slot"><img src="https://minecraft.wiki"></div>
-                    <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+            <div id="secaoVipImgs" style="display:none;">
+                <div class="titulo-secao">Kits Inclusos no VIP</div>
+                <div class="vip-kits-imgs">
+                    <img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png" title="Kit Divino">
+                    <img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png" title="Kit Treinamento">
+                    <img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png" title="Kit Fortuna">
                 </div>
             </div>
 
+            <div class="titulo-secao">Itens do Kit</div>
+            <div class="grade-itens">
+                <div class="slot"><img src="https://minecraft.wiki"></div>
+                <div class="slot"><img src="https://minecraft.wiki"></div>
+                <div class="slot"><img src="https://minecraft.wiki"></div>
+                <div class="slot"><img src="https://minecraft.wiki"></div>
+                <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+                <div class="slot"><img src="https://minecraft.wiki"></div>
+                <div class="slot"><img src="https://minecraft.wiki"></div>
+                <div class="slot"><img src="https://minecraft.wiki"></div>
+                <div class="slot"><img src="https://minecraft.wiki"></div>
+                <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+            </div>
+
             <div class="aviso">
-                Entrega imediata via sistema automático ou suporte no Discord. Certifique-se de estar online no servidor.
+                Após o pagamento, envie o comprovante no Discord para ativação imediata.
             </div>
         </div>
     </div>
@@ -173,11 +203,11 @@
         <div class="modal-corpo" style="text-align: center; max-width: 400px;">
             <span class="fechar" onclick="fecharPix()">&times;</span>
             <h3 style="color: #FF8C00;">PAGAMENTO PIX</h3>
-            <p style="margin: 15px 0; font-size: 14px; color: #888;">Copie a chave e pague no seu banco:</p>
+            <p style="margin: 15px 0; font-size: 14px; color: #888;">Copie a chave Pix abaixo:</p>
             <div style="background: #000; padding: 15px; border: 1px dashed #FF8C00; color: #FFDD00; font-size: 12px; word-break: break-all;">
                 efc0f5af-cd44-400c-9426-2d071caa7bec
             </div>
-            <button class="btn-abrir" style="margin-top: 20px;" onclick="alert('Copiado!')">📋 COPIAR CHAVE</button>
+            <button class="btn-abrir" style="margin-top: 20px;" onclick="alert('Chave Copiada!')">📋 COPIAR CHAVE</button>
         </div>
     </div>
 
@@ -200,7 +230,23 @@
         function abrirDetalhes(nome, preco, desc) {
             document.getElementById('detalheNome').innerText = nome;
             document.getElementById('detalhePreco').innerText = preco;
-            document.getElementById('detalheDesc').innerText = desc;
+            document.getElementById('detalheDesc').innerHTML = desc;
+            
+            document.getElementById('containerDescricao').style.display = 'none';
+            document.getElementById('secaoVipImgs').style.display = 'none';
+            
+            document.getElementById('modalDetalhes').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function abrirDetalhesVip(nome, preco, desc) {
+            document.getElementById('detalheNome').innerText = nome;
+            document.getElementById('detalhePreco').innerText = preco;
+            document.getElementById('detalheDesc').innerHTML = desc;
+            
+            document.getElementById('containerDescricao').style.display = 'block';
+            document.getElementById('secaoVipImgs').style.display = 'block';
+            
             document.getElementById('modalDetalhes').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
