@@ -94,6 +94,8 @@
             border-radius: 15px;
             overflow: hidden;
             transition: 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .kit:hover {
@@ -102,11 +104,11 @@
             box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
         }
 
-        .kit img { width: 100%; height: auto; display: block; }
+        .kit img { width: 100%; height: auto; display: block; background: #000; }
 
-        .info { padding: 20px; text-align: center; }
+        .info { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
 
-        h2 { font-size: 22px; color: #FFDD00; margin-bottom: 10px; }
+        h2 { font-size: 22px; color: #FFDD00; margin-bottom: 10px; text-transform: uppercase; }
 
         .desc { font-size: 14px; color: #bbb; margin-bottom: 15px; line-height: 1.4; }
 
@@ -127,7 +129,6 @@
 
         button:hover { background: #FFDD00; color: #000; }
 
-        /* Estilo para Botão de Atendente e Discord Finais */
         .botoes-finais {
             display: flex;
             gap: 15px;
@@ -150,7 +151,6 @@
         .btn-atendente { background: #27ae60; color: white; }
         .btn-link:hover { transform: scale(1.05); filter: brightness(1.2); }
 
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -200,29 +200,47 @@
     <!-- SEÇÃO DE KITS -->
     <div id="areaKits" class="area-conteudo" style="display: block;">
         <div class="loja">
+            <!-- KIT EXPLORADOR -->
             <div class="kit">
-                <img src="https://image2url.com">
+                <img src="https://image2url.com" alt="Explorador">
                 <div class="info">
                     <h2>KIT EXPLORADOR</h2>
-                    <p class="desc">Ideal para começar sua jornada com equipamentos de ferro e suprimentos.</p>
                     <p class="preco">R$ 5,99</p>
                     <button onclick="abrirModal()">COMPRAR</button>
                 </div>
             </div>
+            <!-- KIT FORTUNA -->
             <div class="kit">
-                <img src="https://image2url.com">
+                <img src="https://image2url.com" alt="Fortuna">
                 <div class="info">
                     <h2>KIT FORTUNA</h2>
-                    <p class="desc">Aumente seus ganhos de mineração drasticamente.</p>
                     <p class="preco">R$ 3,99</p>
                     <button onclick="abrirModal()">COMPRAR</button>
                 </div>
             </div>
+            <!-- KIT TREINAMENTO -->
             <div class="kit">
-                <img src="https://image2url.com">
+                <img src="https://image2url.com" alt="Treinamento">
+                <div class="info">
+                    <h2>KIT TREINAMENTO</h2>
+                    <p class="preco">R$ 3,99</p>
+                    <button onclick="abrirModal()">COMPRAR</button>
+                </div>
+            </div>
+            <!-- KIT GUERREIRO -->
+            <div class="kit">
+                <img src="https://image2url.com" alt="Guerreiro">
+                <div class="info">
+                    <h2>KIT GUERREIRO</h2>
+                    <p class="preco">R$ 9,99</p>
+                    <button onclick="abrirModal()">COMPRAR</button>
+                </div>
+            </div>
+            <!-- KIT DIVINO -->
+            <div class="kit">
+                <img src="https://image2url.com" alt="Divino">
                 <div class="info">
                     <h2>KIT DIVINO</h2>
-                    <p class="desc">O poder dos deuses em suas mãos. Itens full netherite.</p>
                     <p class="preco">R$ 17,99</p>
                     <button onclick="abrirModal()">COMPRAR</button>
                 </div>
@@ -233,21 +251,40 @@
     <!-- SEÇÃO DE VIPS -->
     <div id="areaVips" class="area-conteudo">
         <div class="loja">
-            <div class="kit" style="border-color: #cd7f32;">
-                <img src="https://placeholder.com">
+            <!-- VIP ASTRAL -->
+            <div class="kit" style="border-color: #8a2be2; background: rgba(30, 0, 50, 0.8);">
+                <img src="https://placeholder.com" alt="VIP Astral">
                 <div class="info">
-                    <h2>VIP BRONZE</h2>
-                    <p class="desc">• Tag [Bronze]<br>• Comando /fly no lobby<br>• 2 Homes extras</p>
-                    <p class="preco">R$ 15,00</p>
+                    <h2>VIP ASTRAL</h2>
+                    <p class="desc">+10 HOMES<br>+30 FRUTAS<br>+TAG ÚNICA<br>+ÁREA VIP</p>
+                    <p class="preco">R$ 59,99</p>
                     <button onclick="abrirModal()">COMPRAR</button>
                 </div>
             </div>
-            <div class="kit" style="border-color: #ffdd00;">
-                <img src="https://placeholder.com">
+            <!-- KIT DIVINO (NO VIP) -->
+            <div class="kit">
+                <img src="https://image2url.com">
                 <div class="info">
-                    <h2>VIP OURO</h2>
-                    <p class="desc">• Tudo do Bronze<br>• Acesso ao /compactar<br>• Kit diário exclusivo</p>
-                    <p class="preco">R$ 30,00</p>
+                    <h2>KIT DIVINO</h2>
+                    <p class="preco">R$ 17,99</p>
+                    <button onclick="abrirModal()">COMPRAR</button>
+                </div>
+            </div>
+            <!-- KIT FORTUNA (NO VIP) -->
+            <div class="kit">
+                <img src="https://image2url.com">
+                <div class="info">
+                    <h2>KIT FORTUNA</h2>
+                    <p class="preco">R$ 3,99</p>
+                    <button onclick="abrirModal()">COMPRAR</button>
+                </div>
+            </div>
+            <!-- KIT TREINAMENTO (NO VIP) -->
+            <div class="kit">
+                <img src="https://image2url.com">
+                <div class="info">
+                    <h2>KIT TREINAMENTO</h2>
+                    <p class="preco">R$ 3,99</p>
                     <button onclick="abrirModal()">COMPRAR</button>
                 </div>
             </div>
@@ -256,24 +293,24 @@
 
     <div class="botoes-finais">
         <a href="https://discord.gg" target="_blank" class="btn-link btn-discord-grande">📢 ENTRAR NO DISCORD</a>
-        <a href="https://discord.gg" target="_blank" class="btn-link btn-atendente">💬 SUPORTE / TICKETS</a>
+        <a href="https://discord.gg" target="_blank" class="btn-link btn-atendente">💬 FALAR COM ATENDENTE</a>
     </div>
 
-    <!-- MODAL DE PAGAMENTO -->
+    <!-- MODAL -->
     <div id="modalPagamento" class="modal">
         <div class="caixa">
             <span class="fechar" onclick="fecharModal()">&times;</span>
             <div id="passo1">
                 <h2>💳 PAGAMENTO VIA PIX</h2>
-                <p>Copie a chave abaixo para pagar:</p>
+                <p>Copie a chave e pague no seu banco:</p>
                 <div class="chave" id="pixKey">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
                 <button onclick="copiarChave()" style="background: #007bff; margin-bottom: 10px;">📋 COPIAR CHAVE</button>
-                <button onclick="confirmarPagamento()">✅ JÁ REALIZEI O PAGAMENTO</button>
+                <button onclick="confirmarPagamento()">✅ JÁ PAGUEI</button>
             </div>
             <div id="passo2" class="sucesso">
-                <h2>✅ QUASE LÁ!</h2>
-                <p>Para receber seu produto, envie o <b>print do comprovante</b> no nosso Discord agora mesmo!</p>
-                <a href="https://discord.gg" target="_blank" class="btn-link btn-discord-grande" style="display:inline-block; margin-top:15px;">ABRIR TICKET NO DISCORD</a>
+                <h2>✅ PAGAMENTO RECEBIDO!</h2>
+                <p>Agora abra um ticket no Discord e envie o comprovante!</p>
+                <a href="https://discord.gg" target="_blank" class="btn-link btn-discord-grande" style="display:inline-block; margin-top:15px;">IR PARA O DISCORD</a>
             </div>
         </div>
     </div>
@@ -284,23 +321,16 @@
             document.getElementById('areaVips').style.display = 'none';
             document.getElementById(id).style.display = 'block';
         }
-
         function abrirModal() {
             document.getElementById('modalPagamento').style.display = 'flex';
             document.getElementById('passo1').style.display = 'block';
             document.getElementById('passo2').style.display = 'none';
         }
-
-        function fecharModal() {
-            document.getElementById('modalPagamento').style.display = 'none';
-        }
-
+        function fecharModal() { document.getElementById('modalPagamento').style.display = 'none'; }
         function copiarChave() {
-            const texto = document.getElementById('pixKey').innerText;
-            navigator.clipboard.writeText(texto);
-            alert("Chave PIX copiada com sucesso!");
+            navigator.clipboard.writeText(document.getElementById('pixKey').innerText);
+            alert("Chave PIX copiada!");
         }
-
         function confirmarPagamento() {
             document.getElementById('passo1').style.display = 'none';
             document.getElementById('passo2').style.display = 'block';
