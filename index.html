@@ -53,7 +53,7 @@
         .modal-corpo {
             background: #111114; 
             max-width: 95%; 
-            width: 700px; 
+            width: 750px; 
             margin: 20px auto;
             border-radius: 15px; 
             padding: 45px 25px; 
@@ -64,14 +64,26 @@
 
         .fechar { position: absolute; top: 10px; right: 15px; font-size: 45px; cursor: pointer; color: #FF8C00; line-height: 1; }
 
-        .img-vip-grande {
+        /* DESTAQUE DO VIP ASTRAL */
+        .img-vip-destaque {
             width: 100%;
-            max-width: 500px;
+            max-width: 550px;
             height: auto;
             border-radius: 12px;
             border: 2px solid #FF8C00;
-            margin-bottom: 20px;
-            box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
+            margin: 20px 0;
+            box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
+        }
+
+        .mensal-badge {
+            background: #FF8C00;
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            display: inline-block;
+            margin-bottom: 10px;
         }
 
         .vantagens-vip { 
@@ -91,7 +103,7 @@
             flex-wrap: wrap; 
         }
         .kits-vips-lista img { 
-            width: 160px; 
+            width: 170px; 
             border: 2px solid #333; 
             border-radius: 10px; 
         }
@@ -105,17 +117,6 @@
         .chave-pix { background: #000; padding: 20px; border: 2px dashed #FF8C00; color: #FFDD00; font-size: 16px; word-break: break-all; margin: 20px 0; font-family: monospace; }
         
         .aviso-ticket { background: rgba(255, 140, 0, 0.1); border: 1px solid #FF8C00; padding: 20px; border-radius: 10px; margin-top: 25px; color: #ffca80; font-size: 16px; line-height: 1.5; }
-        
-        .mensal-badge {
-            background: #FF8C00;
-            color: #000;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
     </style>
 </head>
 <body>
@@ -130,35 +131,35 @@
     <!-- ABA KITS -->
     <div id="containerKits" class="loja-container" style="display: grid;">
         <div class="card" onclick="abrirPix()">
-            <img src="https://image2url.com" class="banner-img">
+            <img src="https://www.image2url.com/r2/default/images/1777201320061-f0615e0e-4b2d-49b9-9284-82686cee7615.png" class="banner-img">
             <div class="titulo-item">KIT EXPLORADOR</div>
             <div class="preco">R$ 5,99</div>
             <span class="pix-tag">À vista no Pix</span>
             <button class="btn-comprar">🛒 Comprar agora</button>
         </div>
         <div class="card" onclick="abrirPix()">
-            <img src="https://image2url.com" class="banner-img">
+            <img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png" class="banner-img">
             <div class="titulo-item">KIT FORTUNA</div>
             <div class="preco">R$ 7,99</div>
             <span class="pix-tag">À vista no Pix</span>
             <button class="btn-comprar">🛒 Comprar agora</button>
         </div>
         <div class="card" onclick="abrirPix()">
-            <img src="https://image2url.com" class="banner-img">
+            <img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png" class="banner-img">
             <div class="titulo-item">KIT TREINAMENTO</div>
             <div class="preco">R$ 7,99</div>
             <span class="pix-tag">À vista no Pix</span>
             <button class="btn-comprar">🛒 Comprar agora</button>
         </div>
         <div class="card" onclick="abrirPix()">
-            <img src="https://image2url.com" class="banner-img">
+            <img src="https://www.image2url.com/r2/default/images/1777201368066-3dfd02a5-ee97-4a14-b480-343326c2cbd3.png" class="banner-img">
             <div class="titulo-item">KIT GUERREIRO</div>
             <div class="preco">R$ 14,99</div>
             <span class="pix-tag">À vista no Pix</span>
             <button class="btn-comprar">🛒 Comprar agora</button>
         </div>
         <div class="card" onclick="abrirPix()">
-            <img src="https://image2url.com" class="banner-img">
+            <img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png" class="banner-img">
             <div class="titulo-item">KIT DIVINO</div>
             <div class="preco">R$ 19,99</div>
             <span class="pix-tag">À vista no Pix</span>
@@ -170,7 +171,7 @@
     <div id="containerVips" class="loja-container">
         <div class="card" onclick="abrirVip()">
             <img src="https://imgur.com" class="banner-img">
-            <div class="titulo-item">VIP ASTRAL</div>
+            <div class="titulo-item">VIP ASTRAL - MENSAL</div>
             <div class="preco">R$ 59,99</div>
             <span class="pix-tag">À vista no Pix</span>
             <button class="btn-comprar">💎 Ver Detalhes</button>
@@ -183,9 +184,10 @@
             <span class="fechar" onclick="fecharVip()">&times;</span>
             
             <div class="mensal-badge">KIT MENSAL</div>
-            <h2 style="color: #FF8C00; font-size: 36px; margin-bottom: 20px;">VIP ASTRAL</h2>
+            <h2 style="color: #FF8C00; font-size: 38px; margin-bottom: 10px;">VIP ASTRAL</h2>
             
-            <img src="https://imgur.com" class="img-vip-grande" alt="VIP Astral">
+            <!-- IMAGEM ASTRAL EM DESTAQUE -->
+            <img src="https://imgur.com" class="img-vip-destaque" alt="VIP Astral">
 
             <div class="vantagens-vip">
                 <p>🚀 <b>VANTAGENS EXCLUSIVAS:</b></p>
@@ -198,9 +200,9 @@
 
             <p style="font-size: 18px; color: #FF8C00; font-weight: bold; text-transform: uppercase;">Kits Inclusos no Pacote:</p>
             <div class="kits-vips-lista">
-                <img src="https://image2url.com" alt="Divino">
-                <img src="https://image2url.com" alt="Treinamento">
-                <img src="https://image2url.com" alt="Fortuna">
+                <img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png" alt="Divino">
+                <img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png" alt="Treinamento">
+                <img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png" alt="Fortuna">
             </div>
             
             <button class="btn-comprar-final" onclick="abrirPix()">🛒 COMPRAR AGORA - R$ 59,99</button>
