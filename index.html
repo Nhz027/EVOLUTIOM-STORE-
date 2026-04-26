@@ -15,87 +15,102 @@
             padding: 20px;
         }
 
-        h1 { text-align: center; margin-bottom: 30px; font-size: 32px; text-transform: uppercase; font-family: "Arial Black"; }
+        h1 { text-align: center; margin-bottom: 30px; font-size: 28px; text-transform: uppercase; font-family: "Arial Black"; letter-spacing: 2px; }
         h1 span { color: #FF8C00; }
 
-        /* MENU DE ABAS */
+        /* MENU DE ABAS ESTILO SPACE */
         .menu-abas {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 40px;
         }
         .aba {
-            padding: 12px 35px;
-            background: #111114;
-            border: 2px solid #333;
-            border-radius: 10px;
+            padding: 12px 30px;
+            background: #16161a;
+            border: 1px solid #333;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 18px;
             transition: 0.3s;
-            color: #888;
+            color: #ccc;
         }
-        .aba.ativa { border-color: #FF8C00; color: #FF8C00; box-shadow: 0 0 15px rgba(255, 140, 0, 0.2); }
+        .aba.ativa { border-color: #FF8C00; color: #FF8C00; background: #1f1f23; }
 
-        .container-loja {
+        /* GRID DE CARDS */
+        .loja-container {
             display: none;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 20px;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            animation: fadeIn 0.4s ease;
         }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* CARDS */
+        /* CARD ESTILO SPACE CRAFT */
         .card {
             background: #111114;
             border-radius: 12px;
             padding: 15px;
             border: 1px solid #222;
             transition: 0.3s;
+            display: flex;
+            flex-direction: column;
             cursor: pointer;
-            text-align: center;
         }
-        .card:hover { border-color: #FF8C00; transform: translateY(-5px); }
-        .card img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; background: #000; }
-        .card h3 { color: #FF8C00; margin-bottom: 5px; font-size: 18px; }
-        .preco { font-size: 24px; font-weight: bold; margin: 10px 0; color: #fff; }
-        .btn-abrir { width: 100%; padding: 12px; background: #FF8C00; border: none; border-radius: 6px; color: #fff; font-weight: bold; cursor: pointer; }
+        .card:hover { transform: translateY(-5px); border-color: #FF8C00; box-shadow: 0 0 15px rgba(255, 140, 0, 0.2); }
 
-        /* MODAL DE DETALHES */
+        .banner-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #333;
+            background: #000;
+        }
+
+        .titulo-item { font-size: 14px; font-weight: 600; color: #aaa; margin-bottom: 5px; }
+        .preco { font-size: 22px; font-weight: bold; color: #fff; margin-bottom: 15px; }
+        
+        .btn-comprar {
+            width: 100%;
+            padding: 12px;
+            background: #FF8C00;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-comprar:hover { background: #e67e00; }
+
+        /* MODAL VIP (DESCRIÇÃO) */
         .modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.95); z-index: 1000; overflow-y: auto; padding: 20px;
         }
         .modal-corpo {
-            background: #111114; max-width: 600px; margin: 20px auto;
-            border-radius: 15px; padding: 30px; border: 1px solid #333; position: relative;
+            background: #111114; max-width: 550px; margin: 20px auto;
+            border-radius: 15px; padding: 30px; border: 1px solid #FF8C00; position: relative;
         }
-        .fechar { position: absolute; top: 20px; right: 20px; font-size: 30px; cursor: pointer; color: #FF8C00; }
-        .titulo-secao { color: #FF8C00; margin: 20px 0 10px; font-size: 14px; text-transform: uppercase; font-weight: bold; }
+        .fechar { position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; color: #FF8C00; }
 
-        /* INVENTÁRIO MINECRAFT */
-        .grade-itens {
-            background: #8b8b8b; border: 4px solid #373737;
-            display: grid; grid-template-columns: repeat(9, 1fr); gap: 2px;
-            padding: 5px; width: fit-content; margin: 20px auto;
-        }
-        .slot { width: 45px; height: 45px; background: #8b8b8b; border: 2px solid #373737; display: flex; align-items: center; justify-content: center; }
-        .slot img { width: 32px; height: 32px; }
+        .titulo-secao { color: #FF8C00; margin: 20px 0 10px; font-size: 14px; text-transform: uppercase; font-weight: bold; border-bottom: 1px solid #333; padding-bottom: 5px; }
+        .lista-vantagens { list-style: none; color: #ccc; font-size: 15px; line-height: 1.8; }
 
-        .aviso { background: #1a1a1c; padding: 15px; border-radius: 8px; font-size: 13px; color: #888; text-align: center; margin-top: 20px; }
-
-        /* Estilo específico para imagens dentro do VIP */
-        .vip-kits-imgs {
+        .kits-inclusos {
             display: flex;
-            justify-content: center;
             gap: 10px;
             margin-top: 15px;
             flex-wrap: wrap;
+            justify-content: center;
         }
-        .vip-kits-imgs img { width: 120px; border: 1px solid #333; border-radius: 5px; }
+        .kits-inclusos img { width: 100px; border-radius: 5px; border: 1px solid #333; }
+
+        /* MODAL PIX SIMPLES */
+        #modalPix .modal-corpo { max-width: 400px; text-align: center; border-color: #FF8C00; }
+        .chave-pix { background: #000; padding: 15px; border: 1px dashed #FF8C00; color: #FFDD00; font-size: 13px; word-break: break-all; margin: 15px 0; }
     </style>
 </head>
 <body>
@@ -103,161 +118,129 @@
     <h1>EVOLUTIUM <span>CRAFT</span></h1>
 
     <div class="menu-abas">
-        <div class="aba ativa" id="btnKits" onclick="trocarAba('kits')">🐉 KITS</div>
-        <div class="aba" id="btnVips" onclick="trocarAba('vips')">💎 VIPS</div>
+        <div class="aba ativa" id="abaKitsBtn" onclick="trocarAba('kits')">🐉 KITS</div>
+        <div class="aba" id="abaVipsBtn" onclick="trocarAba('vips')">💎 VIPS</div>
     </div>
 
-    <!-- ABA DE KITS -->
-    <div id="abaKits" class="container-loja" style="display: grid;">
+    <!-- ABA KITS -->
+    <div id="containerKits" class="loja-container" style="display: grid;">
         <!-- EXPLORADOR -->
-        <div class="card" onclick="abrirDetalhes('KIT EXPLORADOR', '5,90', '', 'https://www.image2url.com/r2/default/images/1777201320061-f0615e0e-4b2d-49b9-9284-82686cee7615.png')">
-            <img src="https://www.image2url.com/r2/default/images/1777201320061-f0615e0e-4b2d-49b9-9284-82686cee7615.png">
-            <h3>KIT EXPLORADOR</h3>
-            <p class="preco">R$ 5,90</p>
-            <button class="btn-abrir">Ver Kit</button>
+        <div class="card" onclick="abrirPix()">
+            <img src="https://image2url.com" class="banner-img">
+            <div class="titulo-item">KIT EXPLORADOR</div>
+            <div class="preco">R$ 5,90</div>
+            <button class="btn-comprar">Comprar agora</button>
         </div>
-        <!-- FORTUNE -->
-        <div class="card" onclick="abrirDetalhes('KIT FORTUNA', '7,99', '', 'https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png')">
-            <img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png">
-            <h3>KIT FORTUNA</h3>
-            <p class="preco">R$ 7,99</p>
-            <button class="btn-abrir">Ver Kit</button>
+        <!-- FORTUNA -->
+        <div class="card" onclick="abrirPix()">
+            <img src="https://image2url.com" class="banner-img">
+            <div class="titulo-item">KIT FORTUNA</div>
+            <div class="preco">R$ 7,99</div>
+            <button class="btn-comprar">Comprar agora</button>
         </div>
         <!-- TREINAMENTO -->
-        <div class="card" onclick="abrirDetalhes('KIT TREINAMENTO', '7,99', '', 'https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png')">
-            <img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png">
-            <h3>KIT TREINAMENTO</h3>
-            <p class="preco">R$ 7,99</p>
-            <button class="btn-abrir">Ver Kit</button>
+        <div class="card" onclick="abrirPix()">
+            <img src="https://image2url.com" class="banner-img">
+            <div class="titulo-item">KIT TREINAMENTO</div>
+            <div class="preco">R$ 7,99</div>
+            <button class="btn-comprar">Comprar agora</button>
         </div>
         <!-- GUERREIRO -->
-        <div class="card" onclick="abrirDetalhes('KIT GUERREIRO', '14,99', '', 'https://www.image2url.com/r2/default/images/1777201368066-3dfd02a5-ee97-4a14-b480-343326c2cbd3.png')">
-            <img src="https://www.image2url.com/r2/default/images/1777201368066-3dfd02a5-ee97-4a14-b480-343326c2cbd3.png">
-            <h3>KIT GUERREIRO</h3>
-            <p class="preco">R$ 14,99</p>
-            <button class="btn-abrir">Ver Kit</button>
+        <div class="card" onclick="abrirPix()">
+            <img src="https://image2url.com" class="banner-img">
+            <div class="titulo-item">KIT GUERREIRO</div>
+            <div class="preco">R$ 14,99</div>
+            <button class="btn-comprar">Comprar agora</button>
         </div>
         <!-- DIVINO -->
-        <div class="card" onclick="abrirDetalhes('KIT DIVINO', '19,00', '', 'https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png')">
-            <img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png">
-            <h3>KIT DIVINO</h3>
-            <p class="preco">R$ 19,00</p>
-            <button class="btn-abrir">Ver Kit</button>
+        <div class="card" onclick="abrirPix()">
+            <img src="https://image2url.com" class="banner-img">
+            <div class="titulo-item">KIT DIVINO</div>
+            <div class="preco">R$ 19,00</div>
+            <button class="btn-comprar">Comprar agora</button>
         </div>
     </div>
 
-    <!-- ABA DE VIPS -->
-    <div id="abaVips" class="container-loja">
-        <div class="card" onclick="abrirDetalhesVip('VIP ASTRAL', '59,99', '+5 HOMES<br>+AREA VIP<br>+TAG ÚNICA')">
-            <img src="https://imgur.com" alt="VIP Astral">
-            <h3>VIP ASTRAL</h3>
-            <p class="preco">R$ 59,99</p>
-            <button class="btn-abrir">Ver Vantagens</button>
+    <!-- ABA VIPS -->
+    <div id="containerVips" class="loja-container">
+        <div class="card" onclick="abrirVip()">
+            <img src="https://imgur.com" class="banner-img" style="border-color: #FF8C00;">
+            <div class="titulo-item">VIP ASTRAL - ETERNO</div>
+            <div class="preco">R$ 59,99</div>
+            <button class="btn-comprar">Comprar agora</button>
         </div>
     </div>
 
-    <!-- MODAL DE DETALHES -->
-    <div id="modalDetalhes" class="modal">
+    <!-- MODAL DETALHES VIP ASTRAL -->
+    <div id="modalVip" class="modal">
         <div class="modal-corpo">
-            <span class="fechar" onclick="fecharModal()">&times;</span>
-            <h2 id="detalheNome" style="color: #FF8C00;">NOME</h2>
+            <span class="fechar" onclick="fecharVip()">&times;</span>
+            <h2 style="color: #FF8C00; margin-bottom: 10px;">VIP ASTRAL</h2>
+            <p style="font-size: 14px; color: #888;">O pacote supremo do Evolutium Craft.</p>
             
-            <button class="btn-abrir" style="margin: 20px 0; font-size: 18px;" onclick="abrirPix()">🛒 Comprar agora por R$ <span id="detalhePreco">0,00</span></button>
+            <button class="btn-comprar" style="margin: 20px 0; font-size: 18px;" onclick="abrirPix()">🛒 COMPRAR POR R$ 59,99</button>
 
-            <div id="containerDescricao">
-                <div class="titulo-secao">Vantagens</div>
-                <p id="detalheDesc" style="color: #ccc; font-size: 14px; line-height: 1.6;"></p>
+            <div class="titulo-secao">Vantagens do VIP</div>
+            <ul class="lista-vantagens">
+                <li>✨ +5 HOMES EXTRAS</li>
+                <li>🏰 ACESSO À ÁREA VIP</li>
+                <li>👑 TAG ÚNICA NO CHAT</li>
+                <li>🚀 PRIORIDADE NA FILA</li>
+            </ul>
+
+            <div class="titulo-secao">Kits Inclusos</div>
+            <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Ao adquirir o VIP Astral, você recebe estes 3 kits:</p>
+            <div class="kits-inclusos">
+                <img src="https://image2url.com" title="Kit Divino">
+                <img src="https://image2url.com" title="Kit Treinamento">
+                <img src="https://image2url.com" title="Kit Fortuna">
             </div>
 
-            <div id="secaoVipImgs" style="display:none;">
-                <div class="titulo-secao">Kits Inclusos no VIP</div>
-                <div class="vip-kits-imgs">
-                    <img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png" title="Kit Divino">
-                    <img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png" title="Kit Treinamento">
-                    <img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png" title="Kit Fortuna">
-                </div>
-            </div>
-
-            <div class="titulo-secao">Itens do Kit</div>
-            <div class="grade-itens">
-                <div class="slot"><img src="https://minecraft.wiki"></div>
-                <div class="slot"><img src="https://minecraft.wiki"></div>
-                <div class="slot"><img src="https://minecraft.wiki"></div>
-                <div class="slot"><img src="https://minecraft.wiki"></div>
-                <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
-                <div class="slot"><img src="https://minecraft.wiki"></div>
-                <div class="slot"><img src="https://minecraft.wiki"></div>
-                <div class="slot"><img src="https://minecraft.wiki"></div>
-                <div class="slot"><img src="https://minecraft.wiki"></div>
-                <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
-            </div>
-
-            <div class="aviso">
-                Após o pagamento, envie o comprovante no Discord para ativação imediata.
+            <div style="background: #1a1a1c; padding: 15px; border-radius: 8px; font-size: 12px; color: #666; text-align: center; margin-top: 25px;">
+                Entrega imediata. Envie o comprovante no Discord.
             </div>
         </div>
     </div>
 
     <!-- MODAL PIX -->
-    <div id="modalPix" class="modal" style="background: rgba(0,0,0,0.9);">
-        <div class="modal-corpo" style="text-align: center; max-width: 400px;">
+    <div id="modalPix" class="modal">
+        <div class="modal-corpo">
             <span class="fechar" onclick="fecharPix()">&times;</span>
-            <h3 style="color: #FF8C00;">PAGAMENTO PIX</h3>
-            <p style="margin: 15px 0; font-size: 14px; color: #888;">Copie a chave Pix abaixo:</p>
-            <div style="background: #000; padding: 15px; border: 1px dashed #FF8C00; color: #FFDD00; font-size: 12px; word-break: break-all;">
-                efc0f5af-cd44-400c-9426-2d071caa7bec
-            </div>
-            <button class="btn-abrir" style="margin-top: 20px;" onclick="alert('Chave Copiada!')">📋 COPIAR CHAVE</button>
+            <h3 style="color: #FF8C00;">PAGAMENTO VIA PIX</h3>
+            <p style="margin: 15px 0; font-size: 14px; color: #888;">Copie a chave e pague no seu aplicativo:</p>
+            <div class="chave-pix" id="pixChave">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+            <button class="btn-comprar" style="background: #007bff;" onclick="copiarPix()">📋 COPIAR CHAVE</button>
         </div>
     </div>
 
     <script>
         function trocarAba(aba) {
-            document.getElementById('abaKits').style.display = 'none';
-            document.getElementById('abaVips').style.display = 'none';
-            document.getElementById('btnKits').classList.remove('ativa');
-            document.getElementById('btnVips').classList.remove('ativa');
+            document.getElementById('containerKits').style.display = 'none';
+            document.getElementById('containerVips').style.display = 'none';
+            document.getElementById('abaKitsBtn').classList.remove('ativa');
+            document.getElementById('abaVipsBtn').classList.remove('ativa');
 
             if(aba === 'kits') {
-                document.getElementById('abaKits').style.display = 'grid';
-                document.getElementById('btnKits').classList.add('ativa');
+                document.getElementById('containerKits').style.display = 'grid';
+                document.getElementById('abaKitsBtn').classList.add('ativa');
             } else {
-                document.getElementById('abaVips').style.display = 'grid';
-                document.getElementById('btnVips').classList.add('ativa');
+                document.getElementById('containerVips').style.display = 'grid';
+                document.getElementById('abaVipsBtn').classList.add('ativa');
             }
         }
 
-        function abrirDetalhes(nome, preco, desc) {
-            document.getElementById('detalheNome').innerText = nome;
-            document.getElementById('detalhePreco').innerText = preco;
-            document.getElementById('detalheDesc').innerHTML = desc;
-            
-            document.getElementById('containerDescricao').style.display = 'none';
-            document.getElementById('secaoVipImgs').style.display = 'none';
-            
-            document.getElementById('modalDetalhes').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
+        // Funções do VIP
+        function abrirVip() { document.getElementById('modalVip').style.display = 'block'; document.body.style.overflow = 'hidden'; }
+        function fecharVip() { document.getElementById('modalVip').style.display = 'none'; document.body.style.overflow = 'auto'; }
 
-        function abrirDetalhesVip(nome, preco, desc) {
-            document.getElementById('detalheNome').innerText = nome;
-            document.getElementById('detalhePreco').innerText = preco;
-            document.getElementById('detalheDesc').innerHTML = desc;
-            
-            document.getElementById('containerDescricao').style.display = 'block';
-            document.getElementById('secaoVipImgs').style.display = 'block';
-            
-            document.getElementById('modalDetalhes').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function fecharModal() {
-            document.getElementById('modalDetalhes').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
+        // Funções do Pix
         function abrirPix() { document.getElementById('modalPix').style.display = 'block'; }
         function fecharPix() { document.getElementById('modalPix').style.display = 'none'; }
+        
+        function copiarPix() {
+            navigator.clipboard.writeText("efc0f5af-cd44-400c-9426-2d071caa7bec");
+            alert("Chave PIX copiada com sucesso!");
+        }
     </script>
 </body>
 </html>
