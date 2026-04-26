@@ -1,347 +1,310 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>Loja Evolutium Craft</title>
-<style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-    body {
-      background: #1a0a00;
-      background-image: 
-        radial-gradient(circle at 50% 0%, rgba(255, 140, 0, 0.6) 0%, transparent 50%),
-        radial-gradient(circle at 50% 100%, rgba(255, 100, 0, 0.4) 0%, transparent 50%),
-        linear-gradient(135deg, #1a0a00 0%, #3d1a00 50%, #1a0a00 100%);
-      background-attachment: fixed;
-      color: #fff;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      font-size: 42px;
-      margin: 10px 0;
-      text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;
-      font-family: "Arial Black", sans-serif;
-    }
-    h1 span {
-      color: #FF8C00;
-      font-weight: bold;
-    }
-    .subtitulo {
-      text-align: center;
-      font-size: 18px;
-      margin-bottom: 30px;
-      color: #ffdd00;
-      text-shadow: 2px 2px 2px #000;
-    }
-    .menu-categorias {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 30px;
-    }
-    .categoria {
-      width: 280px;
-      height: 120px;
-      background: rgba(0,0,0,0.7);
-      border: 4px solid #FF8C00;
-      border-radius: 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 36px;
-      font-weight: bold;
-      color: #FFDD00;
-      cursor: pointer;
-      transition: 0.3s;
-      text-shadow: 2px 2px 4px #000;
-      box-shadow: 0 0 20px rgba(255, 140, 0, 0.7);
-    }
-    .categoria:hover {
-      background: rgba(255, 140, 0, 0.3);
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(255, 200, 0, 0.9);
-    }
-    .area-conteudo {
-      display: none;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-    .loja {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 25px;
-    }
-    .kit {
-      background: rgba(0,0,0,0.7);
-      border: 4px solid #FF8C00;
-      border-radius: 15px;
-      overflow: hidden;
-      transition: 0.3s;
-      box-shadow: 0 0 15px rgba(0,0,0,0.8);
-    }
-    .kit:hover {
-      border-color: #FFDD00;
-      transform: translateY(-5px);
-      box-shadow: 0 0 25px rgba(255, 140, 0, 0.6);
-    }
-    .kit img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .info {
-      padding: 20px;
-    }
-    h2 {
-      font-size: 26px;
-      margin-bottom: 10px;
-      color: #FFDD00;
-      text-shadow: 2px 2px 4px #000;
-    }
-    .preco {
-      font-size: 30px;
-      color: #FFDD00;
-      font-weight: bold;
-      margin: 15px 0 20px;
-      text-shadow: 2px 2px 4px #000;
-    }
-    button {
-      width: 100%;
-      background: #FF8C00;
-      color: white;
-      border: none;
-      padding: 15px;
-      font-size: 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      text-shadow: 2px 2px 4px #000;
-      transition: 0.2s;
-    }
-    button:hover {
-      background: #FFDD00;
-      color: #000;
-    }
-    .btn-copiar {
-      background: #007bff;
-      margin-top: 10px;
-    }
-    .btn-copiar:hover {
-      background: #00a2ff;
-    }
-    .btn-discord {
-      background: #5865F2;
-      color: white;
-      padding: 15px;
-      border-radius: 8px;
-      text-decoration: none;
-      display: block;
-      margin-top: 20px;
-      font-weight: bold;
-      font-size: 20px;
-      text-shadow: 2px 2px 4px #000;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      padding: 20px;
-    }
-    .caixa {
-      background: #1a0a00;
-      border: 4px solid #FF8C00;
-      padding: 35px;
-      border-radius: 15px;
-      text-align: center;
-      width: 100%;
-      max-width: 600px;
-      position: relative;
-      box-shadow: 0 0 30px rgba(255, 140, 0, 0.7);
-    }
-    .chave {
-      background: rgba(0,0,0,0.7);
-      border: 3px dashed #FF8C00;
-      padding: 18px;
-      margin: 20px 0;
-      border-radius: 8px;
-      word-break: break-all;
-      font-size: 15px;
-      color: #FFDD00;
-    }
-    .sucesso {
-      display: none;
-    }
-    .sucesso h2 {
-      color: #2ecc71;
-      font-size: 28px;
-      margin-bottom: 15px;
-    }
-    .sucesso p {
-      font-size: 18px;
-      line-height: 1.5;
-      margin-bottom: 20px;
-      color: #ddd;
-    }
-    .fechar {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 30px;
-      cursor: pointer;
-      color: #FF8C00;
-    }
-    .botoes-finais {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 40px;
-      flex-wrap: wrap;
-    }
-    .btn-discord-grande {
-      background: #5865F2;
-      color: white;
-      padding: 18px 35px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 20px;
-      text-shadow: 2px 2px 4px #000;
-    }
-    .btn-atendente {
-      background: #FF8C00;
-      color: white;
-      padding: 18px 35px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 20px;
-      text-shadow: 2px 2px 4px #000;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Evolutium Craft</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        
+        body {
+            background: #1a0a00;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(255, 140, 0, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(255, 100, 0, 0.4) 0%, transparent 50%),
+                linear-gradient(135deg, #1a0a00 0%, #3d1a00 50%, #1a0a00 100%);
+            background-attachment: fixed;
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: clamp(24px, 5vw, 42px);
+            margin: 10px 0;
+            text-shadow: 3px 3px 0px #000;
+            font-family: "Arial Black", sans-serif;
+        }
+
+        h1 span { color: #FF8C00; }
+
+        .subtitulo {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #ffdd00;
+            text-shadow: 2px 2px 2px #000;
+        }
+
+        .menu-categorias {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .categoria {
+            width: 250px;
+            padding: 20px;
+            background: rgba(0,0,0,0.7);
+            border: 4px solid #FF8C00;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #FFDD00;
+            cursor: pointer;
+            transition: 0.3s;
+            text-shadow: 2px 2px 4px #000;
+            box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
+        }
+
+        .categoria:hover {
+            background: rgba(255, 140, 0, 0.3);
+            transform: scale(1.05);
+            border-color: #fff;
+        }
+
+        .area-conteudo {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .loja {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .kit {
+            background: rgba(0,0,0,0.8);
+            border: 3px solid #FF8C00;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .kit:hover {
+            border-color: #FFDD00;
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
+        }
+
+        .kit img { width: 100%; height: auto; display: block; }
+
+        .info { padding: 20px; text-align: center; }
+
+        h2 { font-size: 22px; color: #FFDD00; margin-bottom: 10px; }
+
+        .desc { font-size: 14px; color: #bbb; margin-bottom: 15px; line-height: 1.4; }
+
+        .preco { font-size: 28px; color: #fff; font-weight: bold; margin-bottom: 15px; }
+
+        button {
+            width: 100%;
+            background: #FF8C00;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover { background: #FFDD00; color: #000; }
+
+        /* Estilo para Botão de Atendente e Discord Finais */
+        .botoes-finais {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn-link {
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .btn-discord-grande { background: #5865F2; color: white; }
+        .btn-atendente { background: #27ae60; color: white; }
+        .btn-link:hover { transform: scale(1.05); filter: brightness(1.2); }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center; align-items: center;
+            z-index: 1000; padding: 20px;
+        }
+
+        .caixa {
+            background: #1a0a00;
+            border: 4px solid #FF8C00;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+        }
+
+        .chave {
+            background: #000;
+            border: 2px dashed #FF8C00;
+            padding: 15px;
+            margin: 20px 0;
+            color: #FFDD00;
+            font-family: monospace;
+            word-break: break-all;
+        }
+
+        .fechar { position: absolute; top: 10px; right: 15px; font-size: 30px; cursor: pointer; color: #FF8C00; }
+        
+        .sucesso { display: none; }
+        .sucesso h2 { color: #2ecc71; }
+    </style>
 </head>
 <body>
 
-<h1>A LOJA OFICIAL DO SERVIDOR <span>EVOLUTIUM CRAFT</span></h1>
-<p class="subtitulo">compre kits, vips, unban, chaves e muito mais!</p>
+    <h1>A LOJA OFICIAL DO <span>EVOLUTIUM CRAFT</span></h1>
+    <p class="subtitulo">Equipe-se com os melhores kits e vantagens VIP!</p>
 
-<div class="menu-categorias">
-  <div class="categoria" onclick="alternarKits()">🐉 KITS</div>
-</div>
-
-<div id="areaKits" class="area-conteudo">
-  <div class="loja">
-
-    <!-- KIT EXPLORADOR -->
-    <div class="kit">
-      <img src="https://www.image2url.com/r2/default/files/1776752909074-3f72a189-9c76-46a0-88c9-02d711e63739.png" alt="Kit Explorador">
-      <div class="info">
-        <h2>KIT EXPLORADOR</h2>
-        <p class="preco">R$ 5,99</p>
-        <button onclick="abrir()">COMPRAR AGORA</button>
-      </div>
+    <div class="menu-categorias">
+        <div class="categoria" onclick="abrirSecao('areaKits')">🐉 KITS</div>
+        <div class="categoria" onclick="abrirSecao('areaVips')" style="border-color: #ffdd00;">💎 VIPS</div>
     </div>
 
-    <!-- KIT FORTUNA -->
-    <div class="kit">
-      <img src="https://www.image2url.com/r2/default/images/1776753309136-15079d5e-5a2d-408a-9b4a-34fbfd7aba87.png" alt="Kit Fortuna">
-      <div class="info">
-        <h2>KIT FORTUNA</h2>
-        <p class="preco">R$ 3,99</p>
-        <button onclick="abrir()">COMPRAR AGORA</button>
-      </div>
+    <!-- SEÇÃO DE KITS -->
+    <div id="areaKits" class="area-conteudo" style="display: block;">
+        <div class="loja">
+            <div class="kit">
+                <img src="https://image2url.com">
+                <div class="info">
+                    <h2>KIT EXPLORADOR</h2>
+                    <p class="desc">Ideal para começar sua jornada com equipamentos de ferro e suprimentos.</p>
+                    <p class="preco">R$ 5,99</p>
+                    <button onclick="abrirModal()">COMPRAR</button>
+                </div>
+            </div>
+            <div class="kit">
+                <img src="https://image2url.com">
+                <div class="info">
+                    <h2>KIT FORTUNA</h2>
+                    <p class="desc">Aumente seus ganhos de mineração drasticamente.</p>
+                    <p class="preco">R$ 3,99</p>
+                    <button onclick="abrirModal()">COMPRAR</button>
+                </div>
+            </div>
+            <div class="kit">
+                <img src="https://image2url.com">
+                <div class="info">
+                    <h2>KIT DIVINO</h2>
+                    <p class="desc">O poder dos deuses em suas mãos. Itens full netherite.</p>
+                    <p class="preco">R$ 17,99</p>
+                    <button onclick="abrirModal()">COMPRAR</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- KIT TREINAMENTO -->
-    <div class="kit">
-      <img src="https://www.image2url.com/r2/default/files/1776421177910-702677f1-b2cc-4419-a43f-c48a22554a45.png" alt="Kit Treinamento">
-      <div class="info">
-        <h2>KIT TREINAMENTO</h2>
-        <p class="preco">R$ 3,99</p>
-        <button onclick="abrir()">COMPRAR AGORA</button>
-      </div>
+    <!-- SEÇÃO DE VIPS -->
+    <div id="areaVips" class="area-conteudo">
+        <div class="loja">
+            <div class="kit" style="border-color: #cd7f32;">
+                <img src="https://placeholder.com">
+                <div class="info">
+                    <h2>VIP BRONZE</h2>
+                    <p class="desc">• Tag [Bronze]<br>• Comando /fly no lobby<br>• 2 Homes extras</p>
+                    <p class="preco">R$ 15,00</p>
+                    <button onclick="abrirModal()">COMPRAR</button>
+                </div>
+            </div>
+            <div class="kit" style="border-color: #ffdd00;">
+                <img src="https://placeholder.com">
+                <div class="info">
+                    <h2>VIP OURO</h2>
+                    <p class="desc">• Tudo do Bronze<br>• Acesso ao /compactar<br>• Kit diário exclusivo</p>
+                    <p class="preco">R$ 30,00</p>
+                    <button onclick="abrirModal()">COMPRAR</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- KIT GUERREIRO (LINK NOVO) -->
-    <div class="kit">
-      <img src="https://www.image2url.com/r2/default/images/1776779852734-4c654f57-3f33-4924-ad23-1721f7fc0f32.png" alt="Kit Guerreiro">
-      <div class="info">
-        <h2>KIT GUERREIRO</h2>
-        <p class="preco">R$ 9,99</p>
-        <button onclick="abrir()">COMPRAR AGORA</button>
-      </div>
+    <div class="botoes-finais">
+        <a href="https://discord.gg" target="_blank" class="btn-link btn-discord-grande">📢 ENTRAR NO DISCORD</a>
+        <a href="https://discord.gg" target="_blank" class="btn-link btn-atendente">💬 SUPORTE / TICKETS</a>
     </div>
 
-    <!-- KIT DIVINO (LINK NOVO) -->
-    <div class="kit">
-      <img src="https://www.image2url.com/r2/default/images/1776779765326-7a76dd62-1670-4cee-a31c-14f98ee8160f.png" alt="Kit Divino">
-      <div class="info">
-        <h2>KIT DIVINO</h2>
-        <p class="preco">R$ 17,99</p>
-        <button onclick="abrir()">COMPRAR AGORA</button>
-      </div>
+    <!-- MODAL DE PAGAMENTO -->
+    <div id="modalPagamento" class="modal">
+        <div class="caixa">
+            <span class="fechar" onclick="fecharModal()">&times;</span>
+            <div id="passo1">
+                <h2>💳 PAGAMENTO VIA PIX</h2>
+                <p>Copie a chave abaixo para pagar:</p>
+                <div class="chave" id="pixKey">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+                <button onclick="copiarChave()" style="background: #007bff; margin-bottom: 10px;">📋 COPIAR CHAVE</button>
+                <button onclick="confirmarPagamento()">✅ JÁ REALIZEI O PAGAMENTO</button>
+            </div>
+            <div id="passo2" class="sucesso">
+                <h2>✅ QUASE LÁ!</h2>
+                <p>Para receber seu produto, envie o <b>print do comprovante</b> no nosso Discord agora mesmo!</p>
+                <a href="https://discord.gg" target="_blank" class="btn-link btn-discord-grande" style="display:inline-block; margin-top:15px;">ABRIR TICKET NO DISCORD</a>
+            </div>
+        </div>
     </div>
 
-  </div>
+    <script>
+        function abrirSecao(id) {
+            document.getElementById('areaKits').style.display = 'none';
+            document.getElementById('areaVips').style.display = 'none';
+            document.getElementById(id).style.display = 'block';
+        }
 
-  <div class="botoes-finais">
-    <a href="https://discord.gg/krw8dEgPq" target="_blank" class="btn-discord-grande">📢 ENTRAR NO DISCORD</a>
-    <a href="#" class="btn-atendente">💬 FALAR COM ATENDENTE</a>
-  </div>
-</div>
+        function abrirModal() {
+            document.getElementById('modalPagamento').style.display = 'flex';
+            document.getElementById('passo1').style.display = 'block';
+            document.getElementById('passo2').style.display = 'none';
+        }
 
-<div id="modal" class="modal">
-  <div class="caixa">
-    <span class="fechar" onclick="fechar()">&times;</span>
-    <div id="passo1">
-      <h2>💳 PAGAMENTO VIA PIX</h2>
-      <p>Copie a chave abaixo e efetue o pagamento:</p>
-      <div class="chave" id="chave">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
-      <button class="btn-copiar" onclick="copiar()">📋 COPIAR CHAVE</button>
-      <button onclick="pago()">✅ JÁ PAGUEI!</button>
-    </div>
-    <div id="passo2" class="sucesso">
-      <h2>✅ PAGAMENTO REALIZADO!</h2>
-      <p>Obrigado! Agora vá no servidor do Discord, abra um ticket e envie o print do comprovante para receber seu kit rapidinho!</p>
-      <a href="https://discord.gg/krw8dEgPq" target="_blank" class="btn-discord">📢 IR PARA O DISCORD</a>
-    </div>
-  </div>
-</div>
+        function fecharModal() {
+            document.getElementById('modalPagamento').style.display = 'none';
+        }
 
-<script>
-function alternarKits() {
-  var area = document.getElementById('areaKits');
-  if (area.style.display === "block") {
-    area.style.display = "none";
-  } else {
-    area.style.display = "block";
-  }
-}
-function abrir() {
-  document.getElementById('modal').style.display = "flex";
-  document.getElementById('passo1').style.display = "block";
-  document.getElementById('passo2').style.display = "none";
-}
-function fechar() {
-  document.getElementById('modal').style.display = "none";
-}
-function copiar() {
-  navigator.clipboard.writeText(document.getElementById('chave').innerText);
-  alert("✅ Chave copiada!");
-}
-function pago() {
-  document.getElementById('passo1').style.display = "none";
-  document.getElementById('passo2').style.display = "block";
-}
-</script>
+        function copiarChave() {
+            const texto = document.getElementById('pixKey').innerText;
+            navigator.clipboard.writeText(texto);
+            alert("Chave PIX copiada com sucesso!");
+        }
 
+        function confirmarPagamento() {
+            document.getElementById('passo1').style.display = 'none';
+            document.getElementById('passo2').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
