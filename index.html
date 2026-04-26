@@ -18,12 +18,14 @@
         h1 { text-align: center; margin-bottom: 30px; font-size: 28px; text-transform: uppercase; font-family: "Arial Black"; letter-spacing: 2px; }
         h1 span { color: #FF8C00; }
 
+        /* MENU DE CATEGORIAS ESTILO SPACE */
         .menu-abas { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; }
         .aba {
             padding: 12px 30px; background: #16161a; border: 1px solid #333;
             border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; color: #ccc;
+            display: flex; align-items: center; gap: 8px;
         }
-        .aba.ativa { border-color: #FF8C00; color: #FF8C00; background: #1f1f23; box-shadow: 0 0 10px rgba(255, 140, 0, 0.2); }
+        .aba.ativa { border-color: #FF8C00; color: #FF8C00; background: #1f1f23; box-shadow: 0 0 15px rgba(255, 140, 0, 0.2); }
 
         .loja-container {
             display: none;
@@ -31,10 +33,11 @@
             gap: 20px; width: 100%; max-width: 1200px; margin: 0 auto;
         }
 
-        /* CARD ESTILO SPACE CRAFT */
+        /* CARD IDENTICO AO DA SPACE CRAFT */
         .card {
             background: #111114; border-radius: 12px; padding: 15px;
             border: 1px solid #222; transition: 0.3s; display: flex; flex-direction: column; cursor: pointer;
+            position: relative;
         }
         .card:hover { transform: translateY(-5px); border-color: #FF8C00; box-shadow: 0 0 20px rgba(255, 140, 0, 0.3); }
 
@@ -45,11 +48,14 @@
 
         .titulo-item { font-size: 14px; font-weight: 600; color: #aaa; margin-bottom: 5px; text-transform: uppercase; }
         .preco { font-size: 22px; font-weight: bold; color: #fff; margin-bottom: 15px; }
+        .pix-tag { font-size: 11px; color: #666; margin-bottom: 15px; display: block; }
         
         .btn-comprar {
             width: 100%; padding: 12px; background: #FF8C00; color: #fff;
             border: none; border-radius: 6px; font-weight: bold; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
         }
+        .btn-comprar:hover { background: #e67e00; }
 
         /* MODAIS */
         .modal {
@@ -67,11 +73,14 @@
         
         .aviso-ticket {
             background: rgba(255, 140, 0, 0.1); border: 1px solid #FF8C00;
-            padding: 15px; border-radius: 8px; margin-top: 20px; color: #ffca80; font-size: 14px; line-height: 1.4;
+            padding: 15px; border-radius: 8px; margin-top: 20px; color: #ffca80; font-size: 13px; line-height: 1.5;
         }
 
-        .kits-vips-lista { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
-        .kits-vips-lista img { width: 80px; border: 1px solid #333; border-radius: 5px; }
+        .kits-vips-lista { display: flex; gap: 10px; justify-content: center; margin: 15px 0; }
+        .kits-vips-lista img { width: 90px; border: 1px solid #333; border-radius: 5px; }
+        
+        .vantagens-vip { text-align: left; background: #16161a; padding: 15px; border-radius: 8px; margin: 15px 0; }
+        .vantagens-vip p { font-size: 14px; color: #ccc; margin-bottom: 5px; }
     </style>
 </head>
 <body>
@@ -87,48 +96,54 @@
     <div id="containerKits" class="loja-container" style="display: grid;">
         <!-- EXPLORADOR -->
         <div class="card" onclick="abrirPix()">
-            <img src="https://image2url.com" class="banner-img">
+            <img src="https://www.image2url.com/r2/default/images/1777201320061-f0615e0e-4b2d-49b9-9284-82686cee7615.png" class="banner-img">
             <div class="titulo-item">KIT EXPLORADOR</div>
-            <div class="preco">R$ 5,90</div>
-            <button class="btn-comprar">Comprar agora</button>
+            <div class="preco">R$ 5,99</div>
+            <span class="pix-tag">À vista no Pix</span>
+            <button class="btn-comprar">🛒 Comprar agora</button>
         </div>
         <!-- FORTUNA -->
         <div class="card" onclick="abrirPix()">
-            <img src="https://image2url.com" class="banner-img">
+            <img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png" class="banner-img">
             <div class="titulo-item">KIT FORTUNA</div>
             <div class="preco">R$ 7,99</div>
-            <button class="btn-comprar">Comprar agora</button>
+            <span class="pix-tag">À vista no Pix</span>
+            <button class="btn-comprar">🛒 Comprar agora</button>
         </div>
         <!-- TREINAMENTO -->
         <div class="card" onclick="abrirPix()">
-            <img src="https://image2url.com" class="banner-img">
+            <img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png" class="banner-img">
             <div class="titulo-item">KIT TREINAMENTO</div>
             <div class="preco">R$ 7,99</div>
-            <button class="btn-comprar">Comprar agora</button>
+            <span class="pix-tag">À vista no Pix</span>
+            <button class="btn-comprar">🛒 Comprar agora</button>
         </div>
         <!-- GUERREIRO -->
         <div class="card" onclick="abrirPix()">
-            <img src="https://image2url.com" class="banner-img">
+            <img src="https://www.image2url.com/r2/default/images/1777201368066-3dfd02a5-ee97-4a14-b480-343326c2cbd3.png" class="banner-img">
             <div class="titulo-item">KIT GUERREIRO</div>
             <div class="preco">R$ 14,99</div>
-            <button class="btn-comprar">Comprar agora</button>
+            <span class="pix-tag">À vista no Pix</span>
+            <button class="btn-comprar">🛒 Comprar agora</button>
         </div>
         <!-- DIVINO -->
         <div class="card" onclick="abrirPix()">
-            <img src="https://image2url.com" class="banner-img">
+            <img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png" class="banner-img">
             <div class="titulo-item">KIT DIVINO</div>
             <div class="preco">R$ 19,99</div>
-            <button class="btn-comprar">Comprar agora</button>
+            <span class="pix-tag">À vista no Pix</span>
+            <button class="btn-comprar">🛒 Comprar agora</button>
         </div>
     </div>
 
     <!-- ABA VIPS -->
     <div id="containerVips" class="loja-container">
         <div class="card" onclick="abrirVip()">
-            <img src="https://placeholder.com" class="banner-img">
+            <img src="https://imgur.com" class="banner-img">
             <div class="titulo-item">VIP ASTRAL</div>
             <div class="preco">R$ 59,99</div>
-            <button class="btn-comprar">Ver Detalhes</button>
+            <span class="pix-tag">À vista no Pix</span>
+            <button class="btn-comprar">💎 Ver Detalhes</button>
         </div>
     </div>
 
@@ -137,19 +152,22 @@
         <div class="modal-corpo">
             <span class="fechar" onclick="fecharVip()">&times;</span>
             <h2 style="color: #FF8C00;">VIP ASTRAL</h2>
-            <div style="margin: 15px 0; text-align: left; color: #ccc;">
-                <p><b>Vantagens:</b></p>
+            
+            <div class="vantagens-vip">
+                <p>🚀 <b>VANTAGENS:</b></p>
                 <p>✨ +5 HOMES</p>
-                <p>🏰 ÁREA VIP</p>
-                <p>👑 TAG ÚNICA</p>
+                <p>🏰 ÁREA VIP EXCLUSIVA</p>
+                <p>👑 TAG ÚNICA NO CHAT</p>
             </div>
+
             <p style="font-size: 13px; color: #FF8C00; font-weight: bold; margin-top: 10px;">KITS INCLUSOS:</p>
             <div class="kits-vips-lista">
-                <img src="https://image2url.com" title="Kit Divino">
-                <img src="https://image2url.com" title="Kit Treinamento">
-                <img src="https://image2url.com" title="Kit Fortuna">
+                <img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png">
+                <img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png">
+                <img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png">
             </div>
-            <button class="btn-comprar" style="margin-top: 25px;" onclick="abrirPix()">🛒 COMPRAR POR R$ 59,99</button>
+            
+            <button class="btn-comprar" style="margin-top: 15px;" onclick="abrirPix()">🛒 COMPRAR AGORA</button>
         </div>
     </div>
 
@@ -158,15 +176,15 @@
         <div class="modal-corpo">
             <span class="fechar" onclick="fecharPix()">&times;</span>
             <h3 style="color: #FF8C00;">PAGAMENTO VIA PIX</h3>
-            <p style="margin: 10px 0; font-size: 14px; color: #aaa;">Copie a chave e realize o pagamento:</p>
+            <p style="margin: 10px 0; font-size: 14px; color: #aaa;">Copie a chave abaixo:</p>
             <div class="chave-pix" id="pixChave">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
             <button class="btn-comprar" style="background: #007bff;" onclick="copiarPix()">📋 COPIAR CHAVE</button>
             
             <div class="aviso-ticket">
-                ⚠️ <b>IMPORTANTE:</b> Após realizar a transferência, você deve abrir um <b>Ticket no nosso Discord</b> e enviar o print do comprovante para receber seu kit!
+                ⚠️ <b>IMPORTANTE:</b> Após pagar, você <b>precisa abrir um Ticket no Discord</b> e enviar o print do comprovante para receber seu produto!
             </div>
             
-            <a href="https://discord.gg" target="_blank" style="display:block; margin-top:15px; color:#5865F2; font-weight:bold; text-decoration:none;">📢 IR PARA O DISCORD</a>
+            <a href="https://discord.gg" target="_blank" style="display:block; margin-top:15px; color:#5865F2; font-weight:bold; text-decoration:none;">📢 ENTRAR NO DISCORD</a>
         </div>
     </div>
 
