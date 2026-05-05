@@ -62,19 +62,16 @@ h1 span { color: #FF8C00; }
     text-align: center;
 }
 
-/* TAMANHO CORRETO VIP */
 .vip-banner-detalhe {
     width: 220px;
     margin: 15px auto;
 }
 
-/* KITS DO VIP */
 .kits-vip-grid img {
     width: 150px;
     margin: 8px;
 }
 
-/* PIX */
 .pix-box {
     background: #000;
     padding: 15px;
@@ -93,10 +90,8 @@ h1 span { color: #FF8C00; }
 <div class="aba" onclick="mostrar('vips')">VIPS</div>
 </div>
 
-<!-- TODOS OS KITS -->
 <div id="kits" class="loja-container" style="display:grid;">
 
-<!-- KIT DBE -->
 <div class="card">
 <img src="https://www.image2url.com/r2/default/images/1777948112627-679cbc63-dc9b-449f-9edf-abc0ab5da980.png" class="banner-img">
 <h3>KIT DBE</h3>
@@ -104,7 +99,6 @@ h1 span { color: #FF8C00; }
 <button class="btn" onclick="abrirCompra('KIT DBE','79,99')">Comprar</button>
 </div>
 
-<!-- KIT GOD -->
 <div class="card">
 <img src="https://www.image2url.com/r2/default/images/1777932013675-f02a1c3f-2dd6-4e65-ae44-e294a0d3531f.png">
 <h3>KIT GOD</h3>
@@ -112,7 +106,6 @@ h1 span { color: #FF8C00; }
 <button class="btn" onclick="abrirCompra('KIT GOD','59,99')">Comprar</button>
 </div>
 
-<!-- KIT DIVINO -->
 <div class="card">
 <img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png">
 <h3>KIT DIVINO</h3>
@@ -120,7 +113,6 @@ h1 span { color: #FF8C00; }
 <button class="btn" onclick="abrirCompra('KIT DIVINO','19,99')">Comprar</button>
 </div>
 
-<!-- KIT UPADOR -->
 <div class="card">
 <img src="https://www.image2url.com/r2/default/images/1777948165223-cb6b7142-86d5-4ac3-8241-d79ac6beb846.png">
 <h3>KIT UPADOR</h3>
@@ -128,7 +120,6 @@ h1 span { color: #FF8C00; }
 <button class="btn" onclick="abrirCompra('KIT UPADOR','16,99')">Comprar</button>
 </div>
 
-<!-- KIT COMIDA -->
 <div class="card">
 <img src="https://www.image2url.com/r2/default/images/1777936044793-37236af1-a594-4806-8924-5036b2925518.png">
 <h3>KIT COMIDA</h3>
@@ -136,7 +127,6 @@ h1 span { color: #FF8C00; }
 <button class="btn" onclick="abrirCompra('KIT COMIDA','16,99')">Comprar</button>
 </div>
 
-<!-- KIT GUERREIRO -->
 <div class="card">
 <img src="https://www.image2url.com/r2/default/images/1777201368066-3dfd02a5-ee97-4a14-b480-343326c2cbd3.png">
 <h3>KIT GUERREIRO</h3>
@@ -144,7 +134,6 @@ h1 span { color: #FF8C00; }
 <button class="btn" onclick="abrirCompra('KIT GUERREIRO','14,99')">Comprar</button>
 </div>
 
-<!-- KIT FORTUNA -->
 <div class="card">
 <img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png">
 <h3>KIT FORTUNA</h3>
@@ -152,7 +141,6 @@ h1 span { color: #FF8C00; }
 <button class="btn" onclick="abrirCompra('KIT FORTUNA','7,99')">Comprar</button>
 </div>
 
-<!-- KIT TREINAMENTO -->
 <div class="card">
 <img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png">
 <h3>KIT TREINAMENTO</h3>
@@ -160,7 +148,6 @@ h1 span { color: #FF8C00; }
 <button class="btn" onclick="abrirCompra('KIT TREINAMENTO','7,99')">Comprar</button>
 </div>
 
-<!-- KIT EXPLORADOR -->
 <div class="card">
 <img src="https://www.image2url.com/r2/default/images/1777201320061-f0615e0e-4b2d-49b9-9284-82686cee7615.png">
 <h3>KIT EXPLORADOR</h3>
@@ -170,7 +157,6 @@ h1 span { color: #FF8C00; }
 
 </div>
 
-<!-- VIPS -->
 <div id="vips" class="loja-container">
 
 <div class="card">
@@ -189,7 +175,6 @@ h1 span { color: #FF8C00; }
 
 </div>
 
-<!-- VIP PAGE -->
 <div id="vipPage" class="vip-page">
 
 <img id="vip-img" class="vip-banner-detalhe">
@@ -237,10 +222,15 @@ beneficios:["Frutas diárias","100 treino","Tag única"]
 };
 
 function mostrar(sec){
-kits.style.display="none";
-vips.style.display="none";
-vipPage.style.display="none";
-document.getElementById(sec).style.display="grid";
+document.getElementById("kits").style.display="none";
+document.getElementById("vips").style.display="none";
+document.getElementById("vipPage").style.display="none";
+
+if(sec === "vipPage"){
+    document.getElementById(sec).style.display="block";
+} else {
+    document.getElementById(sec).style.display="grid";
+}
 }
 
 function verDetalhes(id){
@@ -263,7 +253,7 @@ lista.innerHTML+=`<li>${b}</li>`;
 });
 
 mostrar("vipPage");
-pixArea.style.display="none";
+document.getElementById("pixArea").style.display="none";
 }
 
 function abrirCompra(nome,preco){
@@ -274,12 +264,18 @@ document.getElementById("vip-kits-container").innerHTML="";
 document.getElementById("vip-beneficios").innerHTML="<li>Entrega imediata</li>";
 
 mostrar("vipPage");
-pixArea.style.display="none";
+document.getElementById("pixArea").style.display="none";
 }
 
-function mostrarPix(){pixArea.style.display="block";}
-function copiar(){navigator.clipboard.writeText("efc0f5af-cd44-400c-9426-2d071caa7bec");alert("Pix copiado!");}
+function mostrarPix(){
+document.getElementById("pixArea").style.display="block";
+}
+
+function copiar(){
+navigator.clipboard.writeText("efc0f5af-cd44-400c-9426-2d071caa7bec");
+alert("Pix copiado!");
+}
 </script>
 
 </body>
-    </html>
+</html>
