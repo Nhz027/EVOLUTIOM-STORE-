@@ -11,7 +11,6 @@
 body {
     background: #0a0a0c;
     background-image: radial-gradient(circle at 50% 0%, #3d1a00 0%, #0a0a0c 100%);
-    background-attachment: fixed;
     color: #fff;
     padding: 20px;
 }
@@ -71,6 +70,7 @@ h1 span { color: #FF8C00; }
     color: white;
     font-weight: bold;
     cursor: pointer;
+    width: 100%;
 }
 
 /* MODAL */
@@ -183,21 +183,49 @@ h1 span { color: #FF8C00; }
 <img src="https://www.image2url.com/r2/default/images/1777205703132-39385d5f-65e0-484b-9d2b-a642f43f3a49.png" class="banner-img">
 <div class="titulo-item">VIP ASTRAL</div>
 <div class="preco">R$ 59,99</div>
-<button class="btn-comprar">Ver</button>
+<button class="btn-comprar">Ver VIP</button>
 </div>
 </div>
 
-<!-- MODAL -->
+<!-- MODAL VIP -->
 <div id="modalVip" class="modal">
 <div class="modal-corpo">
 <span class="fechar" onclick="fecharVip()">×</span>
 
 <h2>VIP ASTRAL</h2>
-<p>Benefícios exclusivos no servidor</p>
+
+<p>Inclui os kits:</p>
+
+<div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:15px 0;">
+<img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png" width="100">
+<img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png" width="100">
+<img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png" width="100">
+</div>
+
+<div style="text-align:left; margin:20px 0;">
+<p>+ VALE LENDÁRIO</p>
+<p>+ 12 FRUTA DIÁRIA</p>
+<p>+ TAG ÚNICA</p>
+<p>+ ATENDIMENTO MAIS RÁPIDO</p>
+</div>
 
 <div class="preco">R$ 59,99</div>
 
-<button class="btn-comprar">Comprar via Pix</button>
+<button class="btn-comprar" onclick="mostrarPix()">💎 Comprar VIP</button>
+
+<div id="areaPix" style="display:none; margin-top:20px;">
+
+<div style="background:#000; padding:10px; border:2px dashed #FF8C00; word-break:break-all;">
+efc0f5af-cd44-400c-9426-2d071caa7bec
+</div>
+
+<button class="btn-comprar" onclick="copiarPix()">📋 Copiar chave Pix</button>
+
+<p style="margin-top:10px; font-size:14px;">
+Copie a chave, pague, vá no Discord, abra ticket, envie comprovante e aguarde o ADM.
+</p>
+
+</div>
 
 </div>
 </div>
@@ -223,6 +251,15 @@ function abrirPix(){
 alert("Pague via Pix e envie o comprovante no Discord!");
 }
 
+function mostrarPix(){
+document.getElementById("areaPix").style.display="block";
+}
+
+function copiarPix(){
+navigator.clipboard.writeText("efc0f5af-cd44-400c-9426-2d071caa7bec");
+alert("Chave Pix copiada!");
+}
+
 window.onclick=function(e){
 if(e.target==document.getElementById("modalVip")){
 fecharVip();
@@ -231,4 +268,4 @@ fecharVip();
 </script>
 
 </body>
-</html>
+    </html>
