@@ -48,32 +48,56 @@ h1 span { color: #FF8C00; }
     border-radius: 12px;
     padding: 15px;
     border: 1px solid #222;
+    height: fit-content;
 }
 
 .banner-img {
     width: 100%;
     border-radius: 8px;
-    margin-bottom: 15px;
 }
 
-.titulo-item {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.preco { font-size: 24px; font-weight: bold; margin: 10px 0; }
+.preco { font-size: 22px; font-weight: bold; margin: 10px 0; }
 
 .btn {
     background: #FF8C00;
     border: none;
-    padding: 14px;
+    padding: 12px;
     width: 100%;
     color: white;
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
+    margin-top: 5px;
+}
+
+.btn-discord { background: #5865F2; margin-top: 8px; }
+
+/* AREA PIX */
+.pix-area {
+    display: none;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+}
+
+.pix-box {
+    background: #000;
+    padding: 12px;
+    border: 2px dashed #FF8C00;
+    margin-bottom: 10px;
+    font-family: monospace;
+    font-size: 14px;
+    color: #FFDD00;
+    word-break: break-all;
+    text-align: center;
+}
+
+.instrucoes {
+    font-size: 12px;
+    color: #aaa;
     margin-top: 10px;
+    text-align: left;
+    line-height: 1.5;
 }
 
 /* VIP PAGE */
@@ -84,29 +108,10 @@ h1 span { color: #FF8C00; }
     text-align: center;
 }
 
-/* IMAGENS DOS KITS NO VIP - GRANDES */
 .kits-vip img {
-    width: 280px;
+    width: 200px;
     margin: 10px;
     border-radius: 10px;
-}
-
-.pix-box {
-    background: #000;
-    padding: 15px;
-    border: 2px dashed #FF8C00;
-    margin: 20px 0;
-    font-family: monospace;
-    font-size: 16px;
-    color: #FFDD00;
-    word-break: break-all;
-}
-
-.pix-area {
-    display: none;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #333;
 }
 </style>
 </head>
@@ -116,210 +121,195 @@ h1 span { color: #FF8C00; }
 <h1>EVOLUTIUM <span>CRAFT</span></h1>
 
 <div class="menu-abas">
-    <div class="aba ativa" onclick="mostrar('kits')">🐉 KITS</div>
-    <div class="aba" onclick="mostrar('vips')">💎 VIPS</div>
+    <div id="aba-kits" class="aba ativa" onclick="mostrar('kits')">🐉 KITS</div>
+    <div id="aba-vips" class="aba" onclick="mostrar('vips')">💎 VIPS</div>
 </div>
 
-<!-- KITS -->
+<!-- SEÇÃO KITS -->
 <div id="kits" class="loja-container" style="display:grid;">
 
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777948112627-679cbc63-dc9b-449f-9edf-abc0ab5da980.png" class="banner-img">
-<div class="titulo-item">KIT DBE</div>
-<div class="preco">R$ 79,99</div>
-<button class="btn" onclick="mostrarPix()">🛒 Comprar Agora</button>
-<div id="pixArea" class="pix-area">
-<div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
-<button class="btn" onclick="copiar()">📋 Copiar chave Pix</button>
-<button class="btn" onclick="abrirDiscord()" style="margin-top:10px;">💬 Abrir Discord</button>
-<p style="margin-top:10px; text-align:left;">
-1. Copie a chave Pix<br>
-2. Faça o pagamento<br>
-3. Clique em abrir Discord<br>
-4. Abra ticket<br>
-5. Envie comprovante<br>
-6. Aguarde o ADM
-</p>
-</div>
-</div>
+    <!-- KIT 1 -->
+    <div class="card">
+        <img src="https://image2url.com" class="banner-img">
+        <div>KIT DBE</div>
+        <div class="preco">R$ 79,99</div>
+        <button class="btn" onclick="togglePix(this)">🛒 Comprar Agora</button>
+        <div class="pix-area">
+            <div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+            <button class="btn" onclick="copiar()">📋 Copiar Pix</button>
+            <button class="btn btn-discord" onclick="abrirDiscord()">💬 Abrir Discord</button>
+            <div class="instrucoes">Pague, abra ticket e envie o comprovante.</div>
+        </div>
+    </div>
 
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777932013675-f02a1c3f-2dd6-4e65-ae44-e294a0d3531f.png" class="banner-img">
-<div class="titulo-item">KIT GOD</div>
-<div class="preco">R$ 59,99</div>
-<button class="btn" onclick="mostrarPix()">🛒 Comprar Agora</button>
-<div class="pix-area">
-<div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
-<button class="btn" onclick="copiar()">📋 Copiar chave Pix</button>
-<button class="btn" onclick="abrirDiscord()" style="margin-top:10px;">💬 Abrir Discord</button>
-<p style="margin-top:10px; text-align:left;">
-1. Copie a chave Pix<br>
-2. Faça o pagamento<br>
-3. Clique em abrir Discord<br>
-4. Abra ticket<br>
-5. Envie comprovante<br>
-6. Aguarde o ADM
-</p>
-</div>
-</div>
+    <!-- KIT 2 -->
+    <div class="card">
+        <img src="https://image2url.com" class="banner-img">
+        <div>KIT GOD</div>
+        <div class="preco">R$ 59,99</div>
+        <button class="btn" onclick="togglePix(this)">🛒 Comprar Agora</button>
+        <div class="pix-area">
+            <div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+            <button class="btn" onclick="copiar()">📋 Copiar Pix</button>
+            <button class="btn btn-discord" onclick="abrirDiscord()">💬 Abrir Discord</button>
+        </div>
+    </div>
 
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png" class="banner-img">
-<div class="titulo-item">KIT DIVINO</div>
-<div class="preco">R$ 19,99</div>
-<button class="btn" onclick="mostrarPix()">🛒 Comprar Agora</button>
-<div class="pix-area">
-<div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
-<button class="btn" onclick="copiar()">📋 Copiar chave Pix</button>
-<button class="btn" onclick="abrirDiscord()" style="margin-top:10px;">💬 Abrir Discord</button>
-<p style="margin-top:10px; text-align:left;">
-1. Copie a chave Pix<br>
-2. Faça o pagamento<br>
-3. Clique em abrir Discord<br>
-4. Abra ticket<br>
-5. Envie comprovante<br>
-6. Aguarde o ADM
-</p>
-</div>
-</div>
+    <!-- KIT 3 -->
+    <div class="card">
+        <img src="https://image2url.com" class="banner-img">
+        <div>KIT DIVINO</div>
+        <div class="preco">R$ 19,99</div>
+        <button class="btn" onclick="togglePix(this)">🛒 Comprar Agora</button>
+        <div class="pix-area">
+            <div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+            <button class="btn" onclick="copiar()">📋 Copiar Pix</button>
+            <button class="btn btn-discord" onclick="abrirDiscord()">💬 Abrir Discord</button>
+        </div>
+    </div>
 
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777948165223-cb6b7142-86d5-4ac3-8241-d79ac6beb846.png" class="banner-img">
-<div class="titulo-item">KIT UPADOR</div>
-<div class="preco">R$ 16,99</div>
-<button class="btn" onclick="mostrarPix()">🛒 Comprar Agora</button>
-<div class="pix-area">
-<div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
-<button class="btn" onclick="copiar()">📋 Copiar chave Pix</button>
-<button class="btn" onclick="abrirDiscord()" style="margin-top:10px;">💬 Abrir Discord</button>
-<p style="margin-top:10px; text-align:left;">
-1. Copie a chave Pix<br>
-2. Faça o pagamento<br>
-3. Clique em abrir Discord<br>
-4. Abra ticket<br>
-5. Envie comprovante<br>
-6. Aguarde o ADM
-</p>
-</div>
-</div>
+    <!-- KIT 4 -->
+    <div class="card">
+        <img src="https://image2url.com" class="banner-img">
+        <div>KIT UPADOR</div>
+        <div class="preco">R$ 16,99</div>
+        <button class="btn" onclick="togglePix(this)">🛒 Comprar Agora</button>
+        <div class="pix-area">
+            <div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+            <button class="btn" onclick="copiar()">📋 Copiar Pix</button>
+        </div>
+    </div>
 
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777936044793-37236af1-a594-4806-8924-5036b2925518.png" class="banner-img">
-<div class="titulo-item">KIT COMIDA</div>
-<div class="preco">R$ 16,99</div>
-<button class="btn" onclick="mostrarPix()">🛒 Comprar Agora</button>
-<div class="pix-area">
-<div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
-<button class="btn" onclick="copiar()">📋 Copiar chave Pix</button>
-<button class="btn" onclick="abrirDiscord()" style="margin-top:10px;">💬 Abrir Discord</button>
-<p style="margin-top:10px; text-align:left;">
-1. Copie a chave Pix<br>
-2. Faça o pagamento<br>
-3. Clique em abrir Discord<br>
-4. Abra ticket<br>
-5. Envie comprovante<br>
-6. Aguarde o ADM
-</p>
-</div>
-</div>
+    <!-- KIT 5 -->
+    <div class="card">
+        <img src="https://image2url.com" class="banner-img">
+        <div>KIT COMIDA</div>
+        <div class="preco">R$ 16,99</div>
+        <button class="btn" onclick="togglePix(this)">🛒 Comprar Agora</button>
+        <div class="pix-area">
+            <div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+            <button class="btn" onclick="copiar()">📋 Copiar Pix</button>
+        </div>
+    </div>
 
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777201368066-3dfd02a5-ee97-4a14-b480-343326c2cbd3.png" class="banner-img">
-<div class="titulo-item">KIT GUERREIRO</div>
-<div class="preco">R$ 14,99</div>
-<button class="btn" onclick="mostrarPix()">🛒 Comprar Agora</button>
-<div class="pix-area">
-<div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
-<button class="btn" onclick="copiar()">📋 Copiar chave Pix</button>
-<button class="btn" onclick="abrirDiscord()" style="margin-top:10px;">💬 Abrir Discord</button>
-<p style="margin-top:10px; text-align:left;">
-1. Copie a chave Pix<br>
-2. Faça o pagamento<br>
-3. Clique em abrir Discord<br>
-4. Abra ticket<br>
-5. Envie comprovante<br>
-6. Aguarde o ADM
-</p>
-</div>
-</div>
+    <!-- KIT 6 -->
+    <div class="card">
+        <img src="https://image2url.com" class="banner-img">
+        <div>KIT GUERREIRO</div>
+        <div class="preco">R$ 14,99</div>
+        <button class="btn" onclick="togglePix(this)">🛒 Comprar Agora</button>
+        <div class="pix-area">
+            <div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+            <button class="btn" onclick="copiar()">📋 Copiar Pix</button>
+        </div>
+    </div>
 
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png" class="banner-img">
-<div class="titulo-item">KIT FORTUNA</div>
-<div class="preco">R$ 7,99</div>
-<button class="btn" onclick="mostrarPix()">🛒 Comprar Agora</button>
-<div class="pix-area">
-<div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
-<button class="btn" onclick="copiar()">📋 Copiar chave Pix</button>
-<button class="btn" onclick="abrirDiscord()" style="margin-top:10px;">💬 Abrir Discord</button>
-<p style="margin-top:10px; text-align:left;">
-1. Copie a chave Pix<br>
-2. Faça o pagamento<br>
-3. Clique em abrir Discord<br>
-4. Abra ticket<br>
-5. Envie comprovante<br>
-6. Aguarde o ADM
-</p>
-</div>
-</div>
+    <!-- KIT 7 -->
+    <div class="card">
+        <img src="https://image2url.com" class="banner-img">
+        <div>KIT FORTUNA</div>
+        <div class="preco">R$ 7,99</div>
+        <button class="btn" onclick="togglePix(this)">🛒 Comprar Agora</button>
+        <div class="pix-area">
+            <div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+            <button class="btn" onclick="copiar()">📋 Copiar Pix</button>
+        </div>
+    </div>
 
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png" class="banner-img">
-<div class="titulo-item">KIT TREINAMENTO</div>
-<div class="preco">R$ 7,99</div>
-<button class="btn" onclick="mostrarPix()">🛒 Comprar Agora</button>
-<div class="pix-area">
-<div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
-<button class="btn" onclick="copiar()">📋 Copiar chave Pix</button>
-<button class="btn" onclick="abrirDiscord()" style="margin-top:10px;">💬 Abrir Discord</button>
-<p style="margin-top:10px; text-align:left;">
-1. Copie a chave Pix<br>
-2. Faça o pagamento<br>
-3. Clique em abrir Discord<br>
-4. Abra ticket<br>
-5. Envie comprovante<br>
-6. Aguarde o ADM
-</p>
-</div>
-</div>
+    <!-- KIT 8 -->
+    <div class="card">
+        <img src="https://image2url.com" class="banner-img">
+        <div>KIT TREINAMENTO</div>
+        <div class="preco">R$ 7,99</div>
+        <button class="btn" onclick="togglePix(this)">🛒 Comprar Agora</button>
+        <div class="pix-area">
+            <div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+            <button class="btn" onclick="copiar()">📋 Copiar Pix</button>
+        </div>
+    </div>
 
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777201320061-f0615e0e-4b2d-49b9-9284-82686cee7615.png" class="banner-img">
-<div class="titulo-item">KIT EXPLORADOR</div>
-<div class="preco">R$ 5,99</div>
-<button class="btn" onclick="mostrarPix()">🛒 Comprar Agora</button>
-<div class="pix-area">
-<div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
-<button class="btn" onclick="copiar()">📋 Copiar chave Pix</button>
-<button class="btn" onclick="abrirDiscord()" style="margin-top:10px;">💬 Abrir Discord</button>
-<p style="margin-top:10px; text-align:left;">
-1. Copie a chave Pix<br>
-2. Faça o pagamento<br>
-3. Clique em abrir Discord<br>
-4. Abra ticket<br>
-5. Envie comprovante<br>
-6. Aguarde o ADM
-</p>
-</div>
-</div>
+    <!-- KIT 9 -->
+    <div class="card">
+        <img src="https://image2url.com" class="banner-img">
+        <div>KIT EXPLORADOR</div>
+        <div class="preco">R$ 5,99</div>
+        <button class="btn" onclick="togglePix(this)">🛒 Comprar Agora</button>
+        <div class="pix-area">
+            <div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+            <button class="btn" onclick="copiar()">📋 Copiar Pix</button>
+        </div>
+    </div>
 
 </div>
 
-<!-- VIP LISTA -->
+<!-- SEÇÃO VIPS -->
 <div id="vips" class="loja-container">
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777205703132-39385d5f-65e0-484b-9d2b-a642f43f3a49.png" class="banner-img">
-<div class="titulo-item">VIP ASTRAL</div>
-<div class="preco">R$ 59,99</div>
-<button class="btn" onclick="abrirVip()">Ver VIP</button>
-</div>
+    <div class="card">
+        <img src="https://image2url.com" class="banner-img">
+        <div>VIP ASTRAL</div>
+        <div class="preco">R$ 59,99</div>
+        <button class="btn" onclick="abrirVip()">Ver VIP</button>
+    </div>
 </div>
 
-<!-- VIP PAGE -->
+<!-- PAGINA DETALHADA VIP -->
 <div id="vipPage" class="vip-page">
-
-<h2>VIP ASTRAL</h2>
-
-<div class="kits-vip">
-<img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00
+    <h2>VIP ASTRAL</h2>
+    <div class="kits-vip">
+        <img src="https://image2url.com">
+        <img src="https://image2url.com">
+        <img src="https://image2url.com">
+    </div>
+    <p style="margin:20px 0; text-align:left;">
+    + VALE LENDÁRIO <br>
+    + 12 FRUTA DIÁRIA <br>
+    + TAG ÚNICA <br>
+    + ATENDIMENTO MAIS RÁPIDO
+    </p>
+    <div class="preco">R$ 59,99</div>
+    <button class="btn" onclick="togglePix(this)">💎 Comprar VIP</button>
     
+    <div class="pix-area">
+        <div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+        <button class="btn" onclick="copiar()">📋 Copiar chave Pix</button>
+        <button class="btn btn-discord" onclick="abrirDiscord()">💬 Abrir Discord</button>
+        <div class="instrucoes">1. Pague o Pix | 2. Abra Ticket | 3. Mande Comprovante</div>
+    </div>
+</div>
+
+<script>
+function mostrar(sec){
+    document.getElementById("kits").style.display="none";
+    document.getElementById("vips").style.display="none";
+    document.getElementById("vipPage").style.display="none";
+    document.getElementById(sec).style.display="grid";
+
+    document.getElementById("aba-kits").classList.remove("ativa");
+    document.getElementById("aba-vips").classList.remove("ativa");
+    document.getElementById("aba-" + sec).classList.add("ativa");
+}
+
+function abrirVip(){
+    document.getElementById("kits").style.display="none";
+    document.getElementById("vips").style.display="none";
+    document.getElementById("vipPage").style.display="block";
+}
+
+// Abre apenas o Pix do card onde o botão foi clicado
+function togglePix(btn) {
+    let area = btn.nextElementSibling;
+    area.style.display = (area.style.display === "block") ? "none" : "block";
+}
+
+function copiar(){
+    navigator.clipboard.writeText("efc0f5af-cd44-400c-9426-2d071caa7bec");
+    alert("✅ Pix copiado com sucesso!");
+}
+
+function abrirDiscord(){
+    window.open("https://discord.gg", "_blank");
+}
+</script>
+
+</body>
+</html>
