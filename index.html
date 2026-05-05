@@ -3,262 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Evolutium Craft</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        
-        body {
-            background: #0a0a0c;
-            background-image: radial-gradient(circle at 50% 0%, #3d1a00 0%, #0a0a0c 100%);
-            background-attachment: fixed;
-            color: #fff;
-            padding: 20px;
+    <title>EVOLUTIOM STORE</title>
+    <script>
+        function abrirPix() {
+            document.getElementById('pixModal').style.display = 'block';
         }
-
-        h1 { text-align: center; margin-bottom: 30px; font-size: 28px; text-transform: uppercase; font-family: "Arial Black"; letter-spacing: 2px; }
-        h1 span { color: #FF8C00; }
-
-        .menu-abas { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; }
-        .aba {
-            padding: 12px 25px; background: #16161a; border: 1px solid #333;
-            border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; color: #ccc;
+        function fecharPix() {
+            document.getElementById('pixModal').style.display = 'none';
         }
-        .aba.ativa { border-color: #FF8C00; color: #FF8C00; background: #1f1f23; box-shadow: 0 0 15px rgba(255, 140, 0, 0.2); }
-
-        .loja-container {
-            display: none;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px; width: 100%; max-width: 1200px; margin: 0 auto;
+        function abrirVip() {
+            document.getElementById('vipModal').style.display = 'block';
         }
-
-        .card {
-            background: #111114; border-radius: 12px; padding: 15px;
-            border: 1px solid #222; transition: 0.3s; display: flex; flex-direction: column; cursor: pointer;
+        function fecharVip() {
+            document.getElementById('vipModal').style.display = 'none';
         }
-        .card:hover { transform: translateY(-5px); border-color: #FF8C00; box-shadow: 0 0 20px rgba(255, 140, 0, 0.3); }
-
-        .banner-img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; border: 1px solid #333; background: #000; }
-
-        .titulo-item { font-size: 14px; font-weight: 600; color: #aaa; margin-bottom: 5px; text-transform: uppercase; }
-        .preco { font-size: 22px; font-weight: bold; color: #fff; margin-bottom: 10px; }
-        .pix-tag { font-size: 11px; color: #666; margin-bottom: 15px; display: block; }
-        
-        .btn-comprar { width: 100%; padding: 14px; background: #FF8C00; color: #fff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; }
-
-        .modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); z-index: 1000; overflow-y: auto; padding: 10px;
+        function trocarAba(tab) {
+            let tabs = document.getElementsByClassName('tab');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = 'none';
+            }
+            document.getElementById(tab).style.display = 'block';
         }
-
-        .modal-corpo {
-            background: #111114; 
-            max-width: 95%; 
-            width: 750px; 
-            margin: 20px auto;
-            border-radius: 15px; 
-            padding: 45px 25px; 
-            border: 1px solid #FF8C00; 
-            position: relative;
-            text-align: center;
-        }
-
-        .fechar { position: absolute; top: 10px; right: 15px; font-size: 45px; cursor: pointer; color: #FF8C00; line-height: 1; }
-
-        .img-vip-destaque {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 12px;
-            border: 2px solid #FF8C00;
-            margin: 20px 0;
-            box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
-        }
-
-        .mensal-badge {
-            background: #FF8C00;
-            color: #000;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 16px;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        .vantagens-vip { 
-            text-align: left; 
-            background: #16161a; 
-            padding: 30px; 
-            border-radius: 12px; 
-            margin: 25px 0; 
-        }
-        .vantagens-vip p { font-size: 20px; color: #ccc; margin-bottom: 12px; }
-
-        .btn-comprar-final {
-            width: 100%; padding: 22px; background: #FF8C00; color: #fff; 
-            border: none; border-radius: 12px; font-weight: bold; 
-            font-size: 22px; cursor: pointer; text-transform: uppercase;
-        }
-
-        .chave-pix-container {
-            background: #000; 
-            padding: 20px; 
-            border: 2px dashed #FF8C00; 
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .chave-pix { 
-            color: #FFDD00; 
-            font-size: 16px; 
-            word-break: break-all; 
-            font-family: monospace;
-            margin-bottom: 10px;
-        }
-        
-        .btn-copiar {
-            background: #16161a;
-            color: #FF8C00;
-            border: 1px solid #FF8C00;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .btn-copiar:hover {
-            background: #FF8C00;
-            color: #000;
-        }
-        
-        .aviso-ticket { 
-            background: rgba(255, 140, 0, 0.1); 
-            border: 1px solid #FF8C00; 
-            padding: 20px; 
-            border-radius: 10px; 
-            margin-top: 25px; 
-            color: #ffca80; 
-            font-size: 16px; 
-            line-height: 1.5; 
-        }
-    </style>
+    </script>
 </head>
 <body>
+    <h1>Bem-vindo à EVOLUTIOM STORE</h1>
+    <button onclick="abrirPix()">Abrir PIX</button>
+    <button onclick="abrirVip()">Abrir VIP</button>
 
-    <h1>EVOLUTIUM <span>CRAFT</span></h1>
-
-    <div class="menu-abas">
-        <div class="aba ativa" id="abaKitsBtn" onclick="trocarAba('kits')">🐉 KITS</div>
-        <div class="aba" id="abaVipsBtn" onclick="trocarAba('vips')">💎 VIPS</div>
+    <div id="pixModal" style="display:none;">
+        <span onclick="fecharPix()">Fechar</span>
+        <p>Conteúdo do modal PIX</p>
+    </div>
+    <div id="vipModal" style="display:none;">
+        <span onclick="fecharVip()">Fechar</span>
+        <p>Conteúdo do modal VIP</p>
     </div>
 
-    <!-- ABA KITS - ORDEM DO MAIOR PARA O MENOR -->
-    <div id="containerKits" class="loja-container" style="display: grid;">
-        
-        <!-- KIT DBE 79,99 -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777948112627-679cbc63-dc9b-449f-9edf-abc0ab5da980.png" class="banner-img">
-            <div class="titulo-item">KIT DBE</div>
-            <div class="preco">R$ 79,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
-
-        <!-- KIT GOD 59,99 -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777932013675-f02a1c3f-2dd6-4e65-ae44-e294a0d3531f.png" class="banner-img">
-            <div class="titulo-item">KIT GOD</div>
-            <div class="preco">R$ 59,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
-
-        <!-- KIT DIVINO 19,99 -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png" class="banner-img">
-            <div class="titulo-item">KIT DIVINO</div>
-            <div class="preco">R$ 19,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
-
-        <!-- KIT UPADOR 16,99 -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777948165223-cb6b7142-86d5-4ac3-8241-d79ac6beb846.png" class="banner-img">
-            <div class="titulo-item">KIT UPADOR</div>
-            <div class="preco">R$ 16,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
-
-        <!-- KIT COMIDA 16,99 -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777936044793-37236af1-a594-4806-8924-5036b2925518.png" class="banner-img">
-            <div class="titulo-item">KIT COMIDA</div>
-            <div class="preco">R$ 16,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
-
-        <!-- KIT GUERREIRO 14,99 -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777201368066-3dfd02a5-ee97-4a14-b480-343326c2cbd3.png" class="banner-img">
-            <div class="titulo-item">KIT GUERREIRO</div>
-            <div class="preco">R$ 14,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
-
-        <!-- KIT FORTUNA 7,99 -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png" class="banner-img">
-            <div class="titulo-item">KIT FORTUNA</div>
-            <div class="preco">R$ 7,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
-
-        <!-- KIT TREINAMENTO 7,99 -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png" class="banner-img">
-            <div class="titulo-item">KIT TREINAMENTO</div>
-            <div class="preco">R$ 7,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
-
-        <!-- KIT EXPLORADOR 5,99 -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777201320061-f0615e0e-4b2d-49b9-9284-82686cee7615.png" class="banner-img">
-            <div class="titulo-item">KIT EXPLORADOR</div>
-            <div class="preco">R$ 5,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
-
-    </div>
-
-    <!-- ABA VIPS -->
-    <div id="containerVips" class="loja-container">
-        <div class="card" onclick="abrirVip()">
-            <img src="https://www.image2url.com/r2/default/images/1777205703132-39385d5f-65e0-484b-9d2b-a642f43f3a49.png" class="banner-img">
-            <div class="titulo-item">VIP ASTRAL - MENSAL</div>
-            <div class="preco">R$ 59,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">💎 Ver Detalhes</button>
-        </div>
-    </div>
-
-    <!-- MODAL VIP -->
-    <div id="modalVip" class="modal">
-        <div class="modal-corpo">
-            <span class="fechar" onclick="fecharVip()">&times;</span>
-            <div class="mensal-badge">💎 ASSINATURA MENSAL</div>
-            <h2>VIP ASTRAL</h2>
-            <img src="https://www.image2url.com/r2/default/images/1777205703132-39385d5f-65e0-484b-9d2b-a642f43f3a49.png" class="img-vip-destaque">
-            
-            <div class="vantagens-vip">
-                <p>✅ Vantagens exclusivas do VIP</p>
-                <p>✅ Acesso a comandos especiais</p>
-                <p>✅ Tag colorida no chat
-                    
+    <div class="tab" id="tab1" style="display:block;">Conteúdo da Aba 1</div>
+    <div class="tab" id="tab2" style="display:none;">Conteúdo da Aba 2</div>
+    <button onclick="trocarAba('tab1')">Aba 1</button>
+    <button onclick="trocarAba('tab2')">Aba 2</button>
+</body>
+</html>
