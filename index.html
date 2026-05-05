@@ -1,323 +1,237 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Evolutium Craft</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        
-        body {
-            background: #0a0a0c;
-            background-image: radial-gradient(circle at 50% 0%, #3d1a00 0%, #0a0a0c 100%);
-            color: #fff;
-            padding: 20px;
-            min-height: 100vh;
-        }
-        
-        h1 { 
-            text-align: center; 
-            margin-bottom: 30px; 
-            font-size: 32px; 
-            text-transform: uppercase; 
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 2px;
-        }
-        h1 span { color: #FF8C00; text-shadow: 0 0 15px rgba(255, 140, 0, 0.4); }
-        
-        .menu-abas { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; }
-        
-        .aba {
-            padding: 14px 30px;
-            background: #16161a;
-            border: 1px solid #333;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: bold;
-            color: #888;
-            transition: 0.3s;
-        }
-        
-        .aba.ativa {
-            border-color: #FF8C00;
-            color: #fff;
-            background: rgba(255, 140, 0, 0.1);
-            box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
-        }
-        
-        .loja-container {
-            display: none;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .card {
-            background: #111114;
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid #222;
-            transition: transform 0.3s;
-            text-align: center;
-        }
-        .card:hover { transform: translateY(-5px); border-color: #444; }
-        
-        .banner-img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
-        .preco { font-size: 24px; font-weight: 800; margin: 15px 0; color: #FF8C00; font-family: 'Montserrat', sans-serif; }
-        
-        .btn {
-            background: #FF8C00;
-            border: none;
-            padding: 14px;
-            width: 100%;
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-        .btn:hover { background: #e67e00; filter: brightness(1.1); }
-        
-        /* VIP PAGE & DETALHES */
-        .vip-page {
-            display: none;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            text-align: center;
-            background: #111114;
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid #333;
-        }
-        
-        .vip-banner-detalhe { width: 60%; max-width: 300px; border-radius: 15px; margin-bottom: 20px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja Evolutium Craft</title>
 
-        .kits-vip-grid { 
-            display: flex; 
-            justify-content: center; 
-            flex-wrap: wrap; 
-            gap: 15px; 
-            margin: 25px 0; 
-        }
-        .kits-vip-grid img { 
-            width: 160px; /* Aumentado conforme pedido */
-            border-radius: 12px; 
-            border: 2px solid #222;
-            background: #000;
-        }
-        
-        .instrucoes {
-            text-align: left;
-            background: rgba(255,255,255,0.03);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            border-left: 4px solid #FF8C00;
-        }
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
-        .lista-beneficios { 
-            text-align: left; 
-            margin: 20px auto; 
-            max-width: 400px;
-            list-style: none;
-        }
-        .lista-beneficios li { margin-bottom: 8px; color: #ddd; font-size: 15px; }
-        .lista-beneficios li::before { content: "◈ "; color: #FF8C00; font-weight: bold; }
+body {
+    background: #0a0a0c;
+    background-image: radial-gradient(circle at 50% 0%, #3d1a00 0%, #0a0a0c 100%);
+    color: #fff;
+    padding: 20px;
+}
 
-        .pix-box {
-            background: #000;
-            padding: 20px;
-            border: 2px dashed #FF8C00;
-            margin: 20px 0;
-            font-family: monospace;
-            font-size: 14px;
-            color: #00ff88;
-        }
+h1 { text-align: center; margin-bottom: 30px; font-size: 32px; }
+h1 span { color: #FF8C00; }
 
-        .btn-voltar {
-            background: transparent;
-            border: 1px solid #444;
-            margin-top: 30px;
-            color: #888;
-        }
-    </style>
+.menu-abas { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; }
+
+.aba {
+    padding: 14px 30px;
+    background: #16161a;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.loja-container {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #111114;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+.banner-img { width: 100%; border-radius: 10px; }
+
+.preco { font-size: 22px; margin: 10px 0; color: #FF8C00; }
+
+.btn {
+    background: #FF8C00;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* VIP */
+.vip-page { display: none; text-align: center; }
+
+.vip-banner-detalhe {
+    width: 250px;
+    margin: 10px auto;
+}
+
+.kits-vip-grid img {
+    width: 170px;
+    margin: 10px;
+}
+
+.pix-box {
+    background: #000;
+    padding: 15px;
+    border: 2px dashed orange;
+}
+</style>
 </head>
+
 <body>
 
-    <h1>EVOLUTIUM <span>CRAFT</span></h1>
+<h1>EVOLUTIUM <span>CRAFT</span></h1>
 
-    <div class="menu-abas">
-        <div id="btn-kits" class="aba ativa" onclick="mostrar('kits')">🐉 KITS</div>
-        <div id="btn-vips" class="aba" onclick="mostrar('vips')">💎 VIPS</div>
-    </div>
+<div class="menu-abas">
+<div class="aba" onclick="mostrar('kits')">KITS</div>
+<div class="aba" onclick="mostrar('vips')">VIPS</div>
+</div>
 
-    <!-- SEÇÃO KITS -->
-    <div id="kits" class="loja-container" style="display:grid;">
-        <!-- Exemplo de 3 kits iniciais -->
-        <div class="card">
-            <img src="https://image2url.com" class="banner-img">
-            <h3>KIT DBE</h3>
-            <div class="preco">R$ 79,99</div>
-            <button class="btn" onclick="abrirCompra('KIT DBE', '79,99')">Comprar Agora</button>
-        </div>
-        <div class="card">
-            <img src="https://image2url.com" class="banner-img">
-            <h3>KIT GOD</h3>
-            <div class="preco">R$ 59,99</div>
-            <button class="btn" onclick="abrirCompra('KIT GOD', '59,99')">Comprar Agora</button>
-        </div>
-        <div class="card">
-            <img src="https://image2url.com" class="banner-img">
-            <h3>KIT DIVINO</h3>
-            <div class="preco">R$ 19,99</div>
-            <button class="btn" onclick="abrirCompra('KIT DIVINO', '19,99')">Comprar Agora</button>
-        </div>
-    </div>
+<!-- KITS -->
+<div id="kits" class="loja-container" style="display:grid;">
 
-    <!-- SEÇÃO VIPS -->
-    <div id="vips" class="loja-container">
-        <div class="card">
-            <img src="https://www.image2url.com/r2/default/images/1777954537217-c0b6b289-e1b5-4ba1-aad5-e26d39deb871.png" class="banner-img">
-            <h3>VIP ASTRAL</h3>
-            <div class="preco">R$ 59,99</div>
-            <button class="btn" onclick="verDetalhes('astral')">Ver Detalhes</button>
-        </div>
-        <div class="card">
-            <img src="https://www.image2url.com/r2/default/images/1777953666424-7d3ea9a0-8973-4020-be51-b8b19e44f1f7.png" class="banner-img">
-            <h3>VIP GOD</h3>
-            <div class="preco">R$ 39,99</div>
-            <button class="btn" onclick="verDetalhes('god')">Ver Detalhes</button>
-        </div>
-        <div class="card">
-            <img src="https://www.image2url.com/r2/default/images/1777954269240-656474a4-4914-4b5a-94ef-5e78174ac3c9.png" class="banner-img">
-            <h3>VIP LENDÁRIO</h3>
-            <div class="preco">R$ 99,99</div>
-            <button class="btn" onclick="verDetalhes('lendario')">Ver Detalhes</button>
-        </div>
-    </div>
+<div class="card">
+<img src="https://www.image2url.com/r2/default/images/1777948112627-679cbc63-dc9b-449f-9edf-abc0ab5da980.png" class="banner-img">
+<h3>KIT DBE</h3>
+<div class="preco">R$ 79,99</div>
+<button class="btn" onclick="abrirCompra('KIT DBE','79,99')">Comprar</button>
+</div>
 
-    <!-- PÁGINA DE DETALHES DINÂMICA -->
-    <div id="vipPage" class="vip-page">
-        <img id="vip-img" src="" class="vip-banner-detalhe">
-        <h2 id="vip-nome" style="font-family: 'Montserrat';">NOME DO VIP</h2>
-        
-        <div class="kits-vip-grid" id="vip-kits-container">
-            <!-- Imagens dos kits entram aqui -->
-        </div>
+<div class="card">
+<img src="https://www.image2url.com/r2/default/images/1777932013675-f02a1c3f-2dd6-4e65-ae44-e294a0d3531f.png" class="banner-img">
+<h3>KIT GOD</h3>
+<div class="preco">R$ 59,99</div>
+<button class="btn" onclick="abrirCompra('KIT GOD','59,99')">Comprar</button>
+</div>
 
-        <ul class="lista-beneficios" id="vip-beneficios">
-            <!-- Benefícios entram aqui -->
-        </ul>
+<div class="card">
+<img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png" class="banner-img">
+<h3>KIT DIVINO</h3>
+<div class="preco">R$ 19,99</div>
+<button class="btn" onclick="abrirCompra('KIT DIVINO','19,99')">Comprar</button>
+</div>
 
-        <div class="preco" id="vip-preco">R$ 0,00</div>
-        <button class="btn" onclick="mostrarPix()">💎 Gerar Pagamento Pix</button>
+<div class="card">
+<img src="https://www.image2url.com/r2/default/images/1777948165223-cb6b7142-86d5-4ac3-8241-d79ac6beb846.png" class="banner-img">
+<h3>KIT UPADOR</h3>
+<div class="preco">R$ 16,99</div>
+<button class="btn" onclick="abrirCompra('KIT UPADOR','16,99')">Comprar</button>
+</div>
 
-        <div id="pixArea" style="display:none; margin-top: 30px;">
-            <div class="instrucoes">
-                <p><strong>⚠️ INSTRUÇÕES DE COMPRA:</strong></p>
-                <p style="margin-top:10px;">1. Copie a chave abaixo e pague no seu banco.</p>
-                <p>2. Entre no nosso <strong>Discord</strong>.</p>
-                <p>3. Abra um ticket e envie o comprovante.</p>
-                <p>4. O ADM ativará seu produto em instantes!</p>
-            </div>
-            <div class="pix-box" id="chavePix">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
-            <button class="btn" onclick="copiar()" style="background: #28a745; margin-bottom: 10px;">📋 Copiar Chave Pix</button>
-            <button class="btn" onclick="abrirDiscord()" style="background: #5865F2;">💬 Abrir Discord Oficial</button>
-        </div>
-        
-        <button class="btn btn-voltar" onclick="mostrar('vips')">Voltar para a Loja</button>
-    </div>
+<div class="card">
+<img src="https://www.image2url.com/r2/default/images/1777936044793-37236af1-a594-4806-8924-5036b2925518.png" class="banner-img">
+<h3>KIT COMIDA</h3>
+<div class="preco">R$ 16,99</div>
+<button class="btn" onclick="abrirCompra('KIT COMIDA','16,99')">Comprar</button>
+</div>
 
-    <script>
-        const dadosVips = {
-            astral: {
-                nome: "VIP ASTRAL",
-                imagem: "https://www.image2url.com/r2/default/images/1777954537217-c0b6b289-e1b5-4ba1-aad5-e26d39deb871.png",
-                preco: "59,99",
-                beneficios: ["VALE LENDÁRIO", "30 FRUTAS DIÁRIAS (LIMITE 30 DIAS)", "TAG ÚNICA", "ATENDIMENTO PRIORITÁRIO"],
-                kits: ["https://image2url.com"]
-            },
-            god: {
-                nome: "VIP GOD",
-                imagem: "https://www.image2url.com/r2/default/images/1777953666424-7d3ea9a0-8973-4020-be51-b8b19e44f1f7.png",
-                preco: "39,99",
-                beneficios: ["VALE LENDÁRIO", "10 FRUTAS DIÁRIAS (LIMITE 15 DIAS)", "TAG ÚNICA", "100 PONTOS DE TREINAMENTO", "KIT GOD INCLUSO", "KIT COMIDA INCLUSO", "KIT UPADOR INCLUSO"],
-                kits: ["https://image2url.com", "https://image2url.com"]
-            },
-            lendario: {
-                nome: "VIP LENDÁRIO",
-                imagem: "https://www.image2url.com/r2/default/images/1777954269240-656474a4-4914-4b5a-94ef-5e78174ac3c9.png",
-                preco: "99,99",
-                beneficios: ["VALE LENDÁRIO", "300 PONTOS DE TREINAMENTO", "VALE ULTRA EGO", "15 FRUTAS DIÁRIAS (LIMITE 30 DIAS)", "VALE TAG ÚNICA", "PRIORIDADE EM SUPORTE", "KIT DBE INCLUSO", "KIT COMIDA INCLUSO"],
-                kits: ["https://image2url.com", "https://image2url.com"]
-            }
-        };
+</div>
 
-        function mostrar(sec) {
-            document.getElementById("kits").style.display = "none";
-            document.getElementById("vips").style.display = "none";
-            document.getElementById("vipPage").style.display = "none";
-            document.getElementById(sec).style.display = "grid";
+<!-- VIPS -->
+<div id="vips" class="loja-container">
 
-            document.getElementById("btn-kits").classList.remove("ativa");
-            document.getElementById("btn-vips").classList.remove("ativa");
-            if(sec === 'kits') document.getElementById("btn-kits").classList.add("ativa");
-            if(sec === 'vips') document.getElementById("btn-vips").classList.add("ativa");
-        }
+<div class="card">
+<img src="https://www.image2url.com/r2/default/images/1777954537217-c0b6b289-e1b5-4ba1-aad5-e26d39deb871.png">
+<h3>VIP ASTRAL</h3>
+<div class="preco">R$ 59,99</div>
+<button class="btn" onclick="verDetalhes('astral')">Ver VIP</button>
+</div>
 
-        function verDetalhes(id) {
-            const vip = dadosVips[id];
-            document.getElementById("vip-nome").innerText = vip.nome;
-            document.getElementById("vip-img").src = vip.imagem;
-            document.getElementById("vip-preco").innerText = "R$ " + vip.preco;
-            
-            // Limpa e adiciona kits
-            const container = document.getElementById("vip-kits-container");
-            container.innerHTML = "";
-            vip.kits.forEach(url => {
-                const img = document.createElement("img");
-                img.src = url;
-                container.appendChild(img);
-            });
+<div class="card">
+<img src="https://www.image2url.com/r2/default/images/1777953666424-7d3ea9a0-8973-4020-be51-b8b19e44f1f7.png">
+<h3>VIP GOD</h3>
+<div class="preco">R$ 39,99</div>
+<button class="btn" onclick="verDetalhes('god')">Ver VIP</button>
+</div>
 
-            // Limpa e adiciona benefícios
-            const lista = document.getElementById("vip-beneficios");
-            lista.innerHTML = "";
-            vip.beneficios.forEach(txt => {
-                const li = document.createElement("li");
-                li.innerText = txt;
-                lista.appendChild(li);
-            });
+<div class="card">
+<img src="https://www.image2url.com/r2/default/images/1777954269240-656474a4-4914-4b5a-94ef-5e78174ac3c9.png">
+<h3>VIP LENDÁRIO</h3>
+<div class="preco">R$ 99,99</div>
+<button class="btn" onclick="verDetalhes('lendario')">Ver VIP</button>
+</div>
 
-            document.getElementById("kits").style.display = "none";
-            document.getElementById("vips").style.display = "none";
-            document.getElementById("vipPage").style.display = "block";
-            document.getElementById("pixArea").style.display = "none";
-        }
+</div>
 
-        function abrirCompra(nome, preco) {
-            // Reaproveita a página de detalhes para kits simples
-            document.getElementById("vip-nome").innerText = nome;
-            document.getElementById("vip-img").src = ""; // Remove banner grande para kits
-            document.getElementById("vip-preco").innerText = "R$ " + preco;
-            document.getElementById("vip-beneficios").innerHTML = "<li>Entrega imediata via suporte</li><li>Ativação garantida</li>";
-            document.getElementById("vip-kits-container").innerHTML = "";
-            
-            document.getElementById("kits").style.display = "none";
-            document.getElementById("vips").style.display = "none";
-            document.getElementById("vipPage").style.display = "block";
-            document.getElementById("pixArea").style.display = "none";
-        }
+<!-- VIP PAGE -->
+<div id="vipPage" class="vip-page">
 
-        function mostrarPix() { document.getElementById("pixArea").style.display = "block"; }
-        function copiar() {
-            navigator.clipboard.writeText(document.getElementById("chavePix").innerText);
-            alert("✅ Pix copiado!");
-        }
-        function abrirDiscord() { window.open("https://discord.gg", "_blank"); }
-    </script>
+<img id="vip-img" class="vip-banner-detalhe">
+<h2 id="vip-nome"></h2>
+
+<div id="vip-kits-container" class="kits-vip-grid"></div>
+
+<ul id="vip-beneficios"></ul>
+
+<div class="preco" id="vip-preco"></div>
+<button class="btn" onclick="mostrarPix()">Comprar</button>
+
+<div id="pixArea" style="display:none;">
+<div class="pix-box">efc0f5af-cd44-400c-9426-2d071caa7bec</div>
+<button class="btn" onclick="copiar()">Copiar</button>
+</div>
+
+</div>
+
+<script>
+const dadosVips = {
+astral:{
+nome:"VIP ASTRAL",
+imagem:"https://www.image2url.com/r2/default/images/1777954537217-c0b6b289-e1b5-4ba1-aad5-e26d39deb871.png",
+preco:"59,99",
+kits:[
+"https://www.image2url.com/r2/default/images/1777948112627-679cbc63-dc9b-449f-9edf-abc0ab5da980.png",
+"https://www.image2url.com/r2/default/images/1777936044793-37236af1-a594-4806-8924-5036b2925518.png"
+],
+beneficios:["Frutas diárias 30 dias","Tag única"]
+},
+
+god:{
+nome:"VIP GOD",
+imagem:"https://www.image2url.com/r2/default/images/1777953666424-7d3ea9a0-8973-4020-be51-b8b19e44f1f7.png",
+preco:"39,99",
+kits:[
+"https://www.image2url.com/r2/default/images/1777932013675-f02a1c3f-2dd6-4e65-ae44-e294a0d3531f.png",
+"https://www.image2url.com/r2/default/images/1777936044793-37236af1-a594-4806-8924-5036b2925518.png"
+],
+beneficios:["Frutas diárias","100 treino"]
+}
+};
+
+function mostrar(sec){
+kits.style.display="none";
+vips.style.display="none";
+vipPage.style.display="none";
+document.getElementById(sec).style.display="grid";
+}
+
+function verDetalhes(id){
+let v=dadosVips[id];
+vipNome.innerText=v.nome;
+vipImg.src=v.imagem;
+vipPreco.innerText="R$ "+v.preco;
+
+vipKitsContainer.innerHTML="";
+v.kits.forEach(i=>{
+vipKitsContainer.innerHTML+=`<img src="${i}">`;
+});
+
+vipBeneficios.innerHTML="";
+v.beneficios.forEach(b=>{
+vipBeneficios.innerHTML+=`<li>${b}</li>`;
+});
+
+mostrar("vipPage");
+pixArea.style.display="none";
+}
+
+function abrirCompra(nome,preco){
+vipNome.innerText=nome;
+vipImg.src="";
+vipPreco.innerText="R$ "+preco;
+mostrar("vipPage");
+pixArea.style.display="none";
+}
+
+function mostrarPix(){pixArea.style.display="block";}
+function copiar(){navigator.clipboard.writeText("efc0f5af-cd44-400c-9426-2d071caa7bec");alert("Copiado");}
+</script>
+
 </body>
 </html>
