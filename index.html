@@ -64,7 +64,6 @@
 
         .fechar { position: absolute; top: 10px; right: 15px; font-size: 45px; cursor: pointer; color: #FF8C00; line-height: 1; }
 
-        /* IMAGEM DO VIP ASTRAL GIGANTE */
         .img-vip-destaque {
             width: 100%;
             max-width: 600px;
@@ -95,19 +94,6 @@
         }
         .vantagens-vip p { font-size: 20px; color: #ccc; margin-bottom: 12px; }
 
-        .kits-vips-lista { 
-            display: flex; 
-            gap: 15px; 
-            justify-content: center; 
-            margin: 30px 0; 
-            flex-wrap: wrap; 
-        }
-        .kits-vips-lista img { 
-            width: 170px; 
-            border: 2px solid #333; 
-            border-radius: 10px; 
-        }
-
         .btn-comprar-final {
             width: 100%; padding: 22px; background: #FF8C00; color: #fff; 
             border: none; border-radius: 12px; font-weight: bold; 
@@ -128,56 +114,10 @@
         <div class="aba" id="abaVipsBtn" onclick="trocarAba('vips')">💎 VIPS</div>
     </div>
 
-    <!-- ABA KITS -->
+    <!-- ABA KITS - ORDEM DO MAIOR PARA O MENOR -->
     <div id="containerKits" class="loja-container" style="display: grid;">
-        <!-- EXPLORADOR -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777201320061-f0615e0e-4b2d-49b9-9284-82686cee7615.png" class="banner-img">
-            <div class="titulo-item">KIT EXPLORADOR</div>
-            <div class="preco">R$ 5,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
-        <!-- FORTUNA -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png" class="banner-img">
-            <div class="titulo-item">KIT FORTUNA</div>
-            <div class="preco">R$ 7,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
-        <!-- TREINAMENTO -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png" class="banner-img">
-            <div class="titulo-item">KIT TREINAMENTO</div>
-            <div class="preco">R$ 7,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
-        <!-- GUERREIRO -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777201368066-3dfd02a5-ee97-4a14-b480-343326c2cbd3.png" class="banner-img">
-            <div class="titulo-item">KIT GUERREIRO</div>
-            <div class="preco">R$ 14,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
-        <!-- DIVINO -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png" class="banner-img">
-            <div class="titulo-item">KIT DIVINO</div>
-            <div class="preco">R$ 19,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
-        <!-- NOVOS KITS -->
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777948165223-cb6b7142-86d5-4ac3-8241-d79ac6beb846.png" class="banner-img">
-            <div class="titulo-item">KIT UPADOR</div>
-            <div class="preco">R$ 16,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
+        
+        <!-- KIT DBE 79,99 -->
         <div class="card" onclick="abrirPix()">
             <img src="https://www.image2url.com/r2/default/images/1777948112627-679cbc63-dc9b-449f-9edf-abc0ab5da980.png" class="banner-img">
             <div class="titulo-item">KIT DBE</div>
@@ -185,13 +125,8 @@
             <span class="pix-tag">À vista no Pix</span>
             <button class="btn-comprar">🛒 Comprar agora</button>
         </div>
-        <div class="card" onclick="abrirPix()">
-            <img src="https://www.image2url.com/r2/default/images/1777936044793-37236af1-a594-4806-8924-5036b2925518.png" class="banner-img">
-            <div class="titulo-item">KIT COMIDA</div>
-            <div class="preco">R$ 16,99</div>
-            <span class="pix-tag">À vista no Pix</span>
-            <button class="btn-comprar">🛒 Comprar agora</button>
-        </div>
+
+        <!-- KIT GOD 59,99 -->
         <div class="card" onclick="abrirPix()">
             <img src="https://www.image2url.com/r2/default/images/1777932013675-f02a1c3f-2dd6-4e65-ae44-e294a0d3531f.png" class="banner-img">
             <div class="titulo-item">KIT GOD</div>
@@ -199,6 +134,70 @@
             <span class="pix-tag">À vista no Pix</span>
             <button class="btn-comprar">🛒 Comprar agora</button>
         </div>
+
+        <!-- KIT DIVINO 19,99 -->
+        <div class="card" onclick="abrirPix()">
+            <img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png" class="banner-img">
+            <div class="titulo-item">KIT DIVINO</div>
+            <div class="preco">R$ 19,99</div>
+            <span class="pix-tag">À vista no Pix</span>
+            <button class="btn-comprar">🛒 Comprar agora</button>
+        </div>
+
+        <!-- KIT UPADOR 16,99 -->
+        <div class="card" onclick="abrirPix()">
+            <img src="https://www.image2url.com/r2/default/images/1777948165223-cb6b7142-86d5-4ac3-8241-d79ac6beb846.png" class="banner-img">
+            <div class="titulo-item">KIT UPADOR</div>
+            <div class="preco">R$ 16,99</div>
+            <span class="pix-tag">À vista no Pix</span>
+            <button class="btn-comprar">🛒 Comprar agora</button>
+        </div>
+
+        <!-- KIT COMIDA 16,99 -->
+        <div class="card" onclick="abrirPix()">
+            <img src="https://www.image2url.com/r2/default/images/1777936044793-37236af1-a594-4806-8924-5036b2925518.png" class="banner-img">
+            <div class="titulo-item">KIT COMIDA</div>
+            <div class="preco">R$ 16,99</div>
+            <span class="pix-tag">À vista no Pix</span>
+            <button class="btn-comprar">🛒 Comprar agora</button>
+        </div>
+
+        <!-- KIT GUERREIRO 14,99 -->
+        <div class="card" onclick="abrirPix()">
+            <img src="https://www.image2url.com/r2/default/images/1777201368066-3dfd02a5-ee97-4a14-b480-343326c2cbd3.png" class="banner-img">
+            <div class="titulo-item">KIT GUERREIRO</div>
+            <div class="preco">R$ 14,99</div>
+            <span class="pix-tag">À vista no Pix</span>
+            <button class="btn-comprar">🛒 Comprar agora</button>
+        </div>
+
+        <!-- KIT FORTUNA 7,99 -->
+        <div class="card" onclick="abrirPix()">
+            <img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png" class="banner-img">
+            <div class="titulo-item">KIT FORTUNA</div>
+            <div class="preco">R$ 7,99</div>
+            <span class="pix-tag">À vista no Pix</span>
+            <button class="btn-comprar">🛒 Comprar agora</button>
+        </div>
+
+        <!-- KIT TREINAMENTO 7,99 -->
+        <div class="card" onclick="abrirPix()">
+            <img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png" class="banner-img">
+            <div class="titulo-item">KIT TREINAMENTO</div>
+            <div class="preco">R$ 7,99</div>
+            <span class="pix-tag">À vista no Pix</span>
+            <button class="btn-comprar">🛒 Comprar agora</button>
+        </div>
+
+        <!-- KIT EXPLORADOR 5,99 -->
+        <div class="card" onclick="abrirPix()">
+            <img src="https://www.image2url.com/r2/default/images/1777201320061-f0615e0e-4b2d-49b9-9284-82686cee7615.png" class="banner-img">
+            <div class="titulo-item">KIT EXPLORADOR</div>
+            <div class="preco">R$ 5,99</div>
+            <span class="pix-tag">À vista no Pix</span>
+            <button class="btn-comprar">🛒 Comprar agora</button>
+        </div>
+
     </div>
 
     <!-- ABA VIPS -->
@@ -230,17 +229,14 @@
 
             <div class="preco" style="font-size: 32px;">R$ 59,99</div>
             <span class="pix-tag">À vista no Pix</span>
-
             <button class="btn-comprar-final" onclick="abrirPix()">💳 Pagar via Pix</button>
-
-            <div class="aviso-ticket">
-                Após o pagamento, envie o comprovatante no ticket para receber seu VIP imediatamente!
-            </div>
+            <div class="aviso-ticket">Após o pagamento, envie o comprovatante no ticket para receber seu VIP imediatamente!</div>
         </div>
     </div>
 
     <!-- MODAL PIX -->
     <div id="modalPix" class="modal">
         <div class="modal-corpo">
-            <span class="fechar" onclick="
+            <span class="fechar" onclick="fecharPix()">&times;</span>
+            <h2
                 
