@@ -164,52 +164,64 @@ h1 span { color: #FF8C00; }
 <img src="https://image2url.com" class="banner-img">
 <div>VIP ASTRAL</div>
 <div class="preco">R$ 59,99</div>
-<button class="btn" onclick="abrirVip('vipPageAstral')">Ver VIP</button>
+<button class="btn" onclick="abrirVip('vipAstral')">Ver VIP</button>
 </div>
 
 <div class="card">
 <img src="https://image2url.com" class="banner-img">
 <div>VIP LENDÁRIO</div>
 <div class="preco">R$ 129,99</div>
-<button class="btn" onclick="abrirVip('vipPageLendario')">Ver VIP</button>
+<button class="btn" onclick="abrirVip('vipLendario')">Ver VIP</button>
 </div>
 
 </div>
 
 <!-- VIP PAGE ASTRAL -->
-<div id="vipPageAstral" class="vip-page">
+<div id="vipAstral" class="vip-page">
+
 <h2>VIP ASTRAL</h2>
+
 <img src="https://image2url.com" style="width:200px; border-radius:12px; margin:10px 0;">
+
 <div class="vip-kits">
 <img src="https://image2url.com">
 <img src="https://image2url.com">
 <img src="https://image2url.com">
 </div>
+
 <p style="margin:20px 0; text-align:left; line-height:1.6;">
 ✨ VALE LENDÁRIO <br>
 🍇 12 FRUTAS DIÁRIAS <br>
 🏷️ TAG ÚNICA <br>
 💬 ATENDIMENTO PRIORITÁRIO
 </p>
+
 <button class="btn" onclick="comprar('VIP ASTRAL')">💎 Comprar VIP</button>
+
 </div>
 
-<!-- VIP PAGE LENDÁRIO -->
-<div id="vipPageLendario" class="vip-page">
+<!-- VIP PAGE LENDARIO -->
+<div id="vipLendario" class="vip-page">
+
 <h2>VIP LENDÁRIO</h2>
+
 <img src="https://image2url.com" style="width:200px; border-radius:12px; margin:10px 0;">
+
 <div class="vip-kits">
-<img src="https://image2url.com">
-<img src="https://image2url.com">
-<img src="https://image2url.com">
+<img src="https://image2url.com"> <!-- KIT GOD -->
+<img src="https://image2url.com"> <!-- KIT COMIDA -->
+<img src="https://image2url.com"> <!-- KIT UPADOR -->
 </div>
+
 <p style="margin:20px 0; text-align:left; line-height:1.6;">
 +VALE LENDÁRIO <br>
 +VALE 10 FRUTA DIÁRIAS (LIMITE DE 15 DIAS) <br>
 +TAG ÚNICA <br>
-+100 PONTOS DE TREINAMENTO
++100 PONTOS DE TREINAMENTO 
 </p>
+
 <button class="btn" onclick="comprar('VIP LENDÁRIO')">💎 Comprar VIP</button>
+
 </div>
 
 <!-- PIX -->
@@ -237,8 +249,8 @@ h1 span { color: #FF8C00; }
 function mostrar(sec){
 document.getElementById("kits").style.display="none";
 document.getElementById("vips").style.display="none";
-document.getElementById("vipPageAstral").style.display="none";
-document.getElementById("vipPageLendario").style.display="none";
+document.getElementById("vipAstral").style.display="none";
+document.getElementById("vipLendario").style.display="none";
 document.getElementById("pixGlobal").style.display="none";
 document.getElementById(sec).style.display="grid";
 }
@@ -246,16 +258,16 @@ document.getElementById(sec).style.display="grid";
 function abrirVip(id){
 document.getElementById("kits").style.display="none";
 document.getElementById("vips").style.display="none";
-document.getElementById("vipPageAstral").style.display="none";
-document.getElementById("vipPageLendario").style.display="none";
+document.getElementById("vipAstral").style.display="none";
+document.getElementById("vipLendario").style.display="none";
 document.getElementById(id).style.display="block";
 }
 
 function comprar(nome){
 document.getElementById("kits").style.display="none";
 document.getElementById("vips").style.display="none";
-document.getElementById("vipPageAstral").style.display="none";
-document.getElementById("vipPageLendario").style.display="none";
+document.getElementById("vipAstral").style.display="none";
+document.getElementById("vipLendario").style.display="none";
 document.getElementById("pixGlobal").style.display="block";
 document.getElementById("produtoNome").innerText = nome;
 }
