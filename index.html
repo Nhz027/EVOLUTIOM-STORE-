@@ -270,63 +270,61 @@ bottom:10px;
 <div class="aba" onclick="mostrar('vips')">💎 VIPS</div>
 </div>
 
-<!-- KITS -->
-<div id="kits" class="loja-container" style="display:grid;">
-
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777948112627-679cbc63-dc9b-449f-9edf-abc0ab5da980.png" class="banner-img">
-<div>KIT DBE</div>
-<div class="preco">R$ 79,99</div>
-<button class="btn" onclick="adicionarCarrinho('KIT DBE',79.99)">🛒 Adicionar</button>
-</div>
-
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777932013675-f02a1c3f-2dd6-4e65-ae44-e294a0d3531f.png" class="banner-img">
-<div>KIT GOD</div>
-<div class="preco">R$ 59,99</div>
-<button class="btn" onclick="adicionarCarrinho('KIT GOD',59.99)">🛒 Adicionar</button>
-</div>
-
-</div>
-
-<!-- CARRINHO -->
-<div id="carrinhoBox">
-
-<h3 style="margin-bottom:10px;color:#FF8C00;">
-🛒 Carrinho
-</h3>
-
-<div id="itensCarrinho" style="
-display:flex;
-flex-direction:column;
-gap:8px;
-margin-bottom:15px;
-"></div>
-
-<div style="
-display:flex;
-justify-content:space-between;
-margin-bottom:15px;
-font-weight:bold;
-">
-<span>Total:</span>
-<span id="totalCarrinho">R$ 0,00</span>
-</div>
-
-<button class="btn" onclick="finalizarCompra()">
-💳 Finalizar Compra
-</button>
-
-</div>
+<!-- TODO O RESTO DO SEU HTML CONTINUA IGUAL -->
 
 <script>
 
 let carrinho = [];
 
+function mostrarToast(msg){
+
+let toast = document.getElementById("toast");
+
+if(!toast){
+
+toast = document.createElement("div");
+toast.id = "toast";
+
+toast.style.position = "fixed";
+toast.style.left = "50%";
+toast.style.bottom = "20px";
+toast.style.transform = "translateX(-50%)";
+toast.style.background = "linear-gradient(135deg,#ff8c00,#ffb347)";
+toast.style.color = "#fff";
+toast.style.padding = "14px 24px";
+toast.style.borderRadius = "14px";
+toast.style.fontWeight = "700";
+toast.style.fontSize = "15px";
+toast.style.boxShadow = "0 0 25px rgba(255,140,0,.45)";
+toast.style.zIndex = "999999";
+toast.style.opacity = "0";
+toast.style.transition = ".35s ease";
+toast.style.pointerEvents = "none";
+
+document.body.appendChild(toast);
+
+}
+
+toast.innerText = msg;
+
+toast.style.opacity = "1";
+toast.style.bottom = "40px";
+
+setTimeout(()=>{
+toast.style.opacity = "0";
+toast.style.bottom = "20px";
+},2500);
+
+}
+
 function esconderTudo(){
 
 document.getElementById("kits").style.display="none";
 document.getElementById("vips").style.display="none";
+document.getElementById("astral").style.display="none";
+document.getElementById("lendario").style.display="none";
+document.getElementById("god").style.display="none";
+document.getElementById("pixGlobal").style.display="none";
 
 }
 
@@ -350,44 +348,11 @@ document.querySelectorAll(".aba")[1].classList.add("ativa");
 
 }
 
-function mostrarToast(msg){
+function abrirVip(id){
 
-let toast = document.getElementById("toast");
+esconderTudo();
 
-if(!toast){
-
-toast = document.createElement("div");
-toast.id = "toast";
-
-toast.style.position = "fixed";
-toast.style.bottom = "20px";
-toast.style.left = "50%";
-toast.style.transform = "translateX(-50%)";
-toast.style.background = "linear-gradient(135deg,#ff8c00,#ffb347)";
-toast.style.color = "#fff";
-toast.style.padding = "14px 24px";
-toast.style.borderRadius = "14px";
-toast.style.fontWeight = "700";
-toast.style.fontSize = "15px";
-toast.style.boxShadow = "0 0 25px rgba(255,140,0,.45)";
-toast.style.zIndex = "999999";
-toast.style.opacity = "0";
-toast.style.transition = ".35s";
-toast.style.pointerEvents = "none";
-
-document.body.appendChild(toast);
-
-}
-
-toast.innerText = msg;
-
-toast.style.opacity = "1";
-toast.style.bottom = "40px";
-
-setTimeout(()=>{
-toast.style.opacity = "0";
-toast.style.bottom = "20px";
-},2500);
+document.getElementById(id).style.display="block";
 
 }
 
@@ -484,11 +449,44 @@ return;
 
 }
 
+let nomes = carrinho.map(item => item.nome).join(", ");
+
+comprar(nomes);
+
+}
+
+function comprar(nome){
+
+esconderTudo();
+
+document.getElementById("pixGlobal").style.display="block";
+
+document.getElementById("produtoNome").innerText = nome;
+
 mostrarToast("Compra iniciada!");
+
+}
+
+function copiar(){
+
+navigator.clipboard.writeText(
+"efc0f5af-cd44-400c-9426-2d071caa7bec"
+);
+
+mostrarToast("Pix copiado!");
+
+}
+
+function abrirDiscord(){
+
+window.open(
+"https://discord.gg/fPxe5RRec",
+"_blank"
+);
 
 }
 
 </script>
 
 </body>
-  </html>
+</html>
