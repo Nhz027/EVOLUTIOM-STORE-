@@ -162,28 +162,68 @@ box-shadow:0 0 18px rgba(255,140,0,.45);
 
 .vip-page{
 display:none;
-max-width:900px;
+max-width:1000px;
 margin:auto;
-text-align:center;
 animation:aparecer .4s ease;
 }
 
-.vip-kits{
+.vip-header{
+text-align:center;
+margin-bottom:25px;
+}
+
+.vip-header img{
+width:240px;
+border-radius:15px;
+margin-top:15px;
+}
+
+.vip-beneficios{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:25px;
+}
+
+.vip-box{
+background:#111114;
+border:1px solid #2b2b30;
+border-radius:14px;
+padding:18px;
+}
+
+.vip-box h3{
+color:#FF8C00;
+margin-bottom:12px;
+}
+
+.vip-box ul{
+list-style:none;
 display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:12px;
-margin-top:18px;
+flex-direction:column;
+gap:8px;
+line-height:1.5;
 }
 
-.vip-kits img{
-width:120px;
+.vip-kits{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.kit-vip-card{
+background:#16161a;
+padding:12px;
 border-radius:12px;
-transition:.25s;
+text-align:center;
+border:1px solid #2d2d33;
 }
 
-.vip-kits img:hover{
-transform:scale(1.08);
+.kit-vip-card img{
+width:100%;
+border-radius:10px;
+margin-bottom:10px;
 }
 
 .pix-global{
@@ -298,7 +338,6 @@ width:90%;
 <div class="aba" onclick="mostrar('vips')">💎 VIPS</div>
 </div>
 
-<!-- NOTIFICAÇÃO -->
 <div id="notificacao" class="notificacao"></div>
 
 <!-- KITS -->
@@ -332,34 +371,6 @@ width:90%;
 <button class="btn" onclick="adicionarCarrinho('KIT UPADOR',16.99)">🛒 Adicionar</button>
 </div>
 
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777936044793-37236af1-a594-4806-8924-5036b2925518.png" class="banner-img">
-<div>KIT COMIDA</div>
-<div class="preco">R$ 16,99</div>
-<button class="btn" onclick="adicionarCarrinho('KIT COMIDA',16.99)">🛒 Adicionar</button>
-</div>
-
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777201368066-3dfd02a5-ee97-4a14-b480-343326c2cbd3.png" class="banner-img">
-<div>KIT GUERREIRO</div>
-<div class="preco">R$ 14,99</div>
-<button class="btn" onclick="adicionarCarrinho('KIT GUERREIRO',14.99)">🛒 Adicionar</button>
-</div>
-
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png" class="banner-img">
-<div>KIT TREINAMENTO</div>
-<div class="preco">R$ 7,99</div>
-<button class="btn" onclick="adicionarCarrinho('KIT TREINAMENTO',7.99)">🛒 Adicionar</button>
-</div>
-
-<div class="card">
-<img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png" class="banner-img">
-<div>KIT FORTUNA</div>
-<div class="preco">R$ 7,99</div>
-<button class="btn" onclick="adicionarCarrinho('KIT FORTUNA',7.99)">🛒 Adicionar</button>
-</div>
-
 </div>
 
 <!-- VIPS -->
@@ -388,12 +399,192 @@ width:90%;
 
 </div>
 
+<!-- VIP ASTRAL -->
+<div id="astral" class="vip-page">
+
+<div class="vip-header">
+<h2>💎 VIP ASTRAL</h2>
+
+<img src="https://www.image2url.com/r2/default/images/1777963975678-2916debe-e547-4584-a8cd-2a6af6db6af8.png">
+</div>
+
+<div class="vip-beneficios">
+
+<div class="vip-box">
+<h3>✨ Benefícios</h3>
+<ul>
+<li>🍇 12 frutas diárias</li>
+<li>🏷️ Tag exclusiva Astral</li>
+<li>💬 Suporte prioritário</li>
+<li>⚡ Acesso rápido ao servidor</li>
+<li>🎁 Recompensas exclusivas</li>
+</ul>
+</div>
+
+<div class="vip-box">
+<h3>📦 Kits Inclusos</h3>
+
+<div class="vip-kits">
+
+<div class="kit-vip-card">
+<img src="https://www.image2url.com/r2/default/images/1777201425071-e8de1cf8-926f-47c3-a4a0-00c6bba187b5.png">
+<div>KIT DIVINO</div>
+</div>
+
+<div class="kit-vip-card">
+<img src="https://www.image2url.com/r2/default/images/1777201524372-66df4ab0-3915-46bd-8a8b-fd49979f5464.png">
+<div>KIT TREINAMENTO</div>
+</div>
+
+<div class="kit-vip-card">
+<img src="https://www.image2url.com/r2/default/images/1777201168083-19e6d47b-7d51-4784-b0b3-09a71c59a0b0.png">
+<div>KIT FORTUNA</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="preco" style="margin-top:25px;text-align:center;">R$ 59,99</div>
+
+<button class="btn" onclick="adicionarCarrinho('VIP ASTRAL',59.99)">
+💎 Adicionar ao Carrinho
+</button>
+
+<button class="btn voltar-btn" onclick="mostrar('vips')">
+⬅ Voltar
+</button>
+
+</div>
+
+<!-- VIP LENDARIO -->
+<div id="lendario" class="vip-page">
+
+<div class="vip-header">
+<h2>👑 VIP LENDÁRIO</h2>
+
+<img src="https://www.image2url.com/r2/default/images/1778436060219-c2b40ae5-01f0-4e94-b513-0b38cb0db91f.png">
+</div>
+
+<div class="vip-beneficios">
+
+<div class="vip-box">
+<h3>✨ Benefícios</h3>
+<ul>
+<li>🍇 20 frutas diárias</li>
+<li>⚔️ 100 pontos de treino</li>
+<li>🏷️ Tag Lendária</li>
+<li>💬 Prioridade no suporte</li>
+<li>🎁 Recompensas semanais</li>
+</ul>
+</div>
+
+<div class="vip-box">
+<h3>📦 Kits Inclusos</h3>
+
+<div class="vip-kits">
+
+<div class="kit-vip-card">
+<img src="https://www.image2url.com/r2/default/images/1777932013675-f02a1c3f-2dd6-4e65-ae44-e294a0d3531f.png">
+<div>KIT GOD</div>
+</div>
+
+<div class="kit-vip-card">
+<img src="https://www.image2url.com/r2/default/images/1777936044793-37236af1-a594-4806-8924-5036b2925518.png">
+<div>KIT COMIDA</div>
+</div>
+
+<div class="kit-vip-card">
+<img src="https://www.image2url.com/r2/default/images/1777948165223-cb6b7142-86d5-4ac3-8241-d79ac6beb846.png">
+<div>KIT UPADOR</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="preco" style="margin-top:25px;text-align:center;">R$ 129,99</div>
+
+<button class="btn" onclick="adicionarCarrinho('VIP LENDÁRIO',129.99)">
+💎 Adicionar ao Carrinho
+</button>
+
+<button class="btn voltar-btn" onclick="mostrar('vips')">
+⬅ Voltar
+</button>
+
+</div>
+
+<!-- VIP GOD -->
+<div id="god" class="vip-page">
+
+<div class="vip-header">
+<h2>🔥 VIP GOD</h2>
+
+<img src="https://www.image2url.com/r2/default/images/1778439266527-4a3f7d7c-e47c-46be-a02e-071aee13aeb5.png">
+</div>
+
+<div class="vip-beneficios">
+
+<div class="vip-box">
+<h3>✨ Benefícios</h3>
+<ul>
+<li>🍇 30 frutas diárias</li>
+<li>⚔️ 300 pontos de treino</li>
+<li>🔥 Vale Ultra Ego</li>
+<li>🏷️ Tag GOD exclusiva</li>
+<li>💬 Máxima prioridade suporte</li>
+</ul>
+</div>
+
+<div class="vip-box">
+<h3>📦 Kits Inclusos</h3>
+
+<div class="vip-kits">
+
+<div class="kit-vip-card">
+<img src="https://www.image2url.com/r2/default/images/1777948112627-679cbc63-dc9b-449f-9edf-abc0ab5da980.png">
+<div>KIT DBE</div>
+</div>
+
+<div class="kit-vip-card">
+<img src="https://www.image2url.com/r2/default/images/1777936044793-37236af1-a594-4806-8924-5036b2925518.png">
+<div>KIT COMIDA</div>
+</div>
+
+<div class="kit-vip-card">
+<img src="https://www.image2url.com/r2/default/images/1777932013675-f02a1c3f-2dd6-4e65-ae44-e294a0d3531f.png">
+<div>KIT GOD</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="preco" style="margin-top:25px;text-align:center;">R$ 149,99</div>
+
+<button class="btn" onclick="adicionarCarrinho('VIP GOD',149.99)">
+💎 Adicionar ao Carrinho
+</button>
+
+<button class="btn voltar-btn" onclick="mostrar('vips')">
+⬅ Voltar
+</button>
+
+</div>
+
 <!-- PIX -->
 <div id="pixGlobal" class="pix-global">
 
 <h2 id="produtoNome"></h2>
 
-<div class="pix-box" id="pixTexto">
+<div class="pix-box">
 efc0f5af-cd44-400c-9426-2d071caa7bec
 </div>
 
@@ -465,10 +656,8 @@ document.getElementById("kits").style.display="none";
 document.getElementById("vips").style.display="none";
 document.getElementById("pixGlobal").style.display="none";
 
-const paginasVip = document.querySelectorAll(".vip-page");
-
-paginasVip.forEach(pagina=>{
-pagina.style.display="none";
+document.querySelectorAll(".vip-page").forEach(p=>{
+p.style.display="none";
 });
 
 }
